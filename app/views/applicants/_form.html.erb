@@ -1,0 +1,56 @@
+
+
+<%= form_for applicant do |f| %>
+  <% if @applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+
+      <ul>
+      <% @applicant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+<%= f.fields_for :profile do |profile| %>
+
+
+  <div class="field">
+    <%= profile.label :birth_location %><br />
+    <%= profile.text_field :birth_location %>
+  </div>
+
+  <div class="field">
+    <%= profile.label :birth_date %><br />
+    <%= profile.date_select :birth_date %>
+  </div>
+
+  <div class="field">
+    <%= profile.label :current_location %><br />
+    <%= profile.text_field :current_location %>
+  </div>
+
+  <div class="field">
+    <%= profile.label :video_url %><br />
+    <%= profile.text_field :video_url %>
+  </div>
+<% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+%p= notice
+
+%p
+  %b First name:
+  = @applicant.first_name
+
+%p
+  %b Middle name:
+  = @applicant.middle_name
+
+%p
+  %b Last name:
+  = @applicant.last_name
+
+%p
+  %b Birth Location:
+  = @applicant.birth_location
+
+= link_to 'Edit', edit_applicant_path(@applicant)
+= link_to 'Back', applicants_path
