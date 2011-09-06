@@ -26,7 +26,7 @@
     <%= f.text_field :last_name %>
   </div>
 
-    <%= f.fields_for :profile do |p| %>
+    <%= f.fields_for @applicant.profile do |p| %>
 
   <div class="field">
     <%= p.label :birth_location %><br />
