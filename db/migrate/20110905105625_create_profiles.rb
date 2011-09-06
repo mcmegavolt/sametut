@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :birth_location
       t.string :current_location
       t.string :video_url
-
+      t.integer :applicant_id
 
       t.timestamps
     end

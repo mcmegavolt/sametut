@@ -18,6 +18,7 @@ class ApplicantsController < ApplicationController
   # GET /applicants/new.json
   def new
     @applicant = Applicant.new
+    @applicant.build_profile
 
   end
 
@@ -70,7 +71,7 @@ class ApplicantsController < ApplicationController
     @applicant = if params[:id]
       Applicant.find(params[:id])
     else
-      Applicant.new(params[:category])
+      Applicant.new(params[:applicant])
     end
   end
   helper_method :applicant

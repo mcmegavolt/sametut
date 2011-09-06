@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(:version => 20110905105625) do
     t.string   "birth_location"
     t.string   "current_location"
     t.string   "video_url"
+    t.integer  "applicant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "profiles", ["applicant_id"], :name => "index_profiles_on_applicant_id"
 
 end
