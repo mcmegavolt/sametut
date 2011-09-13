@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110905105625) do
+ActiveRecord::Schema.define(:version => 20110913101425) do
 
   create_table "applicants", :force => true do |t|
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +32,22 @@ ActiveRecord::Schema.define(:version => 20110905105625) do
     t.datetime "updated_at"
   end
 
-  add_index "profiles", ["applicant_id"], :name => "index_profiles_on_applicant_id"
+  create_table "social_activities", :force => true do |t|
+    t.integer  "applicant_id"
+    t.string   "activity_type"
+    t.string   "duties"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "permalink"
+    t.integer  "user_type_id"
+    t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

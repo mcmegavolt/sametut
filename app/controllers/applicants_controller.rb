@@ -2,81 +2,66 @@ class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
   def index
-
   end
 
-  # GET /applicants/1
-  # GET /applicants/1.json
   def show
-    @applicant = Applicant.find(params[:id])
-
-
-
   end
 
-  # GET /applicants/new
-  # GET /applicants/new.json
   def new
-    @applicant = Applicant.new
-    @applicant.build_profile
-
+   # applicant.build_profile
   end
 
-  # GET /applicants/1/edit
   def edit
-    @applicant = Applicant.find(params[:id])
   end
 
-  # POST /applicants
-  # POST /applicants.json
   def create
 
-    @applicant = Applicant.new(params[:applicant])
-
-      if @applicant.save
-
-        redirect_to @applicant, notice: 'Applicant was successfully created.'
-
-      else
-        render action: "new"
-      end
+    if applicant.save
+      redirect_to applicant, :notice => 'Applicant was successfully created.'
+    else
+      render :action => "new"
+    end
+    p "category.errors #{applicant.errors.inspect}"
 
   end
 
 
   def update
-    @applicant = Applicant.find(params[:id])
 
-      if @applicant.update_attributes(params[:applicant])
-        redirect_to @applicant, notice: 'Applicant was successfully updated.'
-
-      else
-        render action: "edit"
-      end
+    if applicant.update_attributes(params[:applicant])
+      redirect_to @applicant, :notice => 'Applicant was successfully updated.'
+    else
+      render :action => "edit"
+    end
 
   end
 
 
   def destroy
-    @applicant = Applicant.find(params[:id])
-    @applicant.destroy
 
-    redirect_to applicants_url
+    applicant.destroy
+
+    redirect_to applicants_path
 
   end
 
-    private
+  private
 
   def applicant
+
     @applicant = if params[:id]
       Applicant.find(params[:id])
     else
       Applicant.new(params[:applicant])
     end
+
+    @applicant.build_profile
+
   end
   helper_method :applicant
 
   def applicants
+
     @applicants = Applicant.all
 
   end

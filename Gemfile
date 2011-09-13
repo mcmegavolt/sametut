@@ -35,6 +35,7 @@ end
 
 
 gem 'haml'
+gem 'haml-rails'
 
 
 

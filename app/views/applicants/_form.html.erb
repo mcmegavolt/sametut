@@ -1,12 +1,10 @@
-
-
 <%= form_for applicant do |f| %>
-  <% if @applicant.errors.any? %>
+  <% if applicant.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+      <h2><%= pluralize(applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
 
       <ul>
-      <% @applicant.errors.full_messages.each do |msg| %>
+      <% applicant.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -26,7 +24,7 @@
     <%= f.text_field :last_name %>
   </div>
 
-    <%= f.fields_for @applicant.profile do |p| %>
+    <%= f.fields_for applicant.profile do |p| %>
 
   <div class="field">
     <%= p.label :birth_location %><br />
