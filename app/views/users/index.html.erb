@@ -1,0 +1,42 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Permalink</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.permalink %></td>
+    <td><% if user.enabled? %>
+        Enabled
+          <% else %>
+      Disabled
+          <% end %>
+
+    </td>
+    <td>
+      <%= link_to user, :class => 'primary button' do %>
+      <span class=""></span>Show
+      <% end %>
+      <%= link_to edit_user_path(user), :class => "button" do %>
+      <span class="pen icon"></span>Edit
+      <% end %>
+      <%= link_to user, confirm: 'Are you sure?', method: :delete, :class => "negative button" do%>
+      <span class="cross icon"></span>Destroy
+      <% end %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to new_user_path, :class => 'positive pill button' do%>
+<span class="user icon"></span>New User
+<% end %>
