@@ -21,13 +21,13 @@
     </td>
     <td>
       <%= link_to user, :class => 'primary button' do %>
-      <span class=""></span>Show
+        <span class=""></span>Show
       <% end %>
       <%= link_to edit_user_path(user), :class => "button" do %>
-      <span class="pen icon"></span>Edit
+        <span class="pen icon"></span>Edit
       <% end %>
-      <%= link_to user, confirm: 'Are you sure?', method: :delete, :class => "negative button" do%>
-      <span class="cross icon"></span>Destroy
+      <%= link_to user, :confirm => 'Are you sure?', :method => :delete, :class => "negative button" do%>
+        <span class="cross icon"></span>Destroy
       <% end %>
     </td>
 

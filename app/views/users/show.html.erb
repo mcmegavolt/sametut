@@ -10,29 +10,22 @@
   <%= @user.permalink %>
   &nbsp;
   <b>User ID:</b>
-  <%= @user.applicant.user_id %>
+  <%= @user.id %>
 </p>
 
-
- <p>
+<p>
   <b>First Name:</b>
   <%= @user.applicant.first_name %>
 </p>
-
 
 <p>
   <b>Birth date:</b>
   <%= @user.applicant.profile.birth_date %>
 </p>
 
-
-
-<%= @user.applicant.social_activities %>
-
-
 <ol>
   <% for social_activity in @user.applicant.social_activities %>
-     <li><%= social_activity.activity_type  %></li>
+     <li><%= social_activity.activity_type %></li>
   <% end %>
 </ol>
 

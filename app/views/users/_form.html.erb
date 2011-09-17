@@ -72,7 +72,7 @@
 
 
             <%= a.fields_for :social_activities do |s| %>
-
+            <div>
             <%= s.label :activity_type %>
             <%= s.text_field :activity_type, :size => 20 %>
 
@@ -81,7 +81,7 @@
 
             <%= s.label :position %>
             <%= s.text_field :position, :size => 20 %>
-
+            </div>
             <% end %>
 
 
