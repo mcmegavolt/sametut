@@ -26,12 +26,13 @@
       <%= link_to edit_user_path(user), :class => "button" do %>
         <span class="pen icon"></span>Edit
       <% end %>
-      <%= link_to user, :confirm => 'Are you sure?', :method => :delete, :class => "negative button" do%>
+      <%= link_to user, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do %>
         <span class="cross icon"></span>Destroy
       <% end %>
     </td>
 
   </tr>
+
 <% end %>
 </table>
 
