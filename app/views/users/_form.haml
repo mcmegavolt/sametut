@@ -37,9 +37,10 @@
       = a.fields_for :profile do |p|
         = render 'profile_fields', :p => p
 
-      = a.fields_for :social_activities do |s|
-        = render 'social_activity_fields', :s => s
-        = link_to_add_fields 'Add a social activity', s, :social_activities
+      = a.fields_for :social_activities do |sa|
+        = render 'social_activity_fields', :f => sa
+        %p
+          = link_to_add_fields 'Add a social activity', a, :social_activities
 
 
     .actions
