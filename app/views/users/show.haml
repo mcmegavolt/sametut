@@ -1,0 +1,51 @@
+%p#notice.success
+  = notice
+
+
+%p
+  Email:
+  %b
+    = @user.email
+
+%p
+  %b
+    Permalink:
+  = @user.permalink
+  &nbsp;
+  %b
+    User ID:
+  = @user.id
+
+%p
+  %b
+    Activated:
+  - if @user.enabled?
+    Yes
+  - else
+    No
+
+%p
+  %b
+    Name:
+  = @user.applicant.first_name
+  = @user.applicant.middle_name
+  = @user.applicant.last_name
+%p
+  %b
+    Birth date:
+  = @user.applicant.profile.birth_date
+
+%p
+  %b
+    Social Activities:
+  %ol
+    - for social_activity in @user.applicant.social_activities
+      %li
+        = social_activity.activity_type
+        = social_activity.duties
+        = social_activity.position
+
+%div
+  = link_to 'Edit', edit_user_path(@user), :class => 'positive button'
+  = link_to 'Back', users_path, :class => 'button'
+

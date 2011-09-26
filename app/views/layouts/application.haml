@@ -1,0 +1,24 @@
+!!! 5
+%html
+  %head
+    %title SameTut
+
+    = stylesheet_link_tag 'blueprint/screen', :media => "screen, projection"
+    = stylesheet_link_tag 'blueprint/print', :media => "print"
+    <!--[if lt IE 8]>
+    = stylesheet_link_tag 'blueprint/ie', :media => "screen, projection"
+    <![endif]-->
+
+
+    = stylesheet_link_tag 'css3buttons'
+
+    = javascript_include_tag :application
+    = csrf_meta_tags
+
+  %body
+    %div.container
+      %div.span-24
+        %h1
+          = link_to 'SameTut', root_url
+      %div.span-24
+        = yield
