@@ -19,6 +19,7 @@
     %div.container
       %div.span-24
         %h1
-          = link_to 'SameTut', root_url
+          = link_to root_url do
+            = image_tag 'logo.png', :alt => 'SameTut - a place who wants to find a job', :title => 'SameTut - a place who wants to find a job'
       %div.span-24
         = yield
