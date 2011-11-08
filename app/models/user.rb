@@ -8,13 +8,6 @@ class User < ActiveRecord::Base
             :uniqueness => true,
             :length => { :maximum => 50 }
 
-  validates :permalink,
-            :presence => false,
-            :allow_blank => false,
-            :uniqueness => true,
-            :length => { :maximum => 30 }
-
-
   validates_associated :applicant
 
 end

@@ -2,4 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.form {}
+$main-color: #ff00ff;
+
+@mixin rounded-corners($radius) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin transition_animation($sec) {
+    -webkit-transition: all $sec ease;
+    -moz-transition: all $sec ease;
+    -o-transition: all $sec ease;
+    transition: all $sec ease;
+}
+
+div.form {
+
+    input{
+    @include rounded-corners(3px);
+    padding: 3px 5px;
+    }
+
+    select{
+    @include rounded-corners(3px);
+    }
+
+    div.inline_field{
+    display:inline-block;
+    }
+
+    div.fields_group{
+    @include rounded-corners(5px);
+    @include transition_animation(5);
+    background: #f0f0f0;
+    padding: 5px;
+    margin-bottom: 5px;
+    }
+
+}
+
+div.hidden {
+
+    display: none;
+
+}

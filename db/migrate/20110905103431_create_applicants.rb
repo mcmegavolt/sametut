@@ -4,6 +4,7 @@ class CreateApplicants < ActiveRecord::Migration
       t.string :first_name
       t.string :middle_name
       t.string :last_name
+      t.string :permalink
       t.integer :user_id
 
       t.timestamps

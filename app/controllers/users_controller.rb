@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users.map(&:email) }
+    end
+
   end
 
   def show
@@ -12,6 +18,13 @@ class UsersController < ApplicationController
     @user.build_applicant
     @user.applicant.build_profile
     @user.applicant.social_activities.build
+    @user.applicant.work_experiences.build
+    @user.applicant.educations.build
+    @user.applicant.educations.build_school
+    @user.applicant.educations.build_education_degree_level
+    @user.applicant.educations.build_education_school_type
+
+
   end
 
   def edit
@@ -19,6 +32,11 @@ class UsersController < ApplicationController
     @user.build_applicant unless @user.applicant
     @user.applicant.build_profile unless @user.applicant.profile
     @user.applicant.social_activities.build
+    @user.applicant.work_experiences.build
+    @user.applicant.educations.build
+    @user.applicant.educations.build_education_degree_level
+    @user.applicant.educations.build_education_school_type
+
   end
 
   def create

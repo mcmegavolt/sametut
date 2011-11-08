@@ -1,4 +1,8 @@
 %h1 Listing users
+%p
+  %b
+    Registered Users:
+  = @users.size
 %table
   %tr
     %th Email
@@ -9,8 +13,6 @@
     %tr
       %td
         = user.email
-      %td
-        = user.permalink
       %td
         - if user.enabled?
           Enabled

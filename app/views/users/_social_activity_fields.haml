@@ -1,12 +1,13 @@
-.group_fields
-  = s.label :activity_type
-  = s.text_field :activity_type, :size => 20
+.fields_group
+  = f.label :activity_type
+  = f.text_field :activity_type, :size => 20
 
-  = s.label :duties
-  = s.text_field :duties, :size => 20
+  = f.label :duties
+  = f.text_field :duties, :size => 20
 
-  = s.label :position
-  = s.text_field :position, :size => 20
+  = f.label :position
+  = f.text_field :position, :size => 20
 
-  = link_to_remove_fields 'Remove', s
+  = link_to_remove_fields 'Remove', f
+
 

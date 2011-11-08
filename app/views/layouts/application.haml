@@ -8,11 +8,9 @@
     <!--[if lt IE 8]>
     = stylesheet_link_tag 'blueprint/ie', :media => "screen, projection"
     <![endif]-->
+    = stylesheet_link_tag 'css3buttons', :application, 'token-input'
 
-
-    = stylesheet_link_tag 'css3buttons'
-
-    = javascript_include_tag :application
+    = javascript_include_tag :application, 'jquery.tokeninput'
     = csrf_meta_tags
 
   %body

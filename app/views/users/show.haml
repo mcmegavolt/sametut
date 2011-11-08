@@ -9,10 +9,6 @@
 
 %p
   %b
-    Permalink:
-  = @user.permalink
-  &nbsp;
-  %b
     User ID:
   = @user.id
 
@@ -35,6 +31,15 @@
     Birth date:
   = @user.applicant.profile.birth_date
 
+
+%p
+  %b
+    Education:
+  %ol
+    - for education in @user.applicant.educations
+      %li
+        = EducationSchoolType::SCHOOL_TYPES[education.school_type][0]
+
 %p
   %b
     Social Activities:
@@ -44,6 +49,16 @@
         = social_activity.activity_type
         = social_activity.duties
         = social_activity.position
+
+%p
+  %b
+    Work Experiences
+  %ol
+    - for work_experience in @user.applicant.work_experiences
+      %li
+        = work_experience.start_date
+        = work_experience.end_date
+        = work_experience.organization
 
 %div
   = link_to 'Edit', edit_user_path(@user), :class => 'positive button'

@@ -14,33 +14,55 @@
 
     .field
       = f.label :email
+      %br
       = f.text_field :email
     .field
-      = f.label :permalink
-      = f.text_field :permalink
-    .field
       = f.label :enabled?
+      %br
       = f.check_box :enabled, :checked => @user.enabled?
 
     = f.fields_for :applicant do |a|
 
-      .field
+      .inline_field
         = a.label :first_name
+        %br
         = a.text_field :first_name
-      .field
+      .inline_field
         = a.label :middle_name
+        %br
         = a.text_field :middle_name
-      .field
+      .inline_field
         = a.label :last_name
+        %br
         = a.text_field :last_name
+      .inline_field
+        = a.label :permalink
+        %br
+        = a.text_field :permalink
 
-      = a.fields_for :profile do |p|
-        = render 'profile_fields', :p => p
+      .fields_group
+        = a.fields_for :profile do |p|
+          = render 'profile_fields', :p => p
+      %br
+      %h3 Education
+      = a.fields_for :educations do |ed|
+        = render 'education_fields', :f => ed
+      %p
+        = link_to_add_fields '+ Add', a, :educations
 
-      = a.fields_for :social_activities do |s|
-        = render 'social_activity_fields', :s => s
-        = link_to_add_fields 'Add a social activity', s, :social_activities
+      %br
+      %h3 Social Activities
+      = a.fields_for :social_activities do |sa|
+        = render 'social_activity_fields', :f => sa
+      %p
+        = link_to_add_fields '+ Add', a, :social_activities
 
+      %br
+      %h3 Work Experience
+      = a.fields_for :work_experiences do |we|
+        = render 'work_experience_fields', :f => we
+      %p
+        = link_to_add_fields '+ Add', a, :work_experiences
 
     .actions
       = f.submit 'Submit', :class => 'big positive button'

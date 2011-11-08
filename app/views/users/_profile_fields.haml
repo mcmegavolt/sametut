@@ -1,12 +1,15 @@
-.field
+.inline_field
   = p.label :birth_date
+  %br
   = p.date_select :birth_date, :add_month_numbers => true, :start_year => Date.current.year - 65, :end_year => Date.current.year - 16, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }, :order => [ :day, :month, :year]
+.inline_field
+  = p.label :birth_location
+  %br
+  = p.text_field :birth_location, :size => 15
+.inline_field
+  = p.label :current_location
+  %br
+  = p.text_field :current_location, :size => 15
 .field
   = p.label :video_url
   = p.text_field :video_url
-.field
-  = p.label :birth_location
-  = p.text_field :birth_location
-.field
-  = p.label :current_location
-  = p.text_field :current_location
