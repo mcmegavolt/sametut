@@ -20,10 +20,6 @@ class UsersController < ApplicationController
     @user.applicant.social_activities.build
     @user.applicant.work_experiences.build
     @user.applicant.educations.build
-    @user.applicant.educations.build_school
-    @user.applicant.educations.build_education_degree_level
-    @user.applicant.educations.build_education_school_type
-
 
   end
 
@@ -34,8 +30,6 @@ class UsersController < ApplicationController
     @user.applicant.social_activities.build
     @user.applicant.work_experiences.build
     @user.applicant.educations.build
-    @user.applicant.educations.build_education_degree_level
-    @user.applicant.educations.build_education_school_type
 
   end
 

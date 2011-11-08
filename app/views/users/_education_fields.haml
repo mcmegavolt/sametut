@@ -6,8 +6,8 @@
   = f.date_select :end_date
 
   %br
-  = f.label :school_name
-  = f.text_field :school_name, :size => 20
+  = f.label :school
+  = f.text_field :school, :size => 20
 
   = f.label :faculty
   = f.text_field :faculty, :size => 20
@@ -20,7 +20,7 @@
   = f.fields_for :education_school_type do |b|
 
     = b.label :education_school_type
-    = b.select :education_school_type, EducationSchoolType.all.collect{|d| [d.education_school_type, d.id]}, { :prompt => 'School type' }
+    = b.select :education_school_type, EducationSchoolType.all.collect{|d| [d.school_type_name, d.id]}, { :prompt => 'School type' }
 
 
   = link_to_remove_fields 'Remove', f
