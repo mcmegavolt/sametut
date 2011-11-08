@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4925b899-c7c5-47d6-a6ad-e1a6757c3c9e" name="Default" comment="* Logo added">
+    <list default="true" id="4925b899-c7c5-47d6-a6ad-e1a6757c3c9e" name="Default" comment="Merge branch 'master' of github.com:mcmegavolt/sametut&#10;&#10;Conflicts:&#10;&#9;app/assets/javascripts/application.js&#10;&#9;app/views/users/_form.haml&#10;&#9;app/views/users/_social_activity_fields.haml&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SameTut.iml" afterPath="$PROJECT_DIR$/.idea/SameTut.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <list id="1925023b-8997-4de7-a1d9-a4d2c467af10" name="Failed commit: Default" comment="Merge branch 'master' of github.com:mcmegavolt/sametut&#10;&#10;Conflicts:&#10;&#9;app/assets/javascripts/application.js&#10;&#9;app/views/users/_form.haml&#10;&#9;app/views/users/_social_activity_fields.haml&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/token-input-facebook.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/token-input-mac.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/token-input.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/education.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/education_degree_level.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/education_school_type.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/school.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/work_experience.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/_education_fields.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/_work_experience_fields.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20110929170936_create_work_experiences.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20110929183735_create_educations.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111103102938_create_education_school_types.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111107203005_create_education_degree_levels.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20111107220815_create_schools.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/degree_levels.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/education_school_types.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/educations.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/schools.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/work_experiences.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/degree_level_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/education_school_type_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/education_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/school_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/work_experience_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="SameTut.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +96,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_profile_fields.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_profile_fields.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/_profile_fields.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="33" selection-start="548" selection-end="548" vertical-scroll-proportion="0.39179105">
+            <state line="14" column="33" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.21857923">
               <folding />
             </state>
           </provider>
@@ -245,6 +282,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.fileTypes" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
@@ -480,13 +518,14 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4925b899-c7c5-47d6-a6ad-e1a6757c3c9e" name="Default" comment="" />
+      <changelist id="1925023b-8997-4de7-a1d9-a4d2c467af10" name="Failed commit: Default" comment="Merge branch 'master' of github.com:mcmegavolt/sametut&#10;&#10;Conflicts:&#10;&#9;app/assets/javascripts/application.js&#10;&#9;app/views/users/_form.haml&#10;&#9;app/views/users/_social_activity_fields.haml&#10;" />
       <created>1315216769659</created>
       <updated>1315216769659</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="30" width="1682" height="997" extended-state="7" />
+    <frame x="-1" y="30" width="1682" height="997" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32576618" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -629,16 +668,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/views/users/_profile_fields.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="28" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
+        <state line="14" column="33" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/_profile_fields.haml">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="33" selection-start="548" selection-end="548" vertical-scroll-proportion="0.39179105">
+        <state line="8" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.21857923">
           <folding />
         </state>
       </provider>
