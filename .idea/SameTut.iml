@@ -147,6 +147,12 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.2, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/sass-rails-3.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.3, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/haml-3.1.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v3.1.0, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/rails-3.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] uglifier (v1.0.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/uglifier-1.0.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.16, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/jquery-rails-1.0.16)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] paperclip (v2.4.5, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/paperclip-2.4.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] turn (v0.8.3, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/turn-0.8.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/sass-rails-3.1.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.6.1, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/json-1.6.1)" level="application" />
   </component>
 </module>
 

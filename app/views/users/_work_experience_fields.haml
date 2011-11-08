@@ -1,0 +1,18 @@
+.fields_group
+  = f.label :start_date
+  = f.date_select :start_date
+
+  = f.label :end_date
+  = f.date_select :end_date
+
+  %br
+  = f.label :organization
+  = f.text_field :organization, :size => 20
+
+  = f.label :position
+  = f.text_field :position, :size => 20
+
+  = f.label :duties
+  = f.text_field :duties, :size => 20
+
+  = link_to_remove_fields 'Remove', f
