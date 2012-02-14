@@ -1,18 +1,18 @@
 .fields_group
-  = f.label :start_date
+  = f.label t(:'site.user.new.work_experience.start_date')
   = f.date_select :start_date
 
-  = f.label :end_date
+  = f.label t(:'site.user.new.work_experience.end_date')
   = f.date_select :end_date
 
   %br
-  = f.label :organization
+  = f.label t(:'site.user.new.work_experience.organization_name')
   = f.text_field :organization, :size => 20
 
-  = f.label :position
+  = f.label t(:'site.user.new.work_experience.position')
   = f.text_field :position, :size => 20
 
-  = f.label :duties
+  = f.label t(:'site.user.new.work_experience.duties')
   = f.text_field :duties, :size => 20
 
-  = link_to_remove_fields 'Remove', f
+  = link_to_remove_fields t(:'site.user.new.actions.remove'), f

@@ -18,7 +18,7 @@ class Applicant < ActiveRecord::Base
   validates_associated :profile
 
   validates :permalink,
-            :presence => false,
+            :presence => true,
             :allow_blank => false,
             :uniqueness => true,
             :length => { :maximum => 30 }
@@ -32,7 +32,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def educations_blank entry
-    entry[:school_name].blank? && entry[:position].blank?
+    entry[:school_id].blank?
   end
 
 end

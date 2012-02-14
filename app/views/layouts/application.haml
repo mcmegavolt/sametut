@@ -1,23 +1,26 @@
 !!! 5
 %html
   %head
-    %title SameTut
-
-    = stylesheet_link_tag 'blueprint/screen', :media => "screen, projection"
-    = stylesheet_link_tag 'blueprint/print', :media => "print"
-    <!--[if lt IE 8]>
-    = stylesheet_link_tag 'blueprint/ie', :media => "screen, projection"
-    <![endif]-->
-    = stylesheet_link_tag 'css3buttons', :application, 'token-input'
-
-    = javascript_include_tag :application, 'jquery.tokeninput'
+    %title= t(:'site.logo_text')
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = include_gritter
     = csrf_meta_tags
 
-  %body
-    %div.container
-      %div.span-24
-        %h1
-          = link_to root_url do
-            = image_tag 'logo.png', :alt => 'SameTut - a place who wants to find a job', :title => 'SameTut - a place who wants to find a job'
-      %div.span-24
+
+  %body{:style => "padding-top: 60px"}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to t(:'site.logo_text'), root_path, :class => 'brand'
+          .nav-collapse
+            = render :partial => '/shared/top_nav'
+    .container
+      .content
+        = gritter_flash_messages
+        = render 'shared/flash_messages'
         = yield
+
+      //.footer
+      //%p
+      //SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.

@@ -1,10 +1,32 @@
 SameTut::Application.routes.draw do
 
+  devise_for :admins
+
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
+
+  namespace :admin do
+
+    resources :categories
+    resources :users
+    resources :locations
+    resources :schools
+    resources :school_types
+
+  end
+
+
+
   resources :users
 
   resources :applicants
 
-  root :to => 'users#index'
+  match '/home' => "home#index"
+
+  match '/admin' => "admin/dashboard#index"
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

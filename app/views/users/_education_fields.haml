@@ -1,34 +1,22 @@
 .fields_group
-  = f.label :start_date
+
+  = f.label t(:'site.user.new.education_info.start_date')
   = f.date_select :start_date
 
-  = f.label :end_date
+  = f.label t(:'site.user.new.education_info.end_date')
   = f.date_select :end_date
 
   %br
 
-
-  = f.label :faculty
+  = f.label t(:'site.user.new.education_info.faculty')
   = f.text_field :faculty, :size => 20
 
 
-  = f.fields_for :school do |a|
-
-    = a.label :school_name
-    = a.text_field :school_name, :size => 20
+  School
+  = f.select :school_id, School.all.collect{|c| [c.name, c.id]}, { :prompt => 'Select your school' }
 
 
-  = f.fields_for :education_degree_level do |a|
+  = t(:'site.user.new.education_info.degree_level')
+  = f.select :education_degree_level_id, EducationDegreeLevel.all.collect{|c| [c.education_degree_level, c.id]}, { :prompt => t(:'site.user.new.selectors.degree') }
 
-    = a.label :education_degree_level
-    = a.select :education_degree_level_id, EducationDegreeLevel.all.collect{|c| [c.education_degree_level, c.id]}, { :prompt => 'My degree' }
-
-
-
-  = f.fields_for :education_school_type do |b|
-
-    = b.label :education_school_type
-    = b.select :education_school_type_id, EducationSchoolType.all.collect{|d| [d.school_type_name, d.id]}, { :prompt => 'School type' }
-
-
-  = link_to_remove_fields 'Remove', f
+  = link_to_remove_fields t(:'site.user.new.actions.remove'), f

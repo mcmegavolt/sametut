@@ -5,7 +5,9 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
+
+gem 'mini_magick'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -13,11 +15,22 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'twitter-bootstrap-rails'
 end
+
+group :development do
+  gem "letter_opener"
+end
+
+gem 'gritter_notices'
+
+
+gem 'devise'
+
 
 gem 'jquery-rails'
 
-# Use unicorn as the web server
+# Use unicorn a s the web server
 # gem 'unicorn'
 
 # Deploy with Capistrano
@@ -35,6 +48,10 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'json'
-gem 'rmagick'
+#gem 'rmagick'
 gem "paperclip", "~> 2.3"
 
+gem 'execjs'
+gem 'therubyracer'
+
+gem 'ukrainian'

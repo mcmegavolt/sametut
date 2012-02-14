@@ -1,13 +1,13 @@
 .fields_group
-  = f.label :activity_type
+  = f.label t(:'site.user.new.social_activities.activity_type')
   = f.text_field :activity_type, :size => 20
 
-  = f.label :duties
+  = f.label  t(:'site.user.new.social_activities.duties')
   = f.text_field :duties, :size => 20
 
-  = f.label :position
+  = f.label  t(:'site.user.new.social_activities.position')
   = f.text_field :position, :size => 20
 
-  = link_to_remove_fields 'Remove', f
+  = link_to_remove_fields t(:'site.user.new.actions.remove'), f
 
 
