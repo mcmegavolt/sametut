@@ -54,4 +54,4 @@ gem "paperclip", "~> 2.3"
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'ukrainian'
+gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
