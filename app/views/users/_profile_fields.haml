@@ -1,0 +1,23 @@
+.control-group
+  %label{:class => 'control-label'}
+    = p.label t(:'site.user.new.main_info.birth_date')
+  .controls
+    = p.date_select :birth_date, { :add_month_numbers => true, :start_year => Date.current.year - 65, :end_year => Date.current.year - 16, :prompt => { :day => t(:'site.user.new.selectors.day'), :month => t(:'site.user.new.selectors.month'), :year => t(:'site.user.new.selectors.year') } , :order => [ :day, :month, :year] }, {:class => 'span2' }
+.control-group
+  %label{:class => 'control-label'}
+    = p.label t(:'site.user.new.main_info.birth_location')
+  .controls
+    = p.select :birth_location_id, Address::City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+.control-group
+
+  %label{:class => 'control-label'}
+    = p.label t(:'site.user.new.main_info.current_location')
+  .controls
+    = p.select :current_location_id, Address::City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+.control-group
+  %label{:class => 'control-label'}
+    = p.label t(:'site.user.new.main_info.video_url')
+  .controls
+    = p.text_field :video_url, :class => 'span5'
+    %p.help-block
+      YouTube, Vimeo, etc.

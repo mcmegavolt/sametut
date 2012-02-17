@@ -1,0 +1,11 @@
+- if notice
+  %p#notice.success
+    = notice
+
+%p
+  = city
+%p
+  //= Address::City.find_by_id(school.city_id).region
+  = city.region
+
+= link_to 'Edit', edit_admin_location_path(city)

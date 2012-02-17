@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: sametut_development
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: sametut_test
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: sametut_production
+  pool: 5
+  username: krsr_prod
+  password: krsr_prod
+  socket: /var/lib/mysql/mysql.sock

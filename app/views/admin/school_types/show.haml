@@ -1,0 +1,16 @@
+- if notice
+  %p#notice.success
+    = notice
+
+%p
+  School Name:
+  = school.name
+%p
+  School type:
+  = EducationSchoolType.find_by_id(school.type_id).school_type_name
+%p
+  City:
+  = Address::City.find_by_id(school.city_id)
+  (
+  = Address::City.find_by_id(school.city_id).region
+  )

@@ -1,0 +1,65 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+uk:
+  site:
+    logo_text: 'СамеТут'
+    home:
+      welcome_text: 'Ти ще не з нами? Приєднуйся до команди професіоналів!'
+      already_registered_users: 'Вже зареєструвались'
+      register: 'Зареєструватися'
+    nav:
+      back_to_site: 'На головну'
+      new_user: 'Зареєструватися'
+      users_list: 'Список юзерів'
+
+    user:
+      new:
+        headers:
+          new_user: 'Реєстрація нового учасника'
+          social_activities: 'Соціальна діяльність'
+          work_experience: 'Досвід роботи'
+          education: 'Освіта'
+        main_info:
+          permalink: 'Пермалінк'
+          new_user: 'Реєстрація'
+          first_name: 'Імя'
+          middle_name: 'По батькові'
+          last_name: 'Прізвище'
+          birth_date: 'Дата народження'
+          birth_location: 'Місто народження'
+          current_location: 'Місто проживання'
+          video_url: 'Посилання на відео'
+        education_info:
+          start_date: 'Дата вступу'
+          end_date: 'Дата закінчення'
+          faculty: 'Факультет'
+          school_name: 'Назва навчального закладу'
+          degree_level: 'Рівень освіти'
+          school_type: 'Тип закладу'
+        social_activities:
+          activity_type: 'Напрямок'
+          duties: 'Обовязки'
+          position: 'Посада'
+        work_experience:
+          start_date: 'Початок роботи'
+          end_date: 'Кінець роботи'
+          organization_name: 'Назва організвції'
+          position: 'Посада'
+          duties: 'Обовязки'
+        actions:
+          submit: 'Відправити'
+          cancel: 'Відміна'
+          add: '+ Додати ще'
+          remove: 'Видалити'
+        selectors:
+          day: 'Оберіть число'
+          year: 'Оберіть рік'
+          month: 'Оберіть місяць'
+          degree: 'Оберіть свій'
+
+
+  admin:
+    nav:
+      locations: 'Локації'
+      categories: 'Категорії'

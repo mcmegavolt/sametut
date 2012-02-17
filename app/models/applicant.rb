@@ -1,0 +1,38 @@
+class Applicant < ActiveRecord::Base
+
+  belongs_to :user
+
+  has_one :profile, :dependent => :destroy
+  accepts_nested_attributes_for :profile
+
+  has_many :social_activities, :dependent => :destroy
+  accepts_nested_attributes_for :social_activities, :reject_if => :social_activities_blank, :allow_destroy => true
+
+  has_many :work_experiences, :dependent => :destroy
+  accepts_nested_attributes_for :work_experiences, :reject_if => :work_experiences_blank, :allow_destroy => true
+
+  has_many :educations, :dependent =>  :destroy
+  accepts_nested_attributes_for :educations, :reject_if => :educations_blank, :allow_destroy => true
+
+  validates_presence_of :first_name, :middle_name, :last_name
+  validates_associated :profile
+
+  validates :permalink,
+            :presence => true,
+            :allow_blank => false,
+            :uniqueness => true,
+            :length => { :maximum => 30 }
+
+  def social_activities_blank entry
+    entry[:activity_type].blank? && entry[:position].blank?
+  end
+
+  def work_experiences_blank entry
+    entry[:organization].blank? && entry[:position].blank?
+  end
+
+  def educations_blank entry
+    entry[:school_id].blank?
+  end
+
+end

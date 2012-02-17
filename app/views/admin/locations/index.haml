@@ -1,0 +1,24 @@
+%h2= t(:'admin.locations.headers.title')
+%p= link_to 'Add Location', new_admin_location_path, :class => 'link-icon icon-add'
+%hr/
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %th= t(:'admin.locations.headers.region')
+    %th= t(:'admin.locations.headers.cities')
+    %th Actions
+  %tbody
+  - for region in regions
+    %tr
+      %td
+        %b= region.id
+        = region.name
+      %td
+        %ul
+          - region.cities.each do |city|
+            %li
+              = city.name
+              = link_to 'Edit', edit_admin_location_path(city)
+      %td
+        +
+%hr/
+%p= link_to 'Add Location', new_admin_location_path, :class => 'link-icon icon-add'

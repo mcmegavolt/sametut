@@ -1,0 +1,32 @@
+%h2
+  Schools
+%p= link_to 'Add School', new_admin_school_path, :class => 'link-icon icon-add'
+%hr/
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %th
+      Type
+    %th
+      Name
+    %th
+      Location
+    %th
+      Actions
+  %tbody
+  - for school in schools
+    %tr
+      %td
+        = EducationSchoolType.find_by_id(school.type_id).school_type_name
+      %td
+        = school.name
+      %td
+        = Address::City.find_by_id(school.city_id)
+        (
+        = Address::City.find_by_id(school.city_id).region
+        )
+      %td
+        = link_to 'Edit', edit_admin_school_path(school), :class => 'link-icon icon-delete'
+        = link_to 'Delete', admin_school_path(school), :method => :delete, :confirm => 'Are you sure?', :class => 'link-icon icon-delete'
+
+%hr/
+%p= link_to 'Add School', new_admin_school_path, :class => 'link-icon icon-add'

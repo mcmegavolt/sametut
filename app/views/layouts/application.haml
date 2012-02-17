@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title= t(:'site.logo_text')
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = include_gritter
+    = csrf_meta_tags
+
+
+  %body{:style => "padding-top: 60px"}
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to t(:'site.logo_text'), root_path, :class => 'brand'
+          .nav-collapse
+            = render :partial => '/shared/top_nav'
+    .container
+      .content
+        = gritter_flash_messages
+        = render 'shared/flash_messages'
+        = yield
+
+      //.footer
+      //%p
+      //SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.

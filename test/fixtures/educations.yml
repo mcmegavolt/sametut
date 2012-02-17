@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: 2011-09-29
+  end_date: 2011-09-29
+  school_id: 1
+  degree: 1
+  faculty: MyString
+  applicant_id: 1
+
+two:
+  start_date: 2011-09-29
+  end_date: 2011-09-29
+  school_id: 1
+  degree: 1
+  faculty: MyString
+  applicant_id: 1
