@@ -120,7 +120,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="ukrainian" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="ukrainian" version="0" bound="GREATER_OR_EQUAL" git="true" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -134,26 +134,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mysql2 (v0.3.11, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/mysql2-0.3.11)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.9.9, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/therubyracer-0.9.9)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] libv8 (v3.3.10.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/libv8-3.3.10.4-x86-linux)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] execjs (v1.2.13, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/execjs-1.2.13)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mini_magick (v3.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/mini_magick-3.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] execjs (v1.2.13, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/execjs-1.2.13)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] subexec (v0.2.1, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/subexec-0.2.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] i18n (v0.6.0, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/i18n-0.6.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] ukrainian (v2.6.0, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/ukrainian-2.6.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.21, /home/megavolt/.rvm/gems/ruby-1.8.7-p352@global/gems/bundler-1.0.21)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.5, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/sass-rails-3.1.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] uglifier (v1.2.2, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/uglifier-1.2.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.19, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/jquery-rails-1.0.19)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/haml-3.1.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.1.1, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/coffee-rails-3.1.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v3.1.0, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/rails-3.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] haml-rails (v0.3.4, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/haml-rails-0.3.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] paperclip (v2.4.5, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/paperclip-2.4.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.6.5, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/json-1.6.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] turn (v0.8.3, /home/megavolt/.rvm/gems/ruby-1.8.7-p352/gems/turn-0.8.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.22, /home/megavolt/.rvm/gems/ruby-1.9.3-p125@sametut/gems/bundler-1.0.22)" level="application" />
   </component>
 </module>
 

@@ -1,0 +1,11 @@
+= form_for school_type, :url => school_type.new_record? ? admin_school_types_path : admin_school_type_path(school_type)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => school_type }
+  %table
+    %tr
+      %td
+        .field
+          Name
+          = f.text_field :school_type_name
+
+  .actions
+    = f.submit

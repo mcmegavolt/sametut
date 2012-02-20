@@ -1,0 +1,61 @@
+.row
+  .span8
+    - if current_user
+      = link_to 'Edit profile', new_user_path, :class => "btn btn-large btn-primary"
+    - else
+      %h3= t(:'site.home.welcome_text')
+      = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-primary"
+  .span4
+    %h3= t(:'site.home.already_registered_users')
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            id
+          %th
+            name
+      %tbody
+        - users.each do |user|
+          - if user.applicant
+            %tr
+              %td
+                = link_to user.id, edit_user_path(user)
+              %td
+                = link_to user_path(user) do
+                  = user.applicant.first_name
+                  = user.applicant.last_name
+.row
+  .span12
+    %h3 Just registered
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr
+          %th
+            id
+          %th
+            email
+          %th
+            Is activated?
+          %th
+            Is online?
+          %th
+            Login count
+      %tbody
+        - users.each do |user|
+          - if user
+            %tr
+              %td
+                = user.id
+              %td
+                = user.email
+              %td
+                - if user.confirmed_at?
+                  Yes
+                - else
+                  No
+              %td
+                - if user.current_sign_in_at
+                  - if user.current_sign_in_at > 1.minutes.ago
+                    + + +
+              %td
+                = user.sign_in_count

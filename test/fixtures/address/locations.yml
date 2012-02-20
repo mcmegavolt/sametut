@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  city: 
+  street: MyString
+  building: MyString
+  apartment: MyString
+
+two:
+  city: 
+  street: MyString
+  building: MyString
+  apartment: MyString
