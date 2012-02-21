@@ -17,11 +17,11 @@ class Applicant < ActiveRecord::Base
   validates_presence_of :first_name, :middle_name, :last_name
   validates_associated :profile
 
-  validates :permalink,
-            :presence => true,
-            :allow_blank => false,
-            :uniqueness => true,
-            :length => { :maximum => 30 }
+  #validates :permalink,
+  #          :presence => true,
+  #          :allow_blank => false,
+  #          :uniqueness => true,
+  #          :length => { :maximum => 30 }
 
   def social_activities_blank entry
     entry[:activity_type].blank? && entry[:position].blank?

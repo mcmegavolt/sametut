@@ -16,13 +16,16 @@
   - for school in schools
     %tr
       %td
-        = EducationSchoolType.find_by_id(school.education_school_type_id)
+        = EducationSchoolType.find_by_id(school.education_school_type_id).school_type_name
       %td
         = school.name
       %td
-        = debug school
-
-        = school.location
+        %b Str:
+        = school.location.street
+        %b Build:
+        = school.location.building
+        %b Ap:
+        = school.location.apartment
       %td
         = link_to 'Edit', edit_admin_school_path(school), :class => 'link-icon icon-delete'
         = link_to 'Delete', admin_school_path(school), :method => :delete, :confirm => 'Are you sure?', :class => 'link-icon icon-delete'
