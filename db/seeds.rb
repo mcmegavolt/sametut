@@ -6,13 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# encoding: utf-8
+
+UserType.create([
+  {:user_type_name => "Пошукач (студент, випускник)"},
+  {:user_type_name => "Дошкільний навчальний заклад освіти (дит. садочок)"},
+  {:user_type_name => "Загальноосвітній навчальний заклад (школа)"},
+  {:user_type_name => "Професійно-технічний заклад освіти (ПТУ, коледж)"},
+  {:user_type_name => "Вищий начальний заклад освіти"}
+])
+
+
 
 EducationSchoolType.create([
-  {:school_type_name => 'Загальна'},
-  {:school_type_name => 'Середня спеціальна'},
-  {:school_type_name => 'Неповна вища'},
-  {:school_type_name => 'Вища'},
-  {:school_type_name => 'Магістр'}
+  {:school_type_name => 'Загальноосвітній навчальний заклад'},
+  {:school_type_name => 'Професійно-технічний заклад'},
+  {:school_type_name => 'Вищий начальний заклад'}
 ])
 
 

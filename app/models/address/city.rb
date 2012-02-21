@@ -4,6 +4,8 @@ class Address::City < ActiveRecord::Base
   validates :name, :uniqueness => { :scope => :region_id }
   has_many :locations
 
+  has_many :schools
+
   #def to_s
     #name
   #end

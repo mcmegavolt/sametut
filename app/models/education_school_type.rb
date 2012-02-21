@@ -1,5 +1,5 @@
 class EducationSchoolType < ActiveRecord::Base
 
-  belongs_to :school
+  has_many :schools
 
 end

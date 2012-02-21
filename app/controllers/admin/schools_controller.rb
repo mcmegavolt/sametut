@@ -8,6 +8,7 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def new
+    school.build_location
   end
 
   def edit

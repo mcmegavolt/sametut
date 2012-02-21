@@ -35,6 +35,8 @@
           %th
             email
           %th
+            User type
+          %th
             Is activated?
           %th
             Is online?
@@ -48,6 +50,8 @@
                 = user.id
               %td
                 = user.email
+              %td
+                = user.user_type_id?
               %td
                 - if user.confirmed_at?
                   Yes

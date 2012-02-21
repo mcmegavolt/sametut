@@ -1,7 +1,10 @@
 class School < ActiveRecord::Base
 
-  has_many :educations
+  belongs_to :education_school_type
 
-  has_one :location
+  attr_accessible :name, :education_school_type, :location
+
+  has_one :location, :as => :addressable, :class_name => 'Address::Location', :dependent => :destroy
+  accepts_nested_attributes_for :location
 
 end

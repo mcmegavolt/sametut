@@ -13,6 +13,7 @@ SameTut::Application.routes.draw do
     resources :locations
     resources :schools
     resources :school_types
+    resources :user_types
 
   end
 

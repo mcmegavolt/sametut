@@ -1,0 +1,11 @@
+= form_for user_type, :url => user_type.new_record? ? admin_user_types_path : admin_user_type_path(user_type)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => user_type }
+  %table
+    %tr
+      %td
+        .field
+          Name
+          = f.text_field :user_type_name
+
+  .form-actions
+    = f.submit

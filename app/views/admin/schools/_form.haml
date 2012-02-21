@@ -1,16 +1,36 @@
-= form_for school, :url => school.new_record? ? admin_schools_path : admin_school_path(school)  do |f|
+= form_for school, :html => { :class => 'form-horizontal' }, :url => school.new_record? ? admin_schools_path : admin_school_path(school)  do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => school }
-  %table
-    %tr
-      %td
-        .field
-          Name
-          = f.text_field :name
-          Type id
-          = f.select :type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}
-          Location
-          = f.select :city_id, Address::City.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'School location'}
+  .row
+    .span7
+      %legend New school
+      %fieldset
+        .control-group
+          = f.label 'School name'
+          .controls
+            = f.text_field :name, :class => 'span4'
+        .control-group
+          = f.label 'School type'
+          .controls
+            = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
+    .span5
+      %legend Address
+      = f.fields_for :location do |loc|
+        .control-group
+          = f.label 'Street'
+          .controls
+            = loc.text_field :street
+        .control-group
+          = f.label 'Building'
+          .controls
+            = loc.text_field :building
+        .control-group
+          = f.label 'Apartment'
+          .controls
+            = loc.text_field :apartment
+        .control-group
+          = f.label 'Building'
+          .controls
+            = loc.select :city_id, Address::City.all.collect { |p| [ p.name, p.id ] }, { :prompt => 'City' }
 
-
-  .actions
-    = f.submit
+  .form-actions
+    = f.submit 'Create School', :class => 'btn btn-primary btn-large'
