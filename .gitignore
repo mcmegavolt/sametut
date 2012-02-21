@@ -9,4 +9,4 @@ log/*.log
 *.swo
 Gemfile.lock
 public/uploads/
-.gitignore~
+.gitignore
