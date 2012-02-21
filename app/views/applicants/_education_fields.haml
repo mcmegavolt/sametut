@@ -1,0 +1,22 @@
+.fields_group
+
+  = f.label t(:'site.user.new.education_info.start_date')
+  = f.date_select :start_date
+
+  = f.label t(:'site.user.new.education_info.end_date')
+  = f.date_select :end_date
+
+  %br
+
+  = f.label t(:'site.user.new.education_info.faculty')
+  = f.text_field :faculty, :size => 20
+
+
+  School
+  = f.select :school_id, School.all.collect{|c| [c.name, c.id]}, { :prompt => 'Select your school' }
+
+
+  = t(:'site.user.new.education_info.degree_level')
+  = f.select :education_degree_level_id, EducationDegreeLevel.all.collect{|c| [c.education_degree_level, c.id]}, { :prompt => t(:'site.user.new.selectors.degree') }
+
+  = link_to_remove_fields t(:'site.user.new.actions.remove'), f

@@ -1,0 +1,66 @@
+= form_for applicant, :html => {:class => 'form-horizontal'} do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => applicant }
+
+  .fieldset
+    %legend
+      Please, edit your info and save
+    .control-group
+      %label{:class => 'control-label'}
+        Email
+      .controls
+        = f.text_field :email, :class => 'span3', :disabled => true, :value => current_user.email
+        %p.help-block
+          You can't change it on this page
+
+    %legend
+      Applicant
+    .control-group
+      %label{:class => 'control-label'}
+        = f.label t(:'site.user.new.main_info.first_name')
+      .controls
+        = f.text_field :first_name
+    .control-group
+      %label{:class => 'control-label'}
+        = f.label t(:'site.user.new.main_info.middle_name')
+      .controls
+        = f.text_field :middle_name
+    .control-group
+      %label{:class => 'control-label'}
+        = f.label t(:'site.user.new.main_info.last_name')
+      .controls
+        = f.text_field :last_name
+    .control-group
+      %label{:class => 'control-label'}
+        = f.label t(:'site.user.new.main_info.permalink')
+      .controls
+        = f.text_field :permalink
+
+    %legend
+      Profile
+    = f.fields_for :profile do |p|
+      = render 'profile_fields', :p => p
+    %legend
+      = t(:'site.user.new.headers.education')
+    = f.fields_for :educations do |ed|
+      = render 'education_fields', :f => ed
+    %p
+      = link_to_add_fields t(:'site.user.new.actions.add'), f, :educations
+
+    %legend
+      = t(:'site.user.new.headers.social_activities')
+    = f.fields_for :social_activities do |sa|
+      = render 'social_activity_fields', :f => sa
+    %p
+      = link_to_add_fields t(:'site.user.new.actions.add'), f, :social_activities
+
+    %legend
+      = t(:'site.user.new.headers.work_experience')
+    = f.fields_for :work_experiences do |we|
+      = render 'work_experience_fields', :f => we
+    %p
+      = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences
+
+  .form-actions
+    = f.submit 'Save user', :class => 'btn btn-primary btn-large'
+    %button.btn
+      Cancel
