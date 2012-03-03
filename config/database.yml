@@ -21,6 +21,6 @@ production:
   encoding: utf8
   database: sametut_production
   pool: 5
-  username: krsr_prod
-  password: krsr_prod
-  socket: /var/lib/mysql/mysql.sock
+  username: root
+  password: '123456'
+  socket: /var/run/mysqld/mysqld.sock

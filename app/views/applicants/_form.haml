@@ -1,16 +1,22 @@
 = form_for applicant, :html => {:class => 'form-horizontal'} do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => applicant }
 
+
   .fieldset
     %legend
       Please, edit your info and save
     .control-group
       %label{:class => 'control-label'}
-        Email
+        Your Email
       .controls
         = f.text_field :email, :class => 'span3', :disabled => true, :value => current_user.email
+    .control-group
+      %label{:class => 'control-label'}
+        ID:
+      .controls
+        = f.text_field :user_id, :class => 'span1', :disabled => true, :value => current_user.id
         %p.help-block
-          You can't change it on this page
+          Only for information
 
     %legend
       Applicant

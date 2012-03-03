@@ -2,8 +2,9 @@
   .span8
     - if current_user
       - if current_user.applicant
-        = link_to 'Edit your profile...', edit_applicant_path(current_user), :class => "btn btn-large btn-primary"
+        = link_to 'Edit your profile...', edit_applicant_path(current_user.applicant), :class => "btn btn-large btn-primary"
       - else
+        %h2 You don't have profile
         = link_to 'Create profile...', new_applicant_path, :class => "btn btn-large btn-primary"
     - else
       %h3= t(:'site.home.welcome_text')
@@ -27,6 +28,7 @@
                 = link_to user_path(user) do
                   = user.applicant.first_name
                   = user.applicant.last_name
+%hr/
 .row
   .span12
     %h3 Just registered

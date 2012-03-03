@@ -1,31 +1,27 @@
 %h1 Listing applicants
 %p
   %b
-    Registered Users:
+    Applicants count:
   = applicants.size
 %table
   %tr
-    %th Email
-    %th Permalink
     %th
     %th
-  - applicants.each do |user|
+    %th
+    %th
+  - applicants.each do |applicant|
     %tr
       %td
-        = user.email
+        = applicant.first_name
       %td
 
       %td
-        = link_to user, :class => 'primary button' do
+        = link_to applicant, :class => 'primary button' do
           %span.class
           Show
-        = link_to edit_user_path(user), :class => "button" do
+        = link_to edit_applicant_path(applicant), :class => "button" do
           %span.pen.icon
           Edit
-        = link_to user, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
+        = link_to applicant, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
           %span.cross.icon
           Destroy
-%br
-= link_to new_user_path, :class => 'positive pill button' do
-  %span.user.icon
-  New User

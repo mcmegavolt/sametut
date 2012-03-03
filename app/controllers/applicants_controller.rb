@@ -1,5 +1,8 @@
 class ApplicantsController < ApplicationController
 
+  before_filter :authenticate_user!, :except => [:show, :index]
+
+
   def index
   end
 
@@ -7,25 +10,22 @@ class ApplicantsController < ApplicationController
   end
 
   def new
-
     applicant.build_profile
     applicant.social_activities.build
     applicant.work_experiences.build
     applicant.educations.build
-
   end
 
   def edit
-
-     applicant.build_profile unless @user.applicant.profile
+     applicant.build_profile unless applicant.profile
      applicant.social_activities.build
      applicant.work_experiences.build
      applicant.educations.build
-
   end
 
   def create
-     if applicant.save
+    applicant.user_id = current_user.id
+    if applicant.save
        redirect_to root_url, :notice => 'Profile was successfully created.'
      else
        render :action => "new"

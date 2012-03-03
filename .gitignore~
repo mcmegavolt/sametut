@@ -1,0 +1,12 @@
+.idea
+.bundle
+tmp/
+mcmegavolt/
+*.swp
+log/*.log
+.sass-cache/
+*.iml
+*.swo
+Gemfile.lock
+public/uploads/
+.gitignore
