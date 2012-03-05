@@ -2,8 +2,15 @@
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_ruby_string, 'default'
+#set :rvm_ruby_string, 'default'
 set :rvm_type, :system
+set :rvm_ruby_string, 'ruby-1.9.3-p0@sametut'
+
+
+task :trust_rvmrc do
+    run "rvm rvmrc trust #{latest_release}"
+end
+
 
 # Bundler
 
@@ -12,12 +19,13 @@ require "bundler/capistrano"
 # General
 
 set :application, "SameTut"
-set :user, "sametut"
+set :user, "root"
 
-set :deploy_to, "/home/#{user}/#{application}"
+#set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_to, "/home/sametut/#{application}"
 set :deploy_via, :copy
 
-set :use_sudo, false
+#set :use_sudo, false
 
 # Git
 

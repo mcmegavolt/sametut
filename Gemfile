@@ -57,4 +57,4 @@ gem 'execjs'
 gem 'therubyracer'
 
 
-gem 'ukrainian' #, :git => "https://github.com/ivankukobko/ukrainian.git"
+gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
