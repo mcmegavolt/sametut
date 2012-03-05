@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ivankukobko/ukrainian.git
+  revision: 914b1ef8f894d4592eaafdb727df3e64f734836d
+  specs:
+    ukrainian (2.6.0)
+      i18n
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -167,8 +174,6 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    ukrainian (2.6.0)
-      i18n
     warden (1.1.1)
       rack (>= 1.0)
 
@@ -195,4 +200,4 @@ DEPENDENCIES
   turn
   twitter-bootstrap-rails (= 2.0.1)
   uglifier
-  ukrainian
+  ukrainian!
