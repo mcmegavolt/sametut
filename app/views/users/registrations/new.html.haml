@@ -1,10 +1,8 @@
-%h1= t(:'site.user.new.headers.new_user')
-
 = form_for resource, :html => { :class => 'form-horizontal' }, :as => resource_name, :url => registration_path(resource_name) do |f|
   = devise_error_messages!
   .row
     .span7
-      %legend Email / Password
+      %legend= t(:'site.user.new.headers.new_user')
       %fieldset
         .control-group
           = f.label :email
@@ -18,17 +16,15 @@
           = f.label :password_confirmation
           .controls
             = f.password_field :password_confirmation
-      %legend Register As
-      %fieldset
         .control-group
-          = f.label :user_type
+          = f.label :user_type_id
           .controls
             = f.select :user_type_id, UserType.all.collect {|t| [ t.user_type_name, t.id ] }, {:prompt => '-- select --'}, :class => 'span4'
 
     .span5
-      %legend Tools
-      = render "links"
+      %legend= t(:'site.user.devise.tools')
+      = render "users/links"
 
   .form-actions
-    = f.submit "Sign up"
+    = f.submit t(:'site.user.devise.actions.sign_up'), :class => 'btn-success btn-large'
 

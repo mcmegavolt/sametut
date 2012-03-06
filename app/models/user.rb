@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
 
+  validates_presence_of :user_type_id
+
   attr_accessible :email, :password, :password_confirmation, :remember_me, :user_type_id
 
   has_one :applicant, :dependent => :destroy

@@ -17,10 +17,17 @@
             = render :partial => '/shared/top_nav'
     .container
       .content
-        = gritter_flash_messages
         = render 'shared/flash_messages'
         = yield
 
-      //.footer
-      //%p
-      //SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
+        .row
+          .span12
+            .footer
+              %hr/
+              %p
+                SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
+                - if current_admin
+                  = link_to 'Admin Panel', admin_path
+                  = link_to 'Log Out', destroy_admin_session_path
+                - else
+                  = link_to 'Admin Login', new_admin_session_path

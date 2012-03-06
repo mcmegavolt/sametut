@@ -17,29 +17,46 @@
         = f.text_field :user_id, :class => 'span1', :disabled => true, :value => current_user.id
         %p.help-block
           Only for information
+    .row
+      .span6
+        %legend
+          Applicant
+        .control-group
+          %label{:class => 'control-label'}
+            = f.label t(:'site.user.new.main_info.first_name')
+          .controls
+            = f.text_field :first_name
+        .control-group
+          %label{:class => 'control-label'}
+            = f.label t(:'site.user.new.main_info.middle_name')
+          .controls
+            = f.text_field :middle_name
+        .control-group
+          %label{:class => 'control-label'}
+            = f.label t(:'site.user.new.main_info.last_name')
+          .controls
+            = f.text_field :last_name
+        .control-group
+          %label{:class => 'control-label'}
+            = f.label t(:'site.user.new.main_info.permalink')
+          .controls
+            = f.text_field :permalink
+      .span6
+        %legend Avatar
 
-    %legend
-      Applicant
-    .control-group
-      %label{:class => 'control-label'}
-        = f.label t(:'site.user.new.main_info.first_name')
-      .controls
-        = f.text_field :first_name
-    .control-group
-      %label{:class => 'control-label'}
-        = f.label t(:'site.user.new.main_info.middle_name')
-      .controls
-        = f.text_field :middle_name
-    .control-group
-      %label{:class => 'control-label'}
-        = f.label t(:'site.user.new.main_info.last_name')
-      .controls
-        = f.text_field :last_name
-    .control-group
-      %label{:class => 'control-label'}
-        = f.label t(:'site.user.new.main_info.permalink')
-      .controls
-        = f.text_field :permalink
+        .control-group
+          %label
+            Current Avatar
+          .controls
+            .span2.thumbnail
+              = image_tag(applicant.avatar_url(:thumb)) if applicant.avatar?
+
+        .control-group
+          %label
+            Change Avatar
+          .controls
+            = f.file_field :avatar
+            = f.hidden_field :avatar_cache
 
     %legend
       Profile

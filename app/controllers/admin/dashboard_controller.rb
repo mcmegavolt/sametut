@@ -1,6 +1,14 @@
 class Admin::DashboardController < ApplicationController
+
+
+  before_filter :authenticate_admin!
+
   layout 'admin'
-  #before_filter :require_authorization
+
+
+
+
+
   def index
 
   end

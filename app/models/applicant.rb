@@ -35,4 +35,6 @@ class Applicant < ActiveRecord::Base
     entry[:school_id].blank?
   end
 
+  mount_uploader :avatar, ApplicantAvatarUploader
+
 end
