@@ -1,20 +1,52 @@
-!!! 5
-%html
-  %head
-    %title= t(:'site.logo_text')
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
+!!!
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ]    <html lang="en" class="no-js ie7">
+/[if IE 8 ]    <html lang="en" class="no-js ie8">
+/[if IE 9 ]    <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+%head
+  %meta{:charset => "utf-8"}/
+  /
+    Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame
+  %meta{"http-equiv"=>"X-UA-Compatible", :content=>"IE=edge,chrome=1"}
+  %title= t(:'site.logo_text')
+  %meta{:content => "", :name => "description"}/
+  %meta{:content => "", :name => "author"}/
+  / Mobile viewport optimized: j.mp/bplateviewport
+  %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
+  / Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
+  %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+  %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 
+  = stylesheet_link_tag "application"
+  /[if IE]
+    %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
+  = csrf_meta_tags
 
   %body{:style => "padding-top: 60px"}
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to t(:'site.logo_text'), root_path, :class => 'brand'
-          .nav-collapse
-            = render :partial => '/shared/top_nav'
+    - if user_signed_in? || admin_signed_in?
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            = link_to t(:'site.logo_text'), root_path, :class => 'brand'
+            .nav-collapse
+              = render :partial => '/shared/top_nav'
+
     .container
+      .header
+        .row
+          .span3
+            .logo
+              SameTut
+          .span9
+            .main-menu
+              %ul.nav.nav-pills
+                %li
+                  = link_to t(:'site.nav.back_to_site'), root_path
+                %li
+                  = link_to t(:'site.nav.new_user'), new_user_registration_path
+                %li
+                  = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
       .content
         = render 'shared/flash_messages'
         = yield
@@ -30,3 +62,5 @@
                   = link_to 'Log Out', destroy_admin_session_path
                 - else
                   = link_to 'Admin Login', new_admin_session_path
+
+    = javascript_include_tag "application"

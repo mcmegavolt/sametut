@@ -1,23 +1,27 @@
 .row
   .span8
-    %blockquote
-      - if current_user
-        - if current_user.applicant
-          %p
-            = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
-          %p
-            = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn"
-        - else
-          %p
-            = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
-          %p
-            = link_to t(:'site.user.profiles.applicant.actions.create_profile'), new_applicant_path, :class => "btn btn-large btn-success"
-
-
-
+    - if current_user
+      - if current_user.applicant
+        %p
+          = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
+        %p
+          = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn"
       - else
-        %h3= t(:'site.home.welcome_text')
+        %p
+          = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
+        %p
+          = link_to t(:'site.user.profiles.applicant.actions.create_profile'), new_applicant_path, :class => "btn btn-large btn-success"
+
+
+
+    - else
+      %h2= t(:'site.home.welcome_text')
+      %p
         = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success"
+      %p
+        або
+        = link_to 'увійти до системи', new_user_session_path
+
 
 
   .span4
@@ -30,7 +34,7 @@
           %th
             name
       %tbody
-        - users.each do |user|
+        - users.each do |user|(0...20)
           - if user.applicant
             %tr
               %td
@@ -41,6 +45,7 @@
 
 .row
   .span12
+    %hr/
     = t(:'site.static.home_description').html_safe
 
 

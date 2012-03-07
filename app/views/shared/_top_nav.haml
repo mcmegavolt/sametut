@@ -1,6 +1,7 @@
-%ul.nav
-  %li= link_to 'Users List', users_path
-  %li= link_to 'Admin', admin_path
+- if admin_signed_in?
+  %ul.nav
+    %li
+      = link_to 'Hello Admin!', '#'
 
 
 - if user_signed_in?
@@ -21,11 +22,3 @@
           = link_to destroy_user_session_path do
             %i.icon-off
             Log out
-- else
-
-  %ul.nav
-    %li.divider-vertical
-    %li
-      = link_to 'Register', new_user_registration_path
-    %li
-      = link_to 'Log in', new_user_session_path

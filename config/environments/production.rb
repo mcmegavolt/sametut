@@ -1,4 +1,27 @@
 SameTut::Application.configure do
+
+
+
+
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address            => 'mail.neasmo.org.ua',
+  :port               => 465,
+  :tls                  => true,
+  :domain             => 'neasmo.org.ua',
+  :authentication     => :plain,
+  :user_name          => 'admin+neasmo.org.ua',
+  :password           => 'cCRuAS%Ls1g+'
+}
+
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -57,4 +80,9 @@ SameTut::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+
+
+
+
 end
