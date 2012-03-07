@@ -2,24 +2,15 @@ SameTut::Application.configure do
 
 
 
-
-  require 'tlsmail'
-  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = {
-  :enable_starttls_auto => true,
-  :address            => 'mail.neasmo.org.ua',
-  :port               => 465,
-  :tls                  => true,
-  :domain             => 'neasmo.org.ua',
-  :authentication     => :plain,
-  :user_name          => 'admin+neasmo.org.ua',
-  :password           => 'cCRuAS%Ls1g+'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address => 'mail.neasmo.org.ua',
+  :domain  => 'neasmo.org.ua',
+  :port      => 26,
+  :user_name => 'admin+neasmo.org.ua',
+  :password => 'cCRuAS%Ls1g+',
+  :authentication => :plain
 }
-
 
 
   # Settings specified here will take precedence over those in config/application.rb
