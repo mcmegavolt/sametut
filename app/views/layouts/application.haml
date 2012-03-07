@@ -37,10 +37,11 @@
               %ul.nav.nav-pills
                 %li
                   = link_to t(:'site.nav.back_to_site'), root_path
-                %li
-                  = link_to t(:'site.nav.new_user'), new_user_registration_path
-                %li
-                  = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
+                - unless user_signed_in?
+                  %li
+                    = link_to t(:'site.nav.new_user'), new_user_registration_path
+                  %li
+                    = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
       .content
         .row
           .span12

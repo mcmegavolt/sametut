@@ -8,8 +8,9 @@
     %i.icon-pencil
     Edit email/pass
   \/
-  = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => 'positive button'
-  \/
+  - if current_user.applicant
+    = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => 'positive button'
+    \/
   = link_to destroy_user_session_path do
     %i.icon-off
     = t(:'site.user.devise.actions.log_out')

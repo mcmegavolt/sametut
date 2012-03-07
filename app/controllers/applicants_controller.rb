@@ -17,14 +17,18 @@ class ApplicantsController < ApplicationController
   end
 
   def edit
+
      unless applicant.user == current_user
-     redirect_to root_url, :notice => 'You dont have access to this page.'
+        redirect_to root_url, :notice => 'You dont have access to this page.'
      end
+
 
      applicant.build_profile unless applicant.profile
      applicant.social_activities.build
      applicant.work_experiences.build
      applicant.educations.build
+
+
 
   end
 
