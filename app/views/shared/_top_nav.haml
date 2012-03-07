@@ -1,16 +1,16 @@
 - if admin_signed_in?
   = link_to 'Hello Admin!', '#'
 
-
 - if user_signed_in?
   = 'Hello, ' + current_user.email
   \/
-
   = link_to edit_user_registration_path do
     %i.icon-pencil
-    Edit email or password
-
+    Edit email/pass
+  \/
+  = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => 'positive button'
+  \/
   = link_to destroy_user_session_path do
     %i.icon-off
-    Log out
+    = t(:'site.user.devise.actions.log_out')
 %hr/

@@ -36,6 +36,7 @@ uk:
           didnt_receive_unlock: "Не отримали інструкцій щодо розблокування?"
         actions:
           sign_up: "Зареєструватися"
+          log_out: "Вийти"
         select_boxes:
           select_user_type: "-- Оберіть --"
 

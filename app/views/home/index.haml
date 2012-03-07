@@ -1,6 +1,6 @@
 .row
   .span8
-    - if current_user
+    - if user_signed_in?
       - if current_user.applicant
         %p
           = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
@@ -43,7 +43,7 @@
 
 
 
-- if current_admin
+- if admin_signed_in?
   %hr/
   .row
     .span12

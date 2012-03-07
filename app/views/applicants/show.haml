@@ -5,7 +5,8 @@
 
 .row
   .span3
-    = image_tag applicant.avatar, :class => 'thumbnail'
+    - if applicant.avatar
+      = image_tag applicant.avatar, :class => 'thumbnail'
 
   .span9
 
@@ -70,7 +71,5 @@
               = work_experience.organization
               = work_experience.position
 
-      %div
-        = link_to 'Edit', edit_applicant_path(@user), :class => 'positive button'
-        = link_to 'Back', applicants_path, :class => 'button'
+
 
