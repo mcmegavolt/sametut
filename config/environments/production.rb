@@ -9,7 +9,8 @@ SameTut::Application.configure do
   :port      => 26,
   :user_name => 'admin+neasmo.org.ua',
   :password => 'cCRuAS%Ls1g+',
-  :authentication => :plain
+  :authentication => :plain,
+  :openssl_verify_mode  => 'none'
 }
 
 
