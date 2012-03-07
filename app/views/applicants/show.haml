@@ -2,67 +2,75 @@
   %p#notice.success
     = notice
 
-%p
-  Email:
-  %b
-    = @user.email
-%p
-  %b
-    User ID:
-  = @user.id
 
-- if @user.applicant
+.row
+  .span3
+    = image_tag applicant.avatar, :class => 'thumbnail'
 
-  %p
-    %b
-      Name:
-    = @user.applicant.first_name
-    = @user.applicant.middle_name
-    = @user.applicant.last_name
-  %p
-    %b
-      Birth date:
-    = @user.applicant.profile.birth_date
-
-  %p
-    %b Birth Location:
-    = Address::City.find_by_id(@user.applicant.profile.birth_location_id)
-
-  %p
-    %b Current Location:
-    = Address::City.find_by_id(@user.applicant.profile.current_location_id)
+  .span9
 
 
-  %p
-    %b
-      Education:
-    %ol
-      - for education in @user.applicant.educations
-        %li
-          = education.school.name
+    %p
+      Email:
+      %b
+        = applicant.user.email
+    %p
+      %b
+        ID:
+      = applicant.user.id
 
-  %p
-    %b
-      Social Activities:
-    %ol
-      - for social_activity in @user.applicant.social_activities
-        %li
-          = social_activity.activity_type
-          = social_activity.duties
-          = social_activity.position
+    - if applicant
 
-  %p
-    %b
-      Work Experiences
-    %ol
-      - for work_experience in @user.applicant.work_experiences
-        %li
-          = work_experience.start_date
-          = work_experience.end_date
-          = work_experience.organization
-          = work_experience.position
+      %p
+        %b
+          Name:
+        = applicant.first_name
+        = applicant.middle_name
+        = applicant.last_name
+      %p
+        %b
+          Birth date:
+        = applicant.profile.birth_date
 
-  %div
-    = link_to 'Edit', edit_user_path(@user), :class => 'positive button'
-    = link_to 'Back', users_path, :class => 'button'
+      %p
+        %b Birth Location:
+        = Address::City.find_by_id(applicant.profile.birth_location_id)
+
+      %p
+        %b Current Location:
+        = Address::City.find_by_id(applicant.profile.current_location_id)
+
+
+      %p
+        %b
+          Education:
+        %ol
+          - for education in applicant.educations
+            %li
+              = education.school.name
+
+      %p
+        %b
+          Social Activities:
+        %ol
+          - for social_activity in applicant.social_activities
+            %li
+              = social_activity.activity_type
+              = social_activity.duties
+              = social_activity.position
+
+      %p
+        %b
+          Work Experiences
+        %ol
+          - for work_experience in applicant.work_experiences
+            %li
+              = work_experience.start_date
+              = work_experience.end_date
+              = work_experience.organization
+              = work_experience.position
+
+      %div
+        = link_to 'Edit', edit_applicant_path(@user), :class => 'positive button'
+        = link_to 'Back', applicants_path, :class => 'button'
 

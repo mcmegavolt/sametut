@@ -1,24 +1,16 @@
 - if admin_signed_in?
-  %ul.nav
-    %li
-      = link_to 'Hello Admin!', '#'
+  = link_to 'Hello Admin!', '#'
 
 
 - if user_signed_in?
-  %ul.nav.pull-right
-    %li.dropdown
-      %a{ :href => '#', :class => 'dropdown-toggle', :'data-toggle' => 'dropdown' }
-        = current_user.email
-        \/
-        - if UserType.find_by_id(current_user.user_type_id)
-          = UserType.find_by_id(current_user.user_type_id).user_type_name
-          %i.icon-user.icon-white
-      %ul.dropdown-menu
-        %li
-          = link_to edit_user_registration_path do
-            %i.icon-pencil
-            Edit
-        %li
-          = link_to destroy_user_session_path do
-            %i.icon-off
-            Log out
+  = 'Hello, ' + current_user.email
+  \/
+
+  = link_to edit_user_registration_path do
+    %i.icon-pencil
+    Edit email or password
+
+  = link_to destroy_user_session_path do
+    %i.icon-off
+    Log out
+%hr/

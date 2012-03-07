@@ -15,7 +15,7 @@
 
 
     - else
-      %h2= t(:'site.home.welcome_text')
+      %p.lead= t(:'site.home.welcome_text')
       %p
         = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success"
       %p
@@ -25,23 +25,16 @@
 
 
   .span4
-    %h3= t(:'site.home.already_registered_users')
-    %table.table.table-striped.table-bordered.table-condensed
-      %thead
-        %tr
-          %th
-            id
-          %th
-            name
-      %tbody
-        - users.each do |user|(0...20)
-          - if user.applicant
-            %tr
-              %td
-                = user.applicant.id
-              %td
-                = user.applicant.first_name
-                = user.applicant.last_name
+    %p.lead= t(:'site.home.already_registered_users')
+    %ul
+      - users.each do |user|(0...20)
+        - if user.applicant
+
+          %li
+            = link_to user.applicant do
+              = user.applicant.first_name
+              = user.applicant.last_name
+              = '('+user.applicant.id.to_s+')'
 
 .row
   .span12

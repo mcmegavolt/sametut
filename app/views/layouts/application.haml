@@ -23,23 +23,17 @@
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
   = csrf_meta_tags
 
-  %body{:style => "padding-top: 60px"}
-    - if user_signed_in? || admin_signed_in?
-      .navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            = link_to t(:'site.logo_text'), root_path, :class => 'brand'
-            .nav-collapse
-              = render :partial => '/shared/top_nav'
+  %body
 
     .container
-      .header
+      %header
         .row
-          .span3
+          .span4
             .logo
-              SameTut
-          .span9
-            .main-menu
+              = link_to root_path do
+                = image_tag 'logo.png'
+          .span8{:style => 'height: 80px;'}
+            .subnav
               %ul.nav.nav-pills
                 %li
                   = link_to t(:'site.nav.back_to_site'), root_path
@@ -48,6 +42,11 @@
                 %li
                   = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
       .content
+        .row
+          .span12
+            - if user_signed_in? || admin_signed_in?
+              = render :partial => '/shared/top_nav'
+
         = render 'shared/flash_messages'
         = yield
 
