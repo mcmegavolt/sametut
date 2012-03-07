@@ -1,5 +1,8 @@
 SameTut::Application.configure do
 
+  Encoding.default_external = "UTF-8"
+
+
 
 
   config.action_mailer.delivery_method = :smtp

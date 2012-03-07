@@ -1,4 +1,9 @@
 SameTut::Application.configure do
+
+
+  Encoding.default_external = "UTF-8"
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
