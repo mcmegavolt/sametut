@@ -28,12 +28,12 @@
     .container
       %header
         .row
-          .span4
+          .span5
             .logo
               = link_to root_path do
                 = image_tag 'logo.png'
-          .span8{:style => 'height: 80px;'}
-            .subnav
+          .span7
+            .main-nav
               %ul.nav.nav-pills
                 %li
                   = link_to t(:'site.nav.back_to_site'), root_path
@@ -42,6 +42,7 @@
                     = link_to t(:'site.nav.new_user'), new_user_registration_path
                   %li
                     = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
+        %hr/
       .content
         .row
           .span12
@@ -59,8 +60,9 @@
                 SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
                 - if current_admin
                   = link_to 'Admin Panel', admin_path
+                  \|
                   = link_to 'Log Out', destroy_admin_session_path
                 - else
-                  = link_to 'Admin Login', new_admin_session_path
+                  = link_to '[+]', new_admin_session_path
 
     = javascript_include_tag "application"

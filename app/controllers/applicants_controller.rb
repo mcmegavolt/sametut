@@ -54,18 +54,6 @@ class ApplicantsController < ApplicationController
      redirect_to root_url
   end
 
-  def applicants
-    @applicants ||= Applicant.all
-  end
-  helper_method :applicants
 
-  def applicant
-    @applicant ||= if params[:id]
-      Applicant.find(params[:id])
-    else
-      Applicant.new(params[:applicant])
-    end
-  end
-  helper_method :applicant
 
 end

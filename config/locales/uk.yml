@@ -8,6 +8,7 @@ uk:
       welcome_text: 'Ти ще не з нами? Приєднуйся до команди професіоналів!'
       already_registered_users: 'Вже зареєструвались'
       register: 'Зареєструватися'
+      applicants_count: 'Всього учасників:'
     nav:
       back_to_site: 'На головну'
       new_user: 'Зареєструватися'

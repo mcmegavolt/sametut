@@ -1,5 +1,5 @@
 .row
-  .span8
+  .span9
     - if user_signed_in?
       - if current_user.applicant
         %p
@@ -24,17 +24,17 @@
 
 
 
-  .span4
+  .span3
     %p.lead= t(:'site.home.already_registered_users')
-    %ul
-      - users.each do |user|(0...20)
-        - if user.applicant
-
-          %li
-            = link_to user.applicant do
-              = user.applicant.first_name
-              = user.applicant.last_name
-              = '('+user.applicant.id.to_s+')'
+    - applicants.each do |app| (0...16)
+      - if app.avatar
+        =# app.avatar.recreate_versions!
+        = link_to app do
+          = image_tag app.avatar_url(:icon50).to_s, :title => app.first_name + ' (' + app.id.to_s + ')'
+    %hr/
+    %p
+      = t(:'site.home.applicants_count')
+      = applicants.size
 
 .row
   .span12
