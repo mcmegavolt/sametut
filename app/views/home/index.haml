@@ -28,7 +28,7 @@
     %p.lead= t(:'site.home.already_registered_users')
     - applicants.each do |app| (0...16)
       - if app.avatar
-        =# app.avatar.recreate_versions!
+        = app.avatar.recreate_versions!
         = link_to app do
           = image_tag app.avatar_url(:icon50).to_s, :title => app.first_name + ' (' + app.id.to_s + ')'
     %hr/
