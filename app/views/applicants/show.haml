@@ -4,7 +4,7 @@
 .row
   .span3
     - if applicant.avatar
-      = image_tag applicant.avatar, :class => 'thumbnail'
+      = image_tag applicant.avatar_url(:thumb), :class => 'thumbnail'
   .span9
     %p
       Email:
