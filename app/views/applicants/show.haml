@@ -1,16 +1,11 @@
 - if notice
   %p#notice.success
     = notice
-
-
 .row
   .span3
     - if applicant.avatar
       = image_tag applicant.avatar, :class => 'thumbnail'
-
   .span9
-
-
     %p
       Email:
       %b
@@ -21,7 +16,6 @@
       = applicant.user.id
 
     - if applicant
-
       %p
         %b
           Name:
@@ -32,16 +26,12 @@
         %b
           Birth date:
         = applicant.profile.birth_date
-
       %p
         %b Birth Location:
         = Address::City.find_by_id(applicant.profile.birth_location_id)
-
       %p
         %b Current Location:
         = Address::City.find_by_id(applicant.profile.current_location_id)
-
-
       %p
         %b
           Education:
@@ -49,7 +39,6 @@
           - for education in applicant.educations
             %li
               = education.school.name
-
       %p
         %b
           Social Activities:
@@ -59,7 +48,6 @@
               = social_activity.activity_type
               = social_activity.duties
               = social_activity.position
-
       %p
         %b
           Work Experiences
@@ -70,6 +58,10 @@
               = work_experience.end_date
               = work_experience.organization
               = work_experience.position
-
-
-
+%hr/
+.row
+  .span12
+    - if applicant.profile.video_url.to_s != ""
+      %iframe{:allowfullscreen => "1", :frameborder => "0", :height => "349", :width => "560", :src => applicant.profile.video_url}
+    - else
+      No video presentation

@@ -5,19 +5,19 @@
       %legend= t(:'site.user.new.headers.new_user')
       %fieldset
         .control-group
-          = f.label :email
+          = f.label :email, :class => 'control-label'
           .controls
             = f.email_field :email
         .control-group
-          = f.label :password
+          = f.label :password, :class => 'control-label'
           .controls
             = f.password_field :password
         .control-group
-          = f.label :password_confirmation
+          = f.label :password_confirmation, :class => 'control-label'
           .controls
             = f.password_field :password_confirmation
         .control-group
-          = f.label :user_type_id
+          = f.label :user_type_id, :class => 'control-label'
           .controls
             = f.select :user_type_id, UserType.all.collect {|t| [ t.user_type_name, t.id ] }, {:prompt => '-- select --'}, :class => 'span4'
 

@@ -3,24 +3,16 @@
 
 
   .fieldset
-    %legend
-      Please, edit your info and save
     .control-group
-      %label{:class => 'control-label'}
-        Your Email
-      .controls
-        = f.text_field :email, :class => 'span3', :disabled => true, :value => current_user.email
-    .control-group
-      %label{:class => 'control-label'}
-        ID:
-      .controls
-        = f.text_field :user_id, :class => 'span1', :disabled => true, :value => current_user.id
-        %p.help-block
-          Only for information
+      %b
+      -#  Email:
+      -#= current_user.email.to_s+'.'
+      -#= link_to '[Change]', edit_user_registration_path
+
     .row
       .span6
         %legend
-          Applicant
+          = t(:'site.user.edit_profile.applicant')
         .control-group
           %label{:class => 'control-label'}
             = f.label t(:'site.user.new.main_info.first_name')
@@ -45,24 +37,25 @@
               = t(:'site.user.new.main_info.permalink_help').html_safe
 
       .span6
-        %legend Avatar
+        %legend
+          = t(:'site.user.edit_profile.avatar')
 
         .control-group
           %label
-            Current Avatar
+            = t(:'site.user.edit_profile.current_avatar')
           .controls
             .span2.thumbnail
               = image_tag(applicant.avatar_url(:thumb)) if applicant.avatar?
 
         .control-group
           %label
-            Change Avatar
+            = t(:'site.user.edit_profile.change_avatar')
           .controls
             = f.file_field :avatar
             = f.hidden_field :avatar_cache
 
     %legend
-      Profile
+      = t(:'site.user.edit_profile.additional_info')
     = f.fields_for :profile do |p|
       = render 'profile_fields', :p => p
     %legend
@@ -87,6 +80,6 @@
       = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences
 
   .form-actions
-    = f.submit 'Save user', :class => 'btn btn-primary btn-large'
+    = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
     %button.btn
-      Cancel
+      = t(:'site.user.edit_profile.cancel')

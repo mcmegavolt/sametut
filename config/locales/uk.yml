@@ -13,22 +13,36 @@ uk:
       back_to_site: 'На головну'
       new_user: 'Зареєструватися'
       users_list: 'Список юзерів'
+    copyright: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-2012. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
+
 
     user:
 
       profiles:
         applicant:
           messages:
-            no_profile: "Стан Вашого акаунту: <span class=\'label label-success\'>активний</span><br />Увага! Ви ще не створили профілю!"
-            is_profile: "Стан Вашого акаунту:  <span class=\'label label-success\'>активний</span>"
+            no_profile: "Стан Вашого акаунту: <u>активний</u><br />Увага! Ви ще не створили профілю!"
+            is_profile: "Стан Вашого акаунту:  <u>активний</u>"
           actions:
             edit_profile: "Редагувати профіль..."
             create_profile: "Створити профіль пошукача..."
 
 
+      edit_profile:
+        title: "Редагування профілю"
+        applicant: "Пошукач"
+        avatar: "Аватар"
+        current_avatar: "Поточний аватар"
+        additional_info: "Додаткова іформація"
+        video_help: "Посилання на відео в Youtube, Vimeo та інших."
+        change_avatar: "Змінити аватар"
+        save_applicant: "Зберегти зміни"
+        cancel: "Відмінити"
 
       devise:
         tools: "Інструменти"
+        sign_in: "Вхід до системи"
+
 
         links:
           sign_in: "Увійти до системи"
@@ -37,7 +51,9 @@ uk:
           didnt_receive_unlock: "Не отримали інструкцій щодо розблокування?"
         actions:
           sign_up: "Зареєструватися"
+          sign_in: "Увійти"
           log_out: "Вийти"
+          remember_me: "Запамятати мене"
         select_boxes:
           select_user_type: "-- Оберіть --"
 
@@ -115,3 +131,9 @@ uk:
           attributes:
             user_type_id:
               blank: "повинен бути обраний"
+
+  devise:
+    failure:
+      user:
+        timeout: "Час сесії закінчився. Будь-ласка, увійдіть до системи."
+        unauthenticated: "Для перегляду цієї сторінки потрібно увійти до системи чи зареєструватися!"

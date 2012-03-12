@@ -5,7 +5,7 @@
         %p
           = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
         %p
-          = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn"
+          = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn btn-info btn-large"
       - else
         %p
           = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
@@ -17,7 +17,7 @@
     - else
       %p.lead= t(:'site.home.welcome_text')
       %p
-        = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success"
+        = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success", :style => 'width: 300px; font-size: 24px'
       %p
         або
         = link_to 'увійти до системи', new_user_session_path
@@ -26,9 +26,8 @@
 
   .span3
     %p.lead= t(:'site.home.already_registered_users')
-    - applicants.each do |app| (0...16)
+    - applicants.each do |app|
       - if app.avatar
-        =# app.avatar.recreate_versions!
         = link_to app do
           = image_tag app.avatar_url(:icon50).to_s, :title => app.first_name + ' (' + app.id.to_s + ')'
     %hr/
