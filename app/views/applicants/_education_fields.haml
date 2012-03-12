@@ -1,12 +1,13 @@
 .fields_group
 
   = f.label t(:'site.user.new.education_info.start_date')
-  = f.date_select :start_date
+  = f.datepicker :start_date, :changeYear => true
 
   = f.label t(:'site.user.new.education_info.end_date')
-  = f.date_select :end_date
+  = f.datepicker :end_date, :changeYear => true
 
   %br
+
 
   = f.label t(:'site.user.new.education_info.faculty')
   = f.text_field :faculty, :size => 20

@@ -48,7 +48,8 @@ uk:
           work_experience: 'Досвід роботи'
           education: 'Освіта'
         main_info:
-          permalink: 'Пермалінк'
+          permalink: 'Нікнейм'
+          permalink_help: 'Наприклад, <b>bobrovnik-yura</b>, лише латинські символи та цифри. Без пробілів.</a>'
           new_user: 'Реєстрація'
           first_name: 'Імя'
           middle_name: 'По батькові'

@@ -21,6 +21,8 @@ gem 'therubyracer'
 gem 'gritter_notices'
 gem 'devise'
 gem 'jquery-rails'
+gem 'jquery_datepicker'
+gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 
 group :development do

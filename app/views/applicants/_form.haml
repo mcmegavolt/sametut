@@ -41,6 +41,9 @@
             = f.label t(:'site.user.new.main_info.permalink')
           .controls
             = f.text_field :permalink
+            %p.help-block
+              = t(:'site.user.new.main_info.permalink_help').html_safe
+
       .span6
         %legend Avatar
 

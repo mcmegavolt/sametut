@@ -19,6 +19,7 @@
   %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 
   = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
   /[if IE]
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
   = csrf_meta_tags
@@ -65,4 +66,3 @@
                 - else
                   = link_to '[+]', new_admin_session_path
 
-    = javascript_include_tag "application"
