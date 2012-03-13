@@ -29,7 +29,7 @@
     - applicants.each do |applicant|
       - if applicant.avatar
         = link_to applicant do
-          = image_tag applicant.avatar_url(:icon50).to_s, :title => ( applicant.first_name + ' (' + applicant.id.to_s + ')' )
+          = image_tag applicant.avatar.url(:icon50).to_s, :title => ( applicant.first_name + ' (' + applicant.id.to_s + ')' )
     %hr/
     %p
       = t(:'site.home.applicants_count')

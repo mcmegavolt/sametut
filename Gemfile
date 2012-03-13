@@ -11,14 +11,13 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'twitter-bootstrap-rails'
+  gem 'haml-rails'
 end
 
 gem 'haml'
-gem 'haml-rails'
 gem 'json'
 gem 'execjs'
 gem 'therubyracer'
-gem 'gritter_notices'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
