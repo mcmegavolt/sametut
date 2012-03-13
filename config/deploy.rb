@@ -62,7 +62,7 @@ namespace :uploads do
     and sets the proper upload permissions.
   EOD
   task :setup, :except => { :no_release => true } do
-    dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
+#    dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
     #run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
     run "#{try_sudo} mkdir -p #{shared_path}/uploads"
     run "#{try_sudo} mkdir -p #{shared_path}/uploads/applicant"
@@ -83,8 +83,8 @@ namespace :uploads do
     and registers them in Capistrano environment.
   EOD
   task :register_dirs do
-    set :uploads_dirs, ['uploads', 'uploads/applicant']
-    set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
+#    set :uploads_dirs, ['uploads', 'uploads/applicant']
+#    set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
   end
 
   after       "deploy:finalize_update", "uploads:symlink"
