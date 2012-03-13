@@ -63,7 +63,10 @@ namespace :uploads do
   EOD
   task :setup, :except => { :no_release => true } do
     dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
-    run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
+    #run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
+    run "#{try_sudo} mkdir -p #{shared_path}/uploads"
+    run "#{try_sudo} mkdir -p #{shared_path}/uploads/applicant"
+    run "#{try_sudo} chmod 0777 -R #{shared_path}/uploads"
   end
 
   desc <<-EOD
