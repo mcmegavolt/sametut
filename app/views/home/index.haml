@@ -26,10 +26,10 @@
 
   .span3
     %p.lead= t(:'site.home.already_registered_users')
-    - applicants.each do |applicant|
-      - if applicant.avatar
-        = link_to applicant do
-          = image_tag applicant.avatar.url(:icon50).to_s, :title => ( applicant.first_name + ' (' + applicant.id.to_s + ')' )
+    - for a in applicants do
+      - if a.avatar
+        = link_to a do
+          = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.id.to_s + ')' )
     %hr/
     %p
       = t(:'site.home.applicants_count')
