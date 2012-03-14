@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
 
+
+
+
+
+
+
   def applicants
     @applicants ||= Applicant.all
   end
@@ -15,6 +21,15 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :applicant
+
+
+  # In the application controller
+  protected
+  def require_user_or_admin!
+    unless user_signed_in? or admin_signed_in?
+      redirect_to root_path, :notice => t(:'devise.failure.user.unauthenticated')
+    end
+  end
 
 
 end

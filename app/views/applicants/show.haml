@@ -1,10 +1,11 @@
 - if notice
-  %p#notice.success
-    = notice
+  = notice
 .row
   .span3
     - if applicant.avatar
       = image_tag applicant.avatar_url(:thumb), :class => 'thumbnail'
+    - if admin_signed_in?
+      = link_to 'Edit', edit_applicant_path(applicant)
   .span9
     %p
       Email:

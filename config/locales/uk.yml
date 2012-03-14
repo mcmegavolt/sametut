@@ -38,6 +38,8 @@ uk:
         change_avatar: "Змінити аватар"
         save_applicant: "Зберегти зміни"
         cancel: "Відмінити"
+        profile_created: "Вітаємо! Ви створили свій профіль!"
+        profile_updated: "Ваш профіль успішно оновлено."
 
       devise:
         tools: "Інструменти"
@@ -115,6 +117,8 @@ uk:
   errors:
     messages:
       not_saved: "Виникла помилка!"
+      no_access: "Вибачте, але у Вас немає доступу до цієї сторінки"
+      already_have_applicant: "Ви вже створили свій профіль, відредагуйте його, якщо потрібно."
 
   activerecord:
     models:

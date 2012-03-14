@@ -1,5 +1,5 @@
 .row
-  .span9
+  .span7
     - if user_signed_in?
       - if current_user.applicant
         %p
@@ -24,9 +24,9 @@
 
 
 
-  .span3
+  .span5
     %p.lead= t(:'site.home.already_registered_users')
-    - for a in applicants do
+    - for a in applicants.reverse do
       - if a.avatar
         = link_to a do
           = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.id.to_s + ')' )
