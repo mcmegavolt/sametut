@@ -1,6 +1,3 @@
-- if admin_signed_in?
-  = link_to 'Hello Admin!', '#'
-
 - if user_signed_in?
   = 'Hello, ' + current_user.email
   \/
@@ -14,4 +11,3 @@
   = link_to destroy_user_session_path do
     %i.icon-off
     = t(:'site.user.devise.actions.log_out')
-%hr/

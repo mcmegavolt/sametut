@@ -5,10 +5,13 @@ uk:
   site:
     logo_text: 'СамеТут'
     home:
-      welcome_text: 'Ти ще не з нами? Приєднуйся до команди професіоналів!'
+      welcome_text_1: 'Ти ще не з нами?'
+      welcome_text_2: 'Приєднуйся до команди професіоналів!'
       already_registered_users: 'Вже зареєструвались'
       register: 'Зареєструватися'
       applicants_count: 'Всього учасників:'
+      news: "Новини"
+      test_news: "<span style=\"color: gray\">15 березня, 2012</span><br/>Раді вітати Вас на проекті &laquo;СамеТут&raquo;! Вже розпочато бета-тестування версії 0.1. Приєднуйтесь до нашої дружної команди!<br/><span style=\"color: gray; float: right\">&#8211; Автори проекту</span>"
     nav:
       back_to_site: 'На головну'
       new_user: 'Зареєструватися'
@@ -21,8 +24,8 @@ uk:
       profiles:
         applicant:
           messages:
-            no_profile: "Стан Вашого акаунту: <u>активний</u><br />Увага! Ви ще не створили профілю!"
-            is_profile: "Стан Вашого акаунту:  <u>активний</u>"
+            no_profile: "Відомості про акаунт<br/>Увага! Ви ще не створили профіль!"
+            is_profile: "Відомості про акаунт<br/><u>активний</u>"
           actions:
             edit_profile: "Редагувати профіль..."
             create_profile: "Створити профіль пошукача..."
@@ -34,7 +37,7 @@ uk:
         avatar: "Аватар"
         current_avatar: "Поточний аватар"
         additional_info: "Додаткова іформація"
-        video_help: "Посилання на відео в Youtube, Vimeo та інших."
+        video_help: "Youtube, Vimeo та інших. <br/>Наприклад: <a href=\"http://www.youtube.com/watch?v=mBY5iHcc1DU\" target=\"_blank\">http://www.youtube.com/watch?v=mBY5iHcc1DU</a>"
         change_avatar: "Змінити аватар"
         save_applicant: "Зберегти зміни"
         cancel: "Відмінити"

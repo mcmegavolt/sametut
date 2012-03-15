@@ -2,24 +2,34 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- * jquery-ui/ui-lightness
 
  *= require_self
  *= require bootstrap_and_overrides
-
+ *= jquery-ui/ui-lightness
 */
 
 
 body {
-
     background-image: url("bg-colors-line.png");
     background-repeat: repeat-x;
     background-position: top;
     padding-top: 10px;
 
-}
+    div.grid-bg {
+        background: url("bg-grid.png");
+        background-repeat: repeat-x;
+        background-position: top;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    .main-nav {
+        margin-top: 30px;
+    }   
 
 
-.main-nav {
-    margin-top: 20px;
+
+
 }

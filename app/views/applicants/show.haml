@@ -63,6 +63,6 @@
 .row
   .span12
     - if applicant.profile.video_url.to_s != ""
-      %iframe{:allowfullscreen => "1", :frameborder => "0", :height => "349", :width => "560", :src => applicant.profile.video_url}
+      = UrlToMediaTag.convert(applicant.profile.video_url, :width => 480, :height => 320)
     - else
       No video presentation

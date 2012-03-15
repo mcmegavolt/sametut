@@ -23,28 +23,28 @@
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
   = csrf_meta_tags
 
-  %body{:style => "padding-top: 60px"}
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to t(:'site.logo_text'), root_path, :class => 'brand'
-          .nav-collapse
-            %ul.nav
-              = render :partial => '/shared/admin_top_nav'
+%body{:style => "padding-top: 60px"}
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        = link_to t(:'site.logo_text'), root_path, :class => 'brand'
+        .nav-collapse
+          %ul.nav
+            = render :partial => '/shared/admin_top_nav'
 
 
 
 
-    .container
-      .content
-        = yield
+  .container
+    .content
+      = yield
 
-        .row
-          .span12
-            .footer
-              %hr/
-              %p
-                SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
-                = link_to 'Go to Front Page', root_path
+      .row
+        .span12
+          .footer
+            %hr/
+            %p
+              SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
+              = link_to 'Go to Front Page', root_path
 
-    = javascript_include_tag "application"
+  = javascript_include_tag "application"

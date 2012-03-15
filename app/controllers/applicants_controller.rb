@@ -41,7 +41,7 @@ class ApplicantsController < ApplicationController
 
   def update
      if applicant.update_attributes(params[:applicant])
-       redirect_to root_url, :notice => t(:'site.user.edit_profile.profile_updated')
+       redirect_to applicant_path, :notice => t(:'site.user.edit_profile.profile_updated')
      else
        render :action => "edit"
      end
@@ -51,7 +51,6 @@ class ApplicantsController < ApplicationController
      applicant.destroy
      redirect_to root_url
   end
-
 
 
 end

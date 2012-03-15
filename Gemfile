@@ -14,6 +14,7 @@ group :assets do
   gem 'haml-rails'
 end
 
+gem 'url_to_media_tag'
 gem 'haml'
 gem 'json'
 gem 'execjs'
