@@ -1,5 +1,9 @@
 - if user_signed_in?
-  = t(:'site.user.toolbar.hello') + current_user.applicant.first_name + '!'
+  = t(:'site.user.toolbar.hello')
+  - if current_user.applicant
+    = current_user.applicant.first_name + '!'
+  - else
+    = current_user.email + '!'
   &nbsp;
   - if current_user.applicant
     = link_to applicant_path(current_user.applicant) do
