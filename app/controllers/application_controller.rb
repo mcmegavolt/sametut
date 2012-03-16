@@ -27,7 +27,8 @@ class ApplicationController < ActionController::Base
   protected
   def require_user_or_admin!
     unless user_signed_in? or admin_signed_in?
-      redirect_to root_path, :notice => t(:'devise.failure.user.unauthenticated')
+      flash[:error] = t(:'devise.failure.user.unauthenticated')
+      redirect_to root_path
     end
   end
 
