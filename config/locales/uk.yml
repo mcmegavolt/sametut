@@ -21,6 +21,12 @@ uk:
 
     user:
 
+      toolbar:
+        hello: "Вітаємо, "
+        my_profile: "Мій профіль"
+        change_pass: "Змінити пароль"
+        edit_profile: "Редагувати профіль"
+
       profiles:
         applicant:
           messages:

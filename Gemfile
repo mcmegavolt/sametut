@@ -5,15 +5,6 @@ gem 'mysql2'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'capistrano'
-
-group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
-  gem 'twitter-bootstrap-rails'
-  gem 'haml-rails'
-end
-
 gem 'url_to_media_tag'
 gem 'haml'
 gem 'json'
@@ -24,6 +15,14 @@ gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
+
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+  gem 'haml-rails'
+  gem 'twitter-bootstrap-rails', '2.0.1'
+end
 
 group :development do
   gem "letter_opener"

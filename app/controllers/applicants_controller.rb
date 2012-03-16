@@ -15,13 +15,15 @@ class ApplicantsController < ApplicationController
       applicant.work_experiences.build
       applicant.educations.build
     else
-      redirect_to edit_applicant_path(current_user.applicant), :notice => t(:'errors.messages.already_have_applicant')
+      flash[:error] = t(:'errors.messages.already_have_applicant')
+      redirect_to edit_applicant_path(current_user.applicant)
     end
   end
 
   def edit
      unless applicant.user == current_user || admin_signed_in?
-        redirect_to root_url, :notice => t(:'errors.messages.no_access')
+       flash[:error] = t(:'errors.messages.no_access')
+       redirect_to root_url
      else
        applicant.build_profile unless applicant.profile
        applicant.social_activities.build
@@ -33,7 +35,8 @@ class ApplicantsController < ApplicationController
   def create
     applicant.user_id = current_user.id
     if applicant.save
-       redirect_to root_url, :notice => t(:'site.user.edit_profile.profile_created')
+       flash[:success] = t(:'site.user.edit_profile.profile_created')
+       redirect_to root_url
      else
        render :action => "new"
      end
@@ -41,7 +44,8 @@ class ApplicantsController < ApplicationController
 
   def update
      if applicant.update_attributes(params[:applicant])
-       redirect_to applicant_path, :notice => t(:'site.user.edit_profile.profile_updated')
+       flash[:success] = t(:'site.user.edit_profile.profile_updated')
+       redirect_to applicant_path
      else
        render :action => "edit"
      end

@@ -87,7 +87,7 @@ GEM
     less (2.0.11)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
-    less-rails (2.1.7)
+    less-rails (2.1.8)
       actionpack (>= 3.1)
       less (~> 2.0.7)
     letter_opener (0.0.2)
@@ -158,9 +158,9 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.3)
       ansi
-    twitter-bootstrap-rails (2.0.3)
+    twitter-bootstrap-rails (2.0.1)
       actionpack (>= 3.1)
-      less-rails (~> 2.1.6)
+      less-rails (~> 2.1.5)
       railties (>= 3.1)
     tzinfo (0.3.32)
     uglifier (1.2.3)
@@ -192,7 +192,7 @@ DEPENDENCIES
   sass-rails (~> 3.1.0)
   therubyracer
   turn
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails (= 2.0.1)
   uglifier
   ukrainian!
   url_to_media_tag

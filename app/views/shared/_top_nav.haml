@@ -1,13 +1,19 @@
 - if user_signed_in?
-  = 'Hello, ' + current_user.email
-  \/
-  = link_to edit_user_registration_path do
-    %i.icon-pencil
-    Edit email/pass
-  \/
+  = t(:'site.user.toolbar.hello') + current_user.applicant.first_name + '!'
+  &nbsp;
   - if current_user.applicant
-    = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => 'positive button'
-    \/
+    = link_to applicant_path(current_user.applicant) do
+      %i.icon-user
+      = t(:'site.user.toolbar.my_profile')
+    &nbsp;
+    = link_to edit_applicant_path(current_user.applicant), :class => 'positive button' do
+      %i.icon-pencil
+      = t(:'site.user.toolbar.edit_profile')
+    &nbsp;
+  = link_to edit_user_registration_path do
+    %i.icon-cog
+    = t(:'site.user.toolbar.change_pass')
+    &nbsp;
   = link_to destroy_user_session_path do
     %i.icon-off
     = t(:'site.user.devise.actions.log_out')

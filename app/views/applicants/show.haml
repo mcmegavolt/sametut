@@ -5,7 +5,9 @@
     - if applicant.avatar
       = image_tag applicant.avatar_url(:thumb), :class => 'thumbnail'
     - if admin_signed_in?
-      = link_to 'Edit', edit_applicant_path(applicant)
+      = link_to  edit_applicant_path(applicant) do
+        %i.icon-resize-vertical
+        Edit
   .span9
     %p
       Email:
