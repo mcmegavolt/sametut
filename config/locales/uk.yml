@@ -50,6 +50,11 @@ uk:
         profile_created: "Вітаємо! Ви створили свій профіль!"
         profile_updated: "Ваш профіль успішно оновлено."
 
+      show_profile:
+        hidden: "Приховано"
+        full_name: "ПІБ"
+        main_info: "Основна інформація"
+
       devise:
         tools: "Інструменти"
         sign_in: "Вхід до системи"

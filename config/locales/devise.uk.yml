@@ -40,7 +40,7 @@ uk:
       signed_up_but_locked: 'Нажаль, Ваш акаунт заблоковано'
       updated: 'Ваш акаунт успішно оновлено.'
       update_needs_confirmation: "Ваш акаунт успішно оновлено, але нам потрібно перевірити Вашу нову електронну адресу. На неї було вислано іструкцію з активації."
-      destroyed: 'До зустрічі! Ваш акаунт знищено. Маємо надію, побачити Вас тут знову.'
+      destroyed: 'До зустрічі! Ваш акаунт знищено. Маємо надію побачити Вас тут знову.'
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
       unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'

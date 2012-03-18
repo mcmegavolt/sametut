@@ -6,61 +6,130 @@
       = image_tag applicant.avatar_url(:thumb), :class => 'thumbnail'
     - if admin_signed_in?
       = link_to  edit_applicant_path(applicant) do
-        %i.icon-resize-vertical
+        %i.icon-pencil
         Edit
-  .span9
-    %p
-      Email:
-      %b
-        = applicant.user.email
-    %p
-      %b
-        ID:
-      = applicant.user.id
+  .span7
 
-    - if applicant
-      %p
-        %b
-          Name:
-        = applicant.first_name
-        = applicant.middle_name
-        = applicant.last_name
-      %p
-        %b
-          Birth date:
-        = applicant.profile.birth_date
-      %p
-        %b Birth Location:
-        = Address::City.find_by_id(applicant.profile.birth_location_id)
-      %p
-        %b Current Location:
-        = Address::City.find_by_id(applicant.profile.current_location_id)
-      %p
-        %b
-          Education:
-        %ol
+    %ul#ProfileTabs.nav.nav-tabs
+      %li.active
+        %a( href = "#main-info" data-toggle = "tab" )
+          = t(:'site.user.show_profile.main_info')
+      %li
+        %a( href = "#education" data-toggle = "tab" )
+          = t(:'site.user.new.headers.education')
+      %li
+        %a( href = "#work-exp" data-toggle = "tab" )
+          = t(:'site.user.new.headers.work_experience')
+      %li
+        %a( href = "#soc-act" data-toggle = "tab" )
+          = t(:'site.user.new.headers.social_activities')
+
+
+
+    #myTabContent.tab-content
+      #main-info.tab-pane.fade.active.in
+        %table.table.table-striped.table-condensed
+          %tr
+            %td
+              %b
+                Email:
+            %td
+              - if current_user == applicant.user || admin_signed_in?
+                = applicant.user.email
+              - else
+                = t(:'site.user.show_profile.hidden')
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.main_info.permalink')
+            %td
+              - if applicant.permalink
+                = applicant.permalink
+          %tr
+            %td
+              %b
+                = t(:'site.user.show_profile.full_name')
+            %td
+              - if applicant.first_name
+                = applicant.first_name
+              - if applicant.middle_name
+                = applicant.middle_name
+              - if applicant.last_name
+                = applicant.last_name
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.main_info.birth_date')
+            %td
+              - if applicant.profile.birth_date
+                = applicant.profile.birth_date.to_s(:long)
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.main_info.birth_location')
+            %td
+              = Address::City.find_by_id(applicant.profile.birth_location_id)
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.main_info.current_location')
+            %td
+              = Address::City.find_by_id(applicant.profile.current_location_id)
+      #education.tab-pane.fade
+        %table.table.table-striped.table-condensed
+
+          %th
+            Name
+          %th
+            Start
+          %th
+            End
+          %th
+            Faculty
+          %th
+            Degree
           - for education in applicant.educations
-            %li
-              = education.school.name
-      %p
-        %b
-          Social Activities:
-        %ol
-          - for social_activity in applicant.social_activities
-            %li
-              = social_activity.activity_type
-              = social_activity.duties
-              = social_activity.position
-      %p
-        %b
-          Work Experiences
-        %ol
-          - for work_experience in applicant.work_experiences
-            %li
-              = work_experience.start_date
-              = work_experience.end_date
-              = work_experience.organization
-              = work_experience.position
+            %tr
+              %td
+                %b
+                  = education.school.name
+              %td
+                = education.start_date
+              %td
+                = education.end_date
+              %td
+                = education.faculty
+              %td
+                = EducationDegreeLevel.find_by_id(education.education_degree_level_id).education_degree_level
+      #work-exp.tab-pane.fade
+        %table.table.table-striped.table-condensed
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.headers.work_experience')
+            %td
+              %ol
+                - for work_experience in applicant.work_experiences
+                  %li
+                    = work_experience.start_date
+                    = work_experience.end_date
+                    = work_experience.organization
+                    = work_experience.position
+      #soc-act.tab-pane.fade
+        %table.table.table-striped.table-condensed
+          %tr
+            %td
+              %b
+                = t(:'site.user.new.headers.social_activities')
+            %td
+              %ol
+                - for social_activity in applicant.social_activities
+                  %li
+                    = social_activity.activity_type
+                    = social_activity.duties
+                    = social_activity.position
+
+
 %hr/
 .row
   .span12
