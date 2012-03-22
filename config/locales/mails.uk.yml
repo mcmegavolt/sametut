@@ -1,0 +1,9 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+uk:
+  mails:
+    basic:
+      welcome: "Вітаємо, "
+    confirmation:
+      instruction: "Щоб підтвердити свій акаунт на СамеТут натисніть на посилання нижче:"
+      link: "Підтвердити мій акаунт"

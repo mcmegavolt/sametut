@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :applicant
 
 
+  def online?
+  updated_at > 10.minutes.ago
+  end
 
 
 end

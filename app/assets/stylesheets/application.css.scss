@@ -8,6 +8,13 @@
  *= require_tree .
 */
 
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+
+
 
 body {
     background-image: url("bg-colors-line.png");
@@ -29,6 +36,19 @@ body {
         margin-top: 30px;
     }   
 
+
+    .online-blink {
+        -webkit-animation-name: blinker;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+        -webkit-animation-duration: 1s;
+        background-color: green;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        width: 12px;
+        height: 12px;
+    }
 
 
 

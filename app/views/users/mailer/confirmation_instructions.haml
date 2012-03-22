@@ -1,0 +1,10 @@
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    = stylesheet_link_tag "application"
+  %body
+    = link_to root_path do
+      = image_tag 'logo.png'
+    %p= t(:'mails.basic.welcome') + @resource.email + '!'
+    %p= t(:'mails.confirmation.instruction')
+    %p= link_to t(:'mails.confirmation.link'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

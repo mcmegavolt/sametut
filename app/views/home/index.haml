@@ -1,17 +1,27 @@
 .row
   .span4
     - if user_signed_in?
-      - if current_user.applicant
-        %p.lead
-          = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
-        %p
-          = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn btn-info btn-large"
-      - else
-        %p.lead
-          = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
-        %p
-          = link_to t(:'site.user.profiles.applicant.actions.create_profile'), new_applicant_path, :class => "btn btn-large btn-success"
+      - if current_user.user_type_id == 1
 
+        - if current_user.applicant
+          %p.lead
+            = t(:'site.user.profiles.applicant.messages.is_profile').html_safe
+          %p
+            = link_to t(:'site.user.profiles.applicant.actions.edit_profile'), edit_applicant_path(current_user.applicant), :class => "btn btn-info btn-large"
+        - else
+          %p.lead
+            = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
+          %p
+            = link_to t(:'site.user.profiles.applicant.actions.create_profile'), new_applicant_path, :class => "btn btn-large btn-success"
+      - else
+        %p.lead= t(:'site.user.profiles.school.messages.home_title')
+        .alert.alert-error= t(:'site.user.profiles.school.messages.no_features')
+        .alert.alert-info= t(:'site.user.profiles.school.messages.how_to_change_user_type')
+        %p
+          = t(:'site.user.profiles.school.messages.your_user_type')
+          %br
+          %b
+            = UserType.find_by_id(current_user.user_type_id).user_type_name
 
 
     - else
@@ -78,7 +88,8 @@
                 %td
                   = user.email
                 %td
-                  = user.user_type_id?
+                  - if user.user_type_id?
+                    = UserType.find_by_id(user.user_type_id).id
                 %td
                   - if user.confirmed_at?
                     Yes
@@ -91,8 +102,7 @@
                     No profile
 
                 %td
-                  - if user.current_sign_in_at
-                    - if user.current_sign_in_at > 1.minutes.ago
-                      + + +
+                  - if user.online?
+                    .online-blink
                 %td
                   = user.sign_in_count

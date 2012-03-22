@@ -1,35 +1,42 @@
-Edit
-= resource_name.to_s.humanize
-
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' } do |f|
   = devise_error_messages!
 
-  %div
-    = f.label :email
-    = f.email_field :email
+  .row
+    .span6
+      %fieldset
+        %legend= t(:'site.user.devise.edit.title')
+        .control-group
+          = f.label :email, :class => 'label-control'
+          .controls
+            = f.email_field :email
 
-  %div
-    = f.label :password do
-      %i (leave blank if you don't want to change it)
-    = f.password_field :password
+        .control-group
+          = f.label t(:'site.user.devise.edit.new_pass'), :class => 'label-control'
+          .controls
+            = f.password_field :password
+            %p.help-block=t(:'site.user.devise.edit.leave_blank')
+        .control-group
+          = f.label t(:'site.user.devise.edit.new_pass_confirm')
+          .controls
+            = f.password_field :password_confirmation, :class => 'label-control'
 
-  %div
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-
-  %div
-    = f.label :current_password do
-      %i (we need your current password to confirm your changes)
-    = f.password_field :current_password
-
-  %div
-    = f.submit "Update"
+        .control-group
+          = f.label t(:'site.user.devise.edit.current_pass'), :class => 'label-control'
+          .controls
+            = f.password_field :current_password
+            %p.help-block=t(:'site.user.devise.edit.current_pass_help')
 
 
-%h3 Cancel my account
 
-%p
-  Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+    .span6
+      %fieldset
+        %legend= t(:'site.user.devise.cancel_account.title')
+        .control-group
+          %p
+            = t(:'site.user.devise.cancel_account.unhappy')
+            = link_to t(:'site.user.devise.cancel_account.cancel_my_account'), registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
 
-= link_to "Back", :back
+  .row
+    .span12
+      .form-actions
+        = f.submit t(:'site.user.devise.edit.update'), :class => 'btn btn-large btn-primary'

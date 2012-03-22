@@ -19,7 +19,15 @@
         .control-group
           = f.label :user_type_id, :class => 'control-label'
           .controls
-            = f.select :user_type_id, UserType.all.collect {|t| [ t.user_type_name, t.id ] }, {:prompt => '-- select --'}, :class => 'span4'
+            - UserType.all.each do |select_type|
+              %label.radio
+                = f.radio_button :user_type_id, UserType.find_by_id(select_type.id)
+                = select_type.user_type_name
+
+
+
+
+
 
     .span5
       %legend= t(:'site.user.devise.tools')

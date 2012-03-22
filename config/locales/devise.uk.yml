@@ -13,22 +13,22 @@ uk:
 
   devise:
     failure:
-      already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      already_authenticated: 'Ви вже увійшли до системи.'
+      unauthenticated: 'Вам потрібно увійти до системи чи зареєструватися, щоб продовжувати далі.'
+      unconfirmed: 'Ви повинні підтвердити ваш акаунт перед тим, щоб продовжувати далі.'
+      locked: 'Ваш акаунт блоковано.'
+      invalid: 'Ви ввели невірний email чи пароль.'
+      invalid_token: 'Невірний authentication token.'
+      timeout: 'Час Вашої сесії витік. Будь-ласка, увійдіть до системи.'
+      inactive: 'Ваш акаунт ще не активовано'
     sessions:
       signed_in: 'Ви успішно увійшли до системи.'
       signed_out: 'Ви успішно вийшли із системи.'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
-      updated_not_active: 'Your password was changed successfully.'
-      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+      send_instructions: 'Ви отримаєте листа на електронну адресу з інструкціями по скидуванню паролю за декілька хвилин.'
+      updated: 'Ваш пароль було успішно змінено. Ви автоматично увійшли до системи.'
+      updated_not_active: 'Ваш пароль було успішно змінено.'
+      send_paranoid_instructions: "Якщо вказаний email наявний в нашій базі, Ви отримаєте листа з інструкціями по нагадуванню паролю."
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
@@ -42,16 +42,16 @@ uk:
       update_needs_confirmation: "Ваш акаунт успішно оновлено, але нам потрібно перевірити Вашу нову електронну адресу. На неї було вислано іструкцію з активації."
       destroyed: 'До зустрічі! Ваш акаунт знищено. Маємо надію побачити Вас тут знову.'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'
+      send_instructions: 'Ви отримаєте лист на свій email з приводу розблокування акаунту за декілька хвилин.'
+      unlocked: 'Ваш акаунт успішно розблоковано. Будь-ласка, увійдіть до системи.'
       send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
     omniauth_callbacks:
       success: 'Successfully authorized from %{kind} account.'
       failure: 'Could not authorize you from %{kind} because "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Інструкції підтвердження акаунту'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Інструкції по скидуванню паролю.'
       unlock_instructions:
-        subject: 'Unlock Instructions'
+        subject: 'Інструкції по розблокуванню акаунту'
