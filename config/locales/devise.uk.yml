@@ -50,8 +50,8 @@ uk:
       failure: 'Could not authorize you from %{kind} because "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: 'Інструкції підтвердження акаунту'
+        subject: 'СамеТут - інструкції підтвердження акаунту'
       reset_password_instructions:
-        subject: 'Інструкції по скидуванню паролю.'
+        subject: 'СамеТут - інструкції по скидуванню паролю.'
       unlock_instructions:
-        subject: 'Інструкції по розблокуванню акаунту'
+        subject: 'СамеТут - інструкції по розблокуванню акаунту'

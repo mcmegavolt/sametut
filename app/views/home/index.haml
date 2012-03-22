@@ -21,7 +21,7 @@
           = t(:'site.user.profiles.school.messages.your_user_type')
           %br
           %b
-            = UserType.find_by_id(current_user.user_type_id).user_type_name
+            = UserType.find_by_id(current_user.user_type_id).user_type_name.to_s
 
 
     - else

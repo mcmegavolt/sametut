@@ -21,7 +21,7 @@
           .controls
             - UserType.all.each do |select_type|
               %label.radio
-                = f.radio_button :user_type_id, UserType.find_by_id(select_type.id)
+                = f.radio_button :user_type_id, select_type.id
                 = select_type.user_type_name
 
 
