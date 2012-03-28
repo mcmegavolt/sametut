@@ -150,6 +150,11 @@ uk:
       not_saved: "Виникла помилка!"
       no_access: "Вибачте, але у Вас немає доступу до цієї сторінки"
       already_have_applicant: "Ви вже створили свій профіль, відредагуйте його, якщо потрібно."
+      wrong_size: "має надто великий розмір (максимально %{file_size})"
+      size_too_small: "is too small (повинен бути щонайменше %{file_size})"
+      size_too_big: "надто великий (максимально %{file_size})"
+
+
 
   activerecord:
     models:
