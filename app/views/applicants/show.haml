@@ -59,6 +59,13 @@
           %tr
             %td
               %b
+                = t(:'site.user.new.main_info.gender')
+            %td
+              = t(:'site.user.new.main_info.male') if applicant.profile.gender == 1
+              = t(:'site.user.new.main_info.female') if applicant.profile.gender == 2
+          %tr
+            %td
+              %b
                 = t(:'site.user.new.main_info.birth_date')
             %td
               - if applicant.profile.birth_date

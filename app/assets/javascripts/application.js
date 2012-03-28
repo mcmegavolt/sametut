@@ -11,11 +11,30 @@
 //= require_tree .
 
 
+//
+//
+//function remove_fields(link) {
+//    $(link).prev("input[type=hidden]").val("1");
+//    $(link).closest(".fields_group").toggle("fold")
+//}
+//
+//function add_fields(link, association, content) {
+//    var new_id = new Date().getTime();
+//    var regexp = new RegExp("new_" + association, "g");
+//    $(link).parent().before(content.replace(regexp, new_id));
+//}
+
+
 
 
 function remove_fields(link) {
     $(link).prev("input[type=hidden]").val("1");
-    $(link).closest(".fields_group").toggle("fold")
+    $(link).closest(".control-group").fadeOut();
+}
+
+function remove_fieldset(link) {
+    $(link).prev("input[type=hidden]").val("1");
+    $(link).closest("fieldset").fadeOut();
 }
 
 function add_fields(link, association, content) {
@@ -23,5 +42,3 @@ function add_fields(link, association, content) {
     var regexp = new RegExp("new_" + association, "g");
     $(link).parent().before(content.replace(regexp, new_id));
 }
-
-

@@ -1,77 +1,85 @@
 = form_for applicant, :html => {:class => 'form-horizontal'} do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => applicant }
 
+  .row
+    .span6
+      %legend
+        = t(:'site.user.edit_profile.applicant')
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.first_name')
+        .controls
+          = f.text_field :first_name
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.middle_name')
+        .controls
+          = f.text_field :middle_name
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.last_name')
+        .controls
+          = f.text_field :last_name
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.permalink')
+        .controls
+          = f.text_field :permalink
+          %p.help-block
+            = t(:'site.user.new.main_info.permalink_help').html_safe
 
-  .fieldset
-    .row
-      .span6
-        %legend
-          = t(:'site.user.edit_profile.applicant')
+    .span6
+      %legend
+        = t(:'site.user.edit_profile.avatar')
+
+      .control-group
+        %label
+          = t(:'site.user.edit_profile.current_avatar')
+        .controls
+          .span2.thumbnail
+            = image_tag(applicant.avatar_url(:thumb)) if applicant.avatar?
+
+      .control-group
+        %label
+          = t(:'site.user.edit_profile.change_avatar')
+        .controls
+          = f.file_field :avatar
+          = f.hidden_field :avatar_cache
+      - if applicant.avatar?
         .control-group
-          %label{:class => 'control-label'}
-            = f.label t(:'site.user.new.main_info.first_name')
+          %label.control-label
+            = t(:'site.user.edit_profile.delete_avatar')
           .controls
-            = f.text_field :first_name
-        .control-group
-          %label{:class => 'control-label'}
-            = f.label t(:'site.user.new.main_info.middle_name')
-          .controls
-            = f.text_field :middle_name
-        .control-group
-          %label{:class => 'control-label'}
-            = f.label t(:'site.user.new.main_info.last_name')
-          .controls
-            = f.text_field :last_name
-        .control-group
-          %label{:class => 'control-label'}
-            = f.label t(:'site.user.new.main_info.permalink')
-          .controls
-            = f.text_field :permalink
-            %p.help-block
-              = t(:'site.user.new.main_info.permalink_help').html_safe
+            = f.check_box :remove_avatar
 
-      .span6
-        %legend
-          = t(:'site.user.edit_profile.avatar')
+  %legend
+    = t(:'site.user.edit_profile.additional_info')
+  = f.fields_for :profile do |p|
+    = render 'profile_fields', :p => p
+  %legend
+    = t(:'site.user.new.headers.education')
+  = f.fields_for :educations do |ed|
+    = render 'education_fields', :f => ed
+  %p
+    %i.icon-plus-sign
+    = link_to_add_fields t(:'site.user.new.actions.add'), f, :educations
 
-        .control-group
-          %label
-            = t(:'site.user.edit_profile.current_avatar')
-          .controls
-            .span2.thumbnail
-              = image_tag(applicant.avatar_url(:thumb)) if applicant.avatar?
 
-        .control-group
-          %label
-            = t(:'site.user.edit_profile.change_avatar')
-          .controls
-            = f.file_field :avatar
-            = f.hidden_field :avatar_cache
+  %legend
+    = t(:'site.user.new.headers.social_activities')
+  = f.fields_for :social_activities do |sa|
+    = render 'social_activity_fields', :f => sa
+  %p
+    %i.icon-plus-sign
+    = link_to_add_fields t(:'site.user.new.actions.add'), f, :social_activities
 
-    %legend
-      = t(:'site.user.edit_profile.additional_info')
-    = f.fields_for :profile do |p|
-      = render 'profile_fields', :p => p
-    %legend
-      = t(:'site.user.new.headers.education')
-    = f.fields_for :educations do |ed|
-      = render 'education_fields', :f => ed
-    %p
-      = link_to_add_fields t(:'site.user.new.actions.add'), f, :educations
-
-    %legend
-      = t(:'site.user.new.headers.social_activities')
-    = f.fields_for :social_activities do |sa|
-      = render 'social_activity_fields', :f => sa
-    %p
-      = link_to_add_fields t(:'site.user.new.actions.add'), f, :social_activities
-
-    %legend
-      = t(:'site.user.new.headers.work_experience')
-    = f.fields_for :work_experiences do |we|
-      = render 'work_experience_fields', :f => we
-    %p
-      = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences
+  %legend
+    = t(:'site.user.new.headers.work_experience')
+  = f.fields_for :work_experiences do |we|
+    = render 'work_experience_fields', :f => we
+  %p
+    %i.icon-plus-sign
+    = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences
 
   .form-actions
     = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'

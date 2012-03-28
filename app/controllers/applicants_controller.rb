@@ -26,9 +26,9 @@ class ApplicantsController < ApplicationController
        redirect_to root_url
      else
        applicant.build_profile unless applicant.profile
-       applicant.social_activities.build
-       applicant.work_experiences.build
-       applicant.educations.build
+       applicant.social_activities.build unless applicant.social_activities
+       applicant.work_experiences.build unless applicant.work_experiences
+       applicant.educations.build unless applicant.educations
      end
   end
 

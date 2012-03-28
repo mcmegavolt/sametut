@@ -48,9 +48,10 @@ uk:
         applicant: "Пошукач"
         avatar: "Аватар"
         current_avatar: "Поточний аватар"
-        additional_info: "Додаткова іформація"
+        additional_info: "Додаткова інформація"
         video_help: "Youtube, Vimeo та інших. <br/>Наприклад: <a href=\"http://www.youtube.com/watch?v=mBY5iHcc1DU\" target=\"_blank\">http://www.youtube.com/watch?v=mBY5iHcc1DU</a>"
         change_avatar: "Змінити аватар"
+        delete_avatar: "Видалити аватар"
         save_applicant: "Зберегти зміни"
         cancel: "Відмінити"
         profile_created: "Вітаємо! Ви створили свій профіль!"
@@ -103,6 +104,9 @@ uk:
           first_name: 'Імя'
           middle_name: 'По батькові'
           last_name: 'Прізвище'
+          gender: 'Стать'
+          male: 'Чоловік'
+          female: 'Жінка'
           birth_date: 'Дата народження'
           birth_location: 'Місто народження'
           current_location: 'Місто проживання'
@@ -111,7 +115,7 @@ uk:
           start_date: 'Дата вступу'
           end_date: 'Дата закінчення'
           faculty: 'Факультет'
-          school_name: 'Назва навчального закладу'
+          school_name: 'Навчальний заклад'
           degree_level: 'Рівень освіти'
           school_type: 'Тип закладу'
         social_activities:
@@ -121,13 +125,13 @@ uk:
         work_experience:
           start_date: 'Початок роботи'
           end_date: 'Кінець роботи'
-          organization_name: 'Назва організвції'
+          organization_name: 'Назва організації'
           position: 'Посада'
           duties: 'Обовязки'
         actions:
           submit: 'Відправити'
           cancel: 'Відміна'
-          add: '+ Додати ще'
+          add: 'Додати'
           remove: 'Видалити'
         selectors:
           day: 'Оберіть число'

@@ -40,7 +40,7 @@
     - for a in applicants.reverse do
       - if a.avatar
         = link_to a do
-          = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.id.to_s + ')' )
+          = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.profile.gender.to_s + ')' )
 
     %p
       = t(:'site.home.applicants_count')
