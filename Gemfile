@@ -16,14 +16,14 @@ gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
-gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'twitter-bootstrap-rails', '2.0.1'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'haml-rails'
-  gem 'twitter-bootstrap-rails', '2.0.1'
+
 end
 
 group :development do
