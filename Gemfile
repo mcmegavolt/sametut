@@ -14,7 +14,6 @@ gem 'therubyracer'
 gem 'devise'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
-gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'twitter-bootstrap-rails', '2.0.1'
 
