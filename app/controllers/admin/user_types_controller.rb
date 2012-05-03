@@ -1,6 +1,5 @@
-class Admin::UserTypesController < ApplicationController
+class Admin::UserTypesController < Admin::DashboardController
 
-  layout 'admin'
 
   def index
   end

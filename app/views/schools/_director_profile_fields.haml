@@ -1,0 +1,38 @@
+.control-group
+  %label{:class => 'control-label'}
+    Name
+  .controls
+    = p.text_field :name, :class => 'span5'
+    %p.help-block
+.control-group
+  %label{:class => 'control-label'}
+    = p.label t(:'site.user.new.main_info.gender')
+  .controls
+    %label.radio
+      = p.radio_button :gender, 1, :checked => true
+      = t(:'site.user.new.main_info.male')
+    %label.radio
+      = p.radio_button :gender, 2
+      = t(:'site.user.new.main_info.female')
+%legend
+  = t(:'site.user.edit_profile.avatar')
+
+.control-group
+  %label
+    = t(:'site.user.edit_profile.current_avatar')
+  .controls
+    .span2.thumbnail
+      = image_tag(school.director_profile.director_photo_url(:thumb))
+
+.control-group
+  %label
+    = t(:'site.user.edit_profile.change_avatar')
+  .controls
+    = p.file_field :director_photo
+    = p.hidden_field :director_photo_cache
+- if school.director_profile.director_photo?
+  .control-group
+    %label.control-label
+      = t(:'site.user.edit_profile.delete_avatar')
+    .controls
+      = p.check_box :remove_director_photo

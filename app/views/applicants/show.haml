@@ -75,13 +75,13 @@
               %b
                 = t(:'site.user.new.main_info.birth_location')
             %td
-              = Address::City.find_by_id(applicant.profile.birth_location_id)
+              = City.find_by_id(applicant.profile.birth_location_id)
           %tr
             %td
               %b
                 = t(:'site.user.new.main_info.current_location')
             %td
-              = Address::City.find_by_id(applicant.profile.current_location_id)
+              = City.find_by_id(applicant.profile.current_location_id)
       #education.tab-pane.fade
         %table.table.table-striped.table-condensed
 

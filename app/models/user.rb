@@ -12,8 +12,9 @@ class User < ActiveRecord::Base
 
   has_one :applicant, :dependent => :destroy
 
-  accepts_nested_attributes_for :applicant
+  has_one :school, :dependent => :destroy
 
+  accepts_nested_attributes_for :applicant
 
   def online?
   updated_at > 10.minutes.ago

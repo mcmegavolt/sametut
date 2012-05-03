@@ -37,10 +37,14 @@ uk:
             create_profile: "Створити профіль пошукача..."
         school:
           messages:
-            home_title: "Відомості про акаунт"
+            no_profile: "Відомості про акаунт<br/>Увага! Ви ще не створили профіль навчального закладу!"
+            is_profile: "Відомості про акаунт<br/><u>активний</u>"
             no_features: "Для Вашого типу акаунту немає функцій. Ми працюємо над цим."
             how_to_change_user_type: "Щоб змінити тип акаунту потрібно видалити поточний та зареєструватись наново."
             your_user_type: "Ви зареєстровані, як"
+          actions:
+            edit_profile: "Редагувати профіль..."
+            create_profile: "Створити профіль навчального закладу..."
 
 
       edit_profile:
@@ -145,9 +149,13 @@ uk:
 
   admin:
     nav:
-      locations: 'Локації'
+      locations: 'Населені пункти'
+      regions: 'Райони'
       categories: 'Категорії'
-
+      schools: 'Школи'
+      school_types: 'Типи шкіл'
+      user_types: 'Типи користувачів'
+      news: 'Новини'
 
   errors:
     messages:

@@ -1,0 +1,17 @@
+- if notice
+  %p#notice.success
+    = notice
+
+%p
+  = region.name
+%p
+  - unless region.root?
+    Region Cities:
+    - for city in region.cities do
+      = city.name
+  - else
+    Regions:
+    - for region in region.roots do
+      = region.name
+
+= link_to 'Edit', edit_admin_region_path(region)

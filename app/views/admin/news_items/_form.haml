@@ -1,0 +1,17 @@
+= form_for news_item, :url => news_item.new_record? ? admin_news_items_path : admin_news_item_path(news_item)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => news_item }
+  %p
+    Title
+  %p
+    = f.text_field :title, :class => 'span8'
+  %p
+    Body
+  %p
+    = f.text_area :body, :class => 'span8'
+  %p
+    Date
+  %p
+    = f.datetime_select :released_at
+
+  .form-actions
+    = f.submit

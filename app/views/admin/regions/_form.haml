@@ -1,0 +1,13 @@
+= form_for region, :url => region.new_record? ? admin_regions_path : admin_region_path(region)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => region }
+  %table
+    %tr
+      %td
+        .field
+          = f.label :name, 'Region Name'
+          = f.text_field :name
+
+          = f.select "parent_id", Region.roots.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Parent'}
+
+  .actions
+    = f.submit

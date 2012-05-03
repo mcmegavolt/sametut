@@ -1,0 +1,14 @@
+= form_for city, :url => city.new_record? ? admin_cities_path : admin_city_path(city)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => city }
+  %table
+    %tr
+      %td
+        .field
+          = f.label :name, 'City Name'
+          = f.text_field :name
+
+          = f.select("region_id", Region.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Region'})
+
+
+  .actions
+    = f.submit

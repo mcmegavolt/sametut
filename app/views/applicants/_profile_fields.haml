@@ -17,13 +17,13 @@
   %label{:class => 'control-label'}
     = p.label t(:'site.user.new.main_info.birth_location')
   .controls
-    = p.select :birth_location_id, Address::City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+    = p.select :birth_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
 .control-group
 
   %label{:class => 'control-label'}
     = p.label t(:'site.user.new.main_info.current_location')
   .controls
-    = p.select :current_location_id, Address::City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+    = p.select :current_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
 .control-group
   %label{:class => 'control-label'}
     = p.label t(:'site.user.new.main_info.video_url')

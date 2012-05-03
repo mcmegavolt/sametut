@@ -1,13 +1,23 @@
-class Address::Region < ActiveRecord::Base
+class Region < ActiveRecord::Base
   include Address
-  #belongs_to :country
-  #belongs_to :region
+  def self.table_name_prefix
+    'address_'
+  end
+
+  has_many :sub_regions, :class_name => 'Region', :foreign_key => 'parent_id', :dependent => :destroy
+
   has_many :cities
+
   has_many :locations, :through => :cities
 
   validates :name, :uniqueness => true
 
-  #def to_s
-    #name
-  #end
+  scope :roots, where(:parent_id => nil)
+
+  def root?
+    parent_id.nil?
+  end
+
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328183824) do
+ActiveRecord::Schema.define(:version => 20120502130220) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(:version => 20120328183824) do
   add_index "address_locations", ["city_id"], :name => "index_address_locations_on_city_id"
 
   create_table "address_regions", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "parent_id"
   end
 
   create_table "admins", :force => true do |t|
@@ -74,6 +75,15 @@ ActiveRecord::Schema.define(:version => 20120328183824) do
     t.string   "avatar"
   end
 
+  create_table "director_profiles", :force => true do |t|
+    t.string   "name"
+    t.integer  "school_id"
+    t.integer  "director_photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "gender"
+  end
+
   create_table "education_degree_levels", :force => true do |t|
     t.string "education_degree_level"
   end
@@ -94,6 +104,15 @@ ActiveRecord::Schema.define(:version => 20120328183824) do
     t.datetime "updated_at"
   end
 
+  create_table "news_items", :force => true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "released_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "admin_id"
+  end
+
   create_table "profiles", :force => true do |t|
     t.date     "birth_date"
     t.integer  "birth_location_id"
@@ -109,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20120328183824) do
     t.string  "name"
     t.integer "education_school_type_id"
     t.integer "location_id"
+    t.integer "user_id"
   end
 
   create_table "social_activities", :force => true do |t|

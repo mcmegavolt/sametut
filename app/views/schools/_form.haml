@@ -1,0 +1,23 @@
+= form_for school, :url => school.new_record? ? schools_path : school_path(school)  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => school }
+
+  .row
+    .span6
+      %legend
+        = t(:'site.user.edit_profile.applicant')
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.first_name')
+        .controls
+          = f.text_field :name
+
+    .span6
+      %legend
+        Director
+      = f.fields_for :director_profile do |p|
+        = render 'director_profile_fields', :p => p
+
+  .form-actions
+    = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
+    %button.btn
+      = t(:'site.user.edit_profile.cancel')

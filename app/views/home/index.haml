@@ -13,15 +13,26 @@
             = t(:'site.user.profiles.applicant.messages.no_profile').html_safe
           %p
             = link_to t(:'site.user.profiles.applicant.actions.create_profile'), new_applicant_path, :class => "btn btn-large btn-success"
+      - elsif current_user.user_type_id == 2
+        - if current_user.school
+          %p.lead
+            = t(:'site.user.profiles.school.messages.is_profile').html_safe
+          %p
+            = link_to t(:'site.user.profiles.school.actions.edit_profile'), edit_school_path(current_user.school), :class => "btn btn-info btn-large"
+        - else
+          %p.lead
+            = t(:'site.user.profiles.school.messages.no_profile').html_safe
+          %p
+            = link_to t(:'site.user.profiles.school.actions.create_profile'), new_school_path, :class => "btn btn-large btn-success"
       - else
         %p.lead= t(:'site.user.profiles.school.messages.home_title')
         .alert.alert-error= t(:'site.user.profiles.school.messages.no_features')
         .alert.alert-info= t(:'site.user.profiles.school.messages.how_to_change_user_type')
-        %p
-          = t(:'site.user.profiles.school.messages.your_user_type')
-          %br
-          %b
-            = UserType.find_by_id(current_user.user_type_id).user_type_name.to_s
+      %p
+        = t(:'site.user.profiles.school.messages.your_user_type')
+        %br
+        %b
+          = UserType.find_by_id(current_user.user_type_id).user_type_name.to_s
 
 
     - else
@@ -47,24 +58,21 @@
       = applicants.size.to_s
   .span4
     %p.lead= t(:'site.home.news')
-    %p
-      %span{:style => 'color: gray;'}
-        29 березня, 2012
+    - for news_item in news_items
+      %p
+        %b
+          = news_item.title
+        %br
+        = news_item.body
+        %br
+        %span{:style => 'color: gray; float: right;'}
+          = l news_item.released_at.to_date, :format => :long
       %br
-      У профілі тепер є можливість вказати стать, а також видалити свій аватар, який було завантажено раніше. Незабаром з'явиться можливість додавати контакти та прикріплювати необхідні документи до свого профілю.
-      %br
-      %span{:style => 'color: gray; float: right;'}
-        Дякуємо за співпрацю!
-    %br
-    %p= t(:'site.home.test_news').html_safe
-
 
 .row
   .span12
     %hr/
     = t(:'site.static.home_description').html_safe
-
-
 
 - if admin_signed_in?
   %hr/

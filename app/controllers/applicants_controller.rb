@@ -10,10 +10,10 @@ class ApplicantsController < ApplicationController
 
   def new
     unless current_user.applicant
-      applicant.build_profile
-      applicant.social_activities.build
-      applicant.work_experiences.build
-      applicant.educations.build
+      applicant.build_profile unless applicant.profile
+      applicant.social_activities.build unless applicant.social_activities
+      applicant.work_experiences.build unless applicant.work_experiences
+      applicant.educations.build unless applicant.educations
     else
       flash[:error] = t(:'errors.messages.already_have_applicant')
       redirect_to edit_applicant_path(current_user.applicant)
@@ -55,6 +55,8 @@ class ApplicantsController < ApplicationController
      applicant.destroy
      redirect_to root_url
   end
+
+
 
 
 end

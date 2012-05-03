@@ -1,4 +1,4 @@
-class Admin::SchoolTypesController < ApplicationController
+class Admin::SchoolTypesController < Admin::DashboardController
 
   layout 'admin'
 

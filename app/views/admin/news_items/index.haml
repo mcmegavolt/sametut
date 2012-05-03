@@ -1,0 +1,27 @@
+%h2 News
+%p= link_to 'Add news item', new_admin_news_item_path, :class => 'link-icon icon-add'
+%hr/
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %th
+      id
+    %th
+      Title
+    %th
+      Admin Id
+    %th
+      Actions
+  %tbody
+  - for n_item in news_items
+    %tr
+      %td
+        = n_item.id
+      %td
+        = n_item.title
+      %td
+        = n_item.admin_id
+      %td
+        = link_to 'Edit', edit_admin_news_item_path(n_item), :class => 'link-icon icon-delete'
+        = link_to 'Delete', admin_news_item_path(n_item), :method => :delete, :confirm => 'Are you sure?', :class => 'link-icon icon-delete'
+%hr/
+%p= link_to 'Add news item', new_admin_news_item_path, :class => 'link-icon icon-add'

@@ -1,0 +1,23 @@
+%h1 Listing schools
+%p
+  %b
+    Schools count:
+  = schools.size
+%table
+  %tr
+    %th
+    %th
+  - for school in schools
+    %tr
+      %td
+        = school.name
+      %td
+        = link_to school, :class => 'primary button' do
+          %span.class
+          Show
+        = link_to edit_school_path(school), :class => "button" do
+          %span.pen.icon
+          Edit
+        = link_to school, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
+          %span.cross.icon
+          Destroy
