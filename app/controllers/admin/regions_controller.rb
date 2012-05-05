@@ -15,7 +15,7 @@ class Admin::RegionsController < Admin::DashboardController
 
   def create
     if region.save
-      redirect_to admin_regions_path, :notice => 'region was successfully created.'
+      redirect_to admin_cities_path, :notice => 'region was successfully created.'
     else
       render :action => "new"
     end
@@ -23,7 +23,7 @@ class Admin::RegionsController < Admin::DashboardController
 
   def update
     if region.update_attributes(params[:region])
-      redirect_to admin_regions_path, :notice => 'region was successfully updated.'
+      redirect_to admin_cities_path, :notice => 'region was successfully updated.'
     else
       render :action => "edit"
     end
@@ -32,13 +32,18 @@ class Admin::RegionsController < Admin::DashboardController
   def destroy
     region.destroy
 
-    redirect_to admin_regions_path
+    redirect_to admin_cities_path
   end
 
   def regions
     @regions ||= Region.all
   end
   helper_method :regions
+
+  def root_regions
+    @regions ||= Region.roots
+  end
+  helper_method :root_regions
 
   def region
     @region ||= if params[:id]

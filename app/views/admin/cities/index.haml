@@ -1,24 +1,18 @@
-%h2= t(:'admin.cities.headers.title')
-%p= link_to 'Add Location', new_admin_city_path, :class => 'link-icon icon-add'
+%h2 Менеджер локацій
 %hr/
-%table.table.table-striped.table-bordered.table-condensed
-  %thead
-    %th= t(:'admin.cities.headers.region')
-    %th= t(:'admin.cities.headers.cities')
-    %th Actions
-  %tbody
-  - for region in regions
-    %tr
-      %td
-        %b= region.id
-        = region.name
-      %td
-        %ul
-          - region.cities.each do |city|
-            %li
-              = city.name
-              = link_to 'Edit', edit_admin_city_path(city)
-      %td
-        +
+= link_to 'Додати місто', new_admin_city_path, :class => 'btn btn-info'
+= link_to 'Додати район', new_admin_region_path, :class => 'btn btn-warning'
 %hr/
-%p= link_to 'Add Location', new_admin_city_path, :class => 'link-icon icon-add'
+
+- for region in Region.roots
+  %h3= region.name
+  - for sub_region in region.sub_regions
+    %h4= link_to sub_region.name, edit_admin_region_path(sub_region)
+
+    #cities{:style => 'margin-left: 15px;'}
+      %p
+        - sub_region.cities.each do |city|
+          = link_to city.name, edit_admin_city_path(city)
+  %hr/
+= link_to 'Додати місто', new_admin_city_path, :class => 'btn btn-info'
+= link_to 'Додати район', new_admin_region_path, :class => 'btn btn-warning'

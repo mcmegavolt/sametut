@@ -4,10 +4,12 @@
     %tr
       %td
         .field
-          = f.label :name, 'Region Name'
+          = f.label :name, 'Назва району'
           = f.text_field :name
 
-          = f.select "parent_id", Region.roots.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Parent'}
+
+
+          = f.select "parent_id", Region.roots.collect {|p| [ p.name, p.id ] }, {:prompt => 'Оберіть область'}
 
   .actions
-    = f.submit
+    = submit_tag 'Зберегти', :class => 'btn btn-large btn-success'

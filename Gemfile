@@ -13,7 +13,9 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'devise'
 gem 'jquery-rails'
+
 gem 'jquery_datepicker'
+
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'twitter-bootstrap-rails', '2.0.1'
 
@@ -22,7 +24,6 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'haml-rails'
-
 end
 
 group :development do

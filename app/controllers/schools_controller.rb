@@ -22,7 +22,7 @@ class SchoolsController < ApplicationController
        flash[:error] = t(:'errors.messages.no_access')
        redirect_to root_url
      else
-       school.build_director_profile
+       school.build_director_profile unless school.director_profile
      end
   end
 

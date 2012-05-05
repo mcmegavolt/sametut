@@ -4,11 +4,16 @@
     %tr
       %td
         .field
-          = f.label :name, 'City Name'
+          = f.label :name, 'Назва населеного пункту'
           = f.text_field :name
 
-          = f.select("region_id", Region.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Region'})
+          = select_tag 'root_region_id', options_from_collection_for_select(Region.roots, :id, :name), :prompt => 'Оберіть область'
 
+          = f.grouped_collection_select :region_id, Region.all(:order => 'name'), :sub_regions, :name, :id, :name, :class => 'select-region', :prompt => 'Оберіть район'
 
   .actions
-    = f.submit
+    = submit_tag 'Зберегти', :class => 'btn btn-large btn-success'
+%hr/
+%p{:style => 'text-align: right;'}
+  = link_to 'Додати район', new_admin_region_path, :class => 'btn'
+

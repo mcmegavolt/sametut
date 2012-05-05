@@ -8,17 +8,14 @@
       .control-group
         = f.label t(:'site.user.new.education_info.start_date'), :class => 'control-label'
         .controls
-          = f.datepicker :start_date, :changeYear => true
-
-
-
+          = f.date_select :start_date, :changeYear => true
 
     .span6
 
       .control-group
         = f.label t(:'site.user.new.education_info.end_date'), :class => 'control-label'
         .controls
-          = f.datepicker :end_date, :changeYear => true
+          = f.date_select :end_date, :changeYear => true
 
   .row
     .span12
