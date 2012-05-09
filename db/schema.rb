@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502130220) do
+ActiveRecord::Schema.define(:version => 20120509103413) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -75,10 +75,26 @@ ActiveRecord::Schema.define(:version => 20120502130220) do
     t.string   "avatar"
   end
 
+  create_table "contacts", :force => true do |t|
+    t.integer  "contact_type_id"
+    t.integer  "school_id"
+    t.integer  "profile_id"
+    t.integer  "director_profile_id"
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["director_profile_id"], :name => "index_contacts_on_director_profile_id"
+  add_index "contacts", ["profile_id"], :name => "index_contacts_on_profile_id"
+  add_index "contacts", ["school_id"], :name => "index_contacts_on_school_id"
+
   create_table "director_profiles", :force => true do |t|
     t.string   "name"
     t.integer  "school_id"
-    t.integer  "director_photo"
+    t.string   "director_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "gender"

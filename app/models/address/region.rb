@@ -18,6 +18,4 @@ class Region < ActiveRecord::Base
     parent_id.nil?
   end
 
-
-
 end

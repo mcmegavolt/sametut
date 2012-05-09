@@ -24,9 +24,6 @@
 //    $(link).parent().before(content.replace(regexp, new_id));
 //}
 
-
-
-
 function remove_fields(link) {
     $(link).prev("input[type=hidden]").val("1");
     $(link).closest(".control-group").fadeOut();

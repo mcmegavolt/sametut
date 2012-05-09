@@ -11,6 +11,7 @@ class SchoolsController < ApplicationController
   def new
     unless current_user.school
       school.build_director_profile
+      school.build_location
     else
       flash[:error] = t(:'errors.messages.already_have_applicant')
       redirect_to edit_school_path(current_user.school)
@@ -23,6 +24,7 @@ class SchoolsController < ApplicationController
        redirect_to root_url
      else
        school.build_director_profile unless school.director_profile
+       school.build_location unless school.location
      end
   end
 

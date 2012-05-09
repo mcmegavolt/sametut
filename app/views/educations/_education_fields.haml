@@ -1,0 +1,49 @@
+%fieldset
+  .control-group
+    .controls
+      %span.label.label-important Не заповнюйте розділ про освіту, він поки що не зберігається
+  .row
+    .span6
+
+      .control-group
+        = f.label t(:'site.user.new.education_info.start_date'), :class => 'control-label'
+        .controls
+          = f.date_select :start_date, :changeYear => true
+
+    .span6
+
+      .control-group
+        = f.label t(:'site.user.new.education_info.end_date'), :class => 'control-label'
+        .controls
+          = f.date_select :end_date, :changeYear => true
+
+  .row
+    .span12
+
+      .control-group
+        = f.label t(:'site.user.new.education_info.school_name'), :class => 'control-label'
+        .controls
+          = select_tag '', '', :prompt => 'Область', :disabled => true
+          = select_tag '', '', :prompt => 'Район', :disabled => true
+          = f.select :school_id, School.all.collect{|c| [c.name, c.id]}, { :prompt => 'Навчальний заклад', :disabled => true }
+          %p.help-block
+            Ця опція поки що недоступна
+
+
+  .row
+    .span6
+      .control-group
+        = f.label t(:'site.user.new.education_info.faculty'), :class => 'control-label'
+        .controls
+          = f.text_field :faculty, :size => 20
+      .control-group
+        .controls
+          %i.icon-remove
+          = link_to_remove_fieldset t(:'site.user.new.actions.remove'), f
+    .span6
+      .control-group
+        = f.label t(:'site.user.new.education_info.degree_level'), :class => 'control-label'
+        .controls
+          = f.select :education_degree_level_id, EducationDegreeLevel.all.collect{|c| [c.education_degree_level, c.id]}, { :prompt => t(:'site.user.new.selectors.degree') }
+
+  %hr/

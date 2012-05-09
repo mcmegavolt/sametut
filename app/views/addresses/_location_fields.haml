@@ -1,0 +1,26 @@
+.control-group
+  %label.control-label
+    = t(:'site.address.region')
+  .controls
+    = grouped_collection_select 'location', 'sub_region_id', Region.roots(:order => 'name'), :sub_regions, :name, :id, :name, :class => 'select-region', :prompt => 'Оберіть район'
+.control-group
+  %label.control-label
+    = t(:'site.address.city')
+  .controls
+    = f.grouped_collection_select :city_id, Region.where(:parent_id => [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]), :cities, :name, :id, :name, :class => 'select-city', :prompt => t(:'admin.users.selectors.choose_city')
+
+.control-group
+  %label.control-label
+    = t(:'site.address.street')
+  .controls
+    = f.text_field :street, :class => 'span2'
+.control-group
+  %label.control-label
+    = t(:'site.address.building')
+  .controls
+    = f.text_field :building, :class => 'span2'
+.control-group
+  %label.control-label
+    = t(:'site.address.apartment')
+  .controls
+    = f.text_field :apartment, :class => 'span2'

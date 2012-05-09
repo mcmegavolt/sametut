@@ -10,7 +10,7 @@ class School < ActiveRecord::Base
   has_one :location, :as => :addressable,  :dependent => :destroy
   accepts_nested_attributes_for :location,  :allow_destroy => true
 
-
-  #attr_accessible :name, :location_attributes, :education_school_type_id, :director_profile_attributes
+  has_many :contacts, :as => :contactable, :dependent => :destroy
+  accepts_nested_attributes_for :contacts, :reject_if => lambda { |c| c[:value].blank? || c[:contact_type_id].blank? }, :allow_destroy => true
 
 end
