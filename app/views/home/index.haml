@@ -54,8 +54,11 @@
           = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.profile.gender.to_s + ')' )
 
     %p
-      = t(:'site.home.applicants_count')
+      = link_to t(:'site.home.applicants_count'), applicants_path
       = applicants.size.to_s
+      %br
+        = link_to t(:'site.home.schools_count'), schools_path
+        = schools
   .span4
     %p.lead= t(:'site.home.news')
     - for news_item in news_items

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   helper_method :applicant
 
 
+  def regions
+    @regions ||= Region.all
+  end
+  helper_method :regions
 
 
   protected

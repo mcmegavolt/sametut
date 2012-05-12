@@ -9,7 +9,8 @@ uk:
       welcome_text_2: 'Приєднуйся до команди професіоналів!'
       already_registered_users: 'Вже зареєструвались'
       register: 'Зареєструватися'
-      applicants_count: 'Всього учасників:'
+      applicants_count: 'Всього пошукачів:'
+      schools_count: 'Навчальні заклади:'
       news: "Новини"
     nav:
       back_to_site: 'На головну'
@@ -17,15 +18,18 @@ uk:
       users_list: 'Список юзерів'
     copyright: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-2012. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
 
+    schools:
+      index:
+        title: "Список зареєстрованих навчальних закладів"
+        count: "Всього:"
+
 
     user:
-
       toolbar:
         hello: "Вітаємо, "
         my_profile: "Мій профіль"
         change_pass: "Змінити пароль"
         edit_profile: "Редагувати профіль"
-
       profiles:
         applicant:
           messages:
@@ -158,7 +162,8 @@ uk:
     address:
       title: "Адреса"
       region: "Область"
-      city: "Місто"
+      city: "Населений пункт"
+      city_help: "Почніть вводити назву населеного пункту"
       street: "Вулиця"
       house: "Будинок"
       building: "Будинок"

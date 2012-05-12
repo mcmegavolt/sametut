@@ -1,23 +1,16 @@
-%h1 Listing schools
+%h2= t(:'site.schools.index.title')
 %p
   %b
-    Schools count:
+    = t(:'site.schools.index.count')
   = schools.size
-%table
-  %tr
-    %th
-    %th
-  - for school in schools
-    %tr
-      %td
-        = school.name
-      %td
-        = link_to school, :class => 'primary button' do
-          %span.class
-          Show
-        = link_to edit_school_path(school), :class => "button" do
-          %span.pen.icon
-          Edit
-        = link_to school, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
-          %span.cross.icon
-          Destroy
+%hr/
+- for school in schools
+  %p
+    = link_to school.name, school_path(school)
+
+    = school.location.city.region.name + ' район'
+
+    - if admin_signed_in?
+      = link_to edit_school_path(school), :class => "btn btn-small" do
+        %span.icon-pencil
+        Редагувати
