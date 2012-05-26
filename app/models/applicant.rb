@@ -5,6 +5,9 @@ class Applicant < ActiveRecord::Base
   has_one :profile, :dependent => :destroy
   accepts_nested_attributes_for :profile
 
+  has_one :location, :as => :addressable,  :dependent => :destroy
+  accepts_nested_attributes_for :location
+
   has_many :social_activities, :dependent => :destroy
   accepts_nested_attributes_for :social_activities, :reject_if => :social_activities_blank, :allow_destroy => true
 

@@ -15,7 +15,8 @@ class Admin::CitiesController < Admin::DashboardController
 
   def create
     if city.save
-      redirect_to admin_cities_path, :notice => 'Location was successfully created.'
+      flash[:notice] = t(:'admin.city.create.success')
+      redirect_to admin_cities_path
     else
       render :action => "new"
     end
@@ -23,7 +24,8 @@ class Admin::CitiesController < Admin::DashboardController
 
   def update
     if city.update_attributes(params[:city])
-      redirect_to admin_cities_path, :notice => 'Location was successfully updated.'
+      flash[:notice] = t(:'admin.city.update.success')
+      redirect_to admin_cities_path
     else
       render :action => "edit"
     end
@@ -31,7 +33,6 @@ class Admin::CitiesController < Admin::DashboardController
 
   def destroy
     category.destroy
-
     redirect_to admin_cities_path
   end
 

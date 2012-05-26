@@ -1,18 +1,14 @@
 SameTut::Application.routes.draw do
 
-
-
   devise_for :admins do
     get "/admins/sign_out" => "devise/sessions#destroy", :as => :destroy_admin_session
   end
-
 
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
 
   namespace :admin do
-
     resources :news_items
     resources :categories
     resources :users
@@ -21,14 +17,9 @@ SameTut::Application.routes.draw do
     resources :user_types
     resources :cities
     resources :regions
-
-
   end
 
-
-
   resources :users
-  resources :address
   resources :applicants
   resources :schools
 

@@ -10,7 +10,7 @@ class Region < ActiveRecord::Base
 
   has_many :locations, :through => :cities
 
-  validates :name, :uniqueness => true
+  validates :name, :uniqueness => { :scope => :parent_id }
 
   scope :roots, where(:parent_id => nil)
 

@@ -1,36 +1,23 @@
 = form_for school, :html => { :class => 'form-horizontal' }, :url => school.new_record? ? admin_schools_path : admin_school_path(school)  do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => school }
   .row
-    .span7
-      %legend New school
+    .span12
       %fieldset
         .control-group
-          = f.label 'School name'
+          = f.label t(:'admin.schools.name'), :class => 'control-label'
           .controls
-            = f.text_field :name, :class => 'span4'
+            = f.text_field :name, :class => 'span9'
         .control-group
-          = f.label 'School type'
+          = f.label t(:'admin.schools.type'), :class => 'control-label'
           .controls
             = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
-    .span5
-      %legend Address
-      = f.fields_for :location do |loc|
-        .control-group
-          = f.label 'Street'
-          .controls
-            = loc.text_field :street
-        .control-group
-          = f.label 'Building'
-          .controls
-            = loc.text_field :building
-        .control-group
-          = f.label 'Apartment'
-          .controls
-            = loc.text_field :apartment
-        .control-group
-          = f.label 'Building'
-          .controls
-            = loc.select :city_id, Address::City.all.collect { |p| [ p.name, p.id ] }, { :prompt => 'City' }
+  .row
+    .span6
+      %legend= t(:'admin.schools.address')
+      = f.fields_for :location do |a|
+        = render 'addresses/location_fields', :f => a
+    .span6
 
   .form-actions
-    = f.submit 'Create School', :class => 'btn btn-primary btn-large'
+    = f.submit  t(:'admin.schools.submit'), :class => 'btn btn-success btn-large'
+    = link_to t(:'admin.schools.delete'), admin_school_path(school), :method => :delete, :confirm => t(:'admin.schools.are_you_shure'), :class => 'btn btn-mini btn-danger', :style => 'float: right;'

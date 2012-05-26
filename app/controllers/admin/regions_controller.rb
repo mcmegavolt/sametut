@@ -15,7 +15,8 @@ class Admin::RegionsController < Admin::DashboardController
 
   def create
     if region.save
-      redirect_to admin_cities_path, :notice => 'region was successfully created.'
+      flash[:notice] = t(:'admin.region.create.success')
+      redirect_to admin_cities_path
     else
       render :action => "new"
     end
@@ -23,7 +24,8 @@ class Admin::RegionsController < Admin::DashboardController
 
   def update
     if region.update_attributes(params[:region])
-      redirect_to admin_cities_path, :notice => 'region was successfully updated.'
+      flash[:notice] = t(:'admin.region.update.success')
+      redirect_to admin_cities_path
     else
       render :action => "edit"
     end

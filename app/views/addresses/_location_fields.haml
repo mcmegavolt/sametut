@@ -13,22 +13,25 @@
   %label.control-label
     = t(:'site.address.city')
   .controls
-    = f.text_field :city_name, :id => 'city_name_auto_complete', data: { autocomplete_source:  address_path }
-    %p.help-block
-      = t(:'site.address.city_help')
+    = f.text_field :city_id, :id => 'city_name_token', data: { pre: [school.location.city] }
+    -#%p.help-block
+      %small
+        = school.location.city.region.name + ' район /'
+        = Region.find(school.location.city.region.parent_id).name
+
 
 .control-group
   %label.control-label
     = t(:'site.address.street')
   .controls
-    = f.text_field :street, :class => 'span2'
+    = f.text_field :street, :class => 'span3'
 .control-group
   %label.control-label
     = t(:'site.address.building')
   .controls
-    = f.text_field :building, :class => 'span2'
+    = f.text_field :building, :class => 'span1'
 .control-group
   %label.control-label
     = t(:'site.address.apartment')
   .controls
-    = f.text_field :apartment, :class => 'span2'
+    = f.text_field :apartment, :class => 'span1'

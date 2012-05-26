@@ -8,7 +8,7 @@
   %p
     = link_to school.name, school_path(school)
 
-    = school.location.city.region.name + ' район'
+    = school.location.city.region.name + ' район' if school.location.city
 
     - if admin_signed_in?
       = link_to edit_school_path(school), :class => "btn btn-small" do

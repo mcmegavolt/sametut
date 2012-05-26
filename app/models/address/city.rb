@@ -6,6 +6,13 @@ class City < ActiveRecord::Base
   belongs_to :region
   validates :name, :uniqueness => { :scope => :region_id }
   validates_presence_of :region
-  has_many :locations
-  has_many :schools
+
+  has_many :locations, through: :addressables
+
+  has_many :schools, through: :locations
+
+  def self.tokens(query)
+    self.where("name like ?", "%#{query}%")
+  end
+
 end

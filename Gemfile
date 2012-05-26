@@ -25,6 +25,8 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'haml-rails'
+  gem 'rails_tokeninput'
+  gem "select2-rails"
 end
 
 group :development do

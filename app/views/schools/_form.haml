@@ -8,6 +8,10 @@
         = f.label t(:'site.user.profiles.school.edition.name'), :class => 'control-label'
         .controls
           = f.text_field :name, :class => 'span9'
+      .control-group
+        = f.label t(:'site.user.profiles.school.edition.school_type')
+        .controls
+          = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
   .row
     .span6
       %legend= t(:'site.address.title')

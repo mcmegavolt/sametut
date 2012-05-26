@@ -37,6 +37,7 @@
 
   .container
     .content
+      .flash= render 'shared/flash_messages'
       = yield
 
       .row
@@ -44,7 +45,13 @@
           .footer
             %hr/
             %p
-              SameTut - All rights Reserved &copy; 2011. Powered by Aleksandr Ponomarenko.
-              = link_to 'Go to Front Page', root_path
+              = t(:'site.copyright').html_safe
+              - if current_admin
+                = link_to 'Go to Front Page', root_path
+                \|
+                = link_to 'Log Out', destroy_admin_session_path
+              - else
+                = link_to '[+]', new_admin_session_path
+
 
   = javascript_include_tag "application"
