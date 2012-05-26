@@ -16,7 +16,8 @@ class Admin::SchoolsController < Admin::DashboardController
 
   def create
     if school.save
-      redirect_to admin_schools_path, :notice => 'School was successfully created.'
+      flash[:success] = t(:'admin.schools.create_success')
+      redirect_to admin_schools_path
     else
       render :action => "new"
     end
@@ -24,7 +25,8 @@ class Admin::SchoolsController < Admin::DashboardController
 
   def update
     if school.update_attributes(params[:school])
-      redirect_to admin_schools_path, :notice => 'School was successfully updated.'
+      flash[:success] = t(:'admin.schools.update_success')
+      redirect_to admin_schools_path
     else
       render :action => "edit"
     end
