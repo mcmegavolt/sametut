@@ -10,4 +10,6 @@ class Location < ActiveRecord::Base
 
   belongs_to :school
 
+  validates_presence_of :city
+
 end

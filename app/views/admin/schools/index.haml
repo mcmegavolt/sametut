@@ -12,7 +12,7 @@
       = t(:'admin.schools.address')
     %th
   %tbody
-  - for school in schools
+  - schools.each do |school|
     %tr
       %td
         = EducationSchoolType.find_by_id(school.education_school_type_id).school_type_name if school.education_school_type_id
