@@ -160,6 +160,7 @@ uk:
           degree: 'Оберіть свій'
 
     address:
+      ukraine: "Україна"
       title: "Адреса"
       region: "Область"
       city: "Населений пункт"

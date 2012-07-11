@@ -13,12 +13,11 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'devise'
 gem 'jquery-rails'
-
 gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
-
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'twitter-bootstrap-rails', '2.0.1'
+gem 'gmaps4rails'
 
 group :assets do
   gem 'sass-rails', "3.1.4"
@@ -36,4 +35,3 @@ end
 group :test do
   gem 'turn', :require => false
 end
-

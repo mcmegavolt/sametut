@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509103413) do
+ActiveRecord::Schema.define(:version => 20120711175401) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20120509103413) do
     t.string   "addressable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "address_locations", ["city_id"], :name => "index_address_locations_on_city_id"
