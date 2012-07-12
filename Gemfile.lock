@@ -168,9 +168,9 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
-    twitter-bootstrap-rails (2.0.1)
+    twitter-bootstrap-rails (2.0.4)
       actionpack (>= 3.1)
-      less-rails (~> 2.1.5)
+      less-rails (~> 2.1.8)
       railties (>= 3.1)
     tzinfo (0.3.33)
     uglifier (1.2.6)
@@ -206,7 +206,7 @@ DEPENDENCIES
   select2-rails
   therubyracer
   turn
-  twitter-bootstrap-rails (= 2.0.1)
+  twitter-bootstrap-rails (= 2.0.4)
   uglifier (>= 1.0.3)
   ukrainian!
   url_to_media_tag
