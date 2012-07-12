@@ -71,12 +71,10 @@
         %span{:style => 'color: gray; float: right;'}
           = l news_item.released_at.to_date, :format => :long
       %br
-
 .row
   .span12
     %hr/
     = t(:'site.static.home_description').html_safe
-
 - if admin_signed_in?
   %hr/
   = gmaps4rails(map)

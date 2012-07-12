@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.0'
 gem 'mysql2'
 gem 'mini_magick'
 gem 'carrierwave'
@@ -20,9 +20,9 @@ gem 'twitter-bootstrap-rails', '2.0.1'
 gem 'gmaps4rails'
 
 group :assets do
-  gem 'sass-rails', "3.1.4"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails', "~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>= 1.0.3'
   gem 'haml-rails'
   gem 'rails_tokeninput'
   gem "select2-rails"

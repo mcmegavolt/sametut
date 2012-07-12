@@ -11,14 +11,18 @@ class Location < ActiveRecord::Base
 
   validates_presence_of :city
 
-  acts_as_gmappable :validation => true
+  acts_as_gmappable :msg => I18n.t(:'site.address.gmaps_error_html'),
+                    :validation => true
 
   def gmaps4rails_address
-    #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-    #"#{self.street}, #{self.city}, #{self.country}"
     @country = I18n.t(:'site.address.ukraine')
-    #"#{self.street}, #{self.city}, #{@country}"
-    "#{@country}, #{City.find(self.city).name}, #{self.street}"
+    #"#{@country}, #{City.find(self.city).name}, #{self.street}"
+    "#{@country}, #{self.city.name}, #{self.street}, #{self.building}"
   end
+
+  #def gmaps4rails_infowindow
+  #  #"#{self.city}" + "#{self.city.region}"
+  #  "#{self.city}"
+  #end
 
 end
