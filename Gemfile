@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
-gem 'twitter-bootstrap-rails', '2.0.4'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 
 group :assets do

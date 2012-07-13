@@ -8,10 +8,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.tokeninput
-//= require select2
 //= require twitter/bootstrap
+//= require select2
 //= require_tree .
-
 
 function remove_fields(link) {
     $(link).prev("input[type=hidden]").val("1");

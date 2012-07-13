@@ -1,6 +1,16 @@
 jQuery ->
+
   $("a[rel=popover]").popover()
-  $(".tooltip").tooltip()
+
+  $("#popover").popover()
+
   $("a[rel=tooltip]").tooltip()
-  $('.carousel').carousel('pause')
-  $('.tabs a:active').tab('show')
+
+  $(".collapse").collapse({ toggle: true })
+
+  $('#register-dialog').modal({
+    keyboard: true,
+    show: false
+  })
+
+  $(".tooltip").tooltip()
