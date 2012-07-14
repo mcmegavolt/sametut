@@ -30,8 +30,6 @@ SameTut::Application.configure do
   # Do not compress assets
   config.assets.compress = false
 
-  config.assets.compile = true
-
   config.assets.debug = true
 
   # Raise exception on mass assignment protection for Active Record models

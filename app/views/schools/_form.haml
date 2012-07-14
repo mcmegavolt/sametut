@@ -9,9 +9,18 @@
         .controls
           = f.text_field :name, :class => 'span9'
       .control-group
-        = f.label t(:'site.user.profiles.school.edition.school_type')
+        = f.label t(:'site.user.profiles.school.edition.school_type'), :class => 'control-label'
         .controls
           = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
+      .control-group
+        = f.label t(:'site.user.profiles.school.edition.description'), :class => 'control-label'
+        .controls
+          = f.cktext_area :description
+      .control-group
+        %label{:class => 'control-label'}
+          = f.label t(:'site.user.new.main_info.video_url')
+        .controls
+          = f.text_field :video_url, :class => 'span7'
   .row
     .span6
       %legend= t(:'site.address.title')

@@ -47,7 +47,7 @@ class SchoolsController < ApplicationController
   def update
      if school.update_attributes(params[:school])
        flash[:success] = t(:'site.user.edit_profile.profile_updated')
-       redirect_to schools_path
+       redirect_to school
      else
        render :action => "edit"
      end

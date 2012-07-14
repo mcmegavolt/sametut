@@ -14,19 +14,15 @@ class HomeController < ApplicationController
   end
   helper_method :schools
 
-
   def map
     @json = Location.all.to_gmaps4rails do |location, marker|
       marker.infowindow render_to_string(:partial => "shared/gmaps/info_window", :locals => { :school => School.find(location.addressable_id)})
-      marker.title   "i'm the title"
-      marker.sidebar "i'm the sidebar"
+      marker.title   ""
+      marker.sidebar ""
       marker.json({ :id => location.id, :city => location.city })
     end
   end
   helper_method :map
-
-
-
 
 
 end

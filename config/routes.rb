@@ -1,5 +1,7 @@
 SameTut::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :admins do
     get "/admins/sign_out" => "devise/sessions#destroy", :as => :destroy_admin_session
   end

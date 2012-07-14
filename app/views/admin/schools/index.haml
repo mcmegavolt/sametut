@@ -1,6 +1,8 @@
 %h3= t(:'admin.schools.index')
 %br/
-%p= link_to t(:'admin.schools.add_html'), new_admin_school_path, :class => 'link-icon icon-add'
+= link_to new_admin_school_path do
+  %i.icon-plus-sign
+  = t(:'admin.schools.add_html')
 %hr/
 %table.table.table-striped.table-condensed
   %thead
@@ -27,4 +29,6 @@
 
 
 %hr/
-%p= link_to t(:'admin.schools.add_html'), new_admin_school_path, :class => 'link-icon icon-add'
+= link_to new_admin_school_path do
+  %i.icon-plus-sign
+  = t(:'admin.schools.add_html')

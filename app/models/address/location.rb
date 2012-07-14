@@ -12,6 +12,7 @@ class Location < ActiveRecord::Base
 
   acts_as_gmappable :msg => I18n.t(:'site.address.gmaps_error_html'),
                     :validation => true
+
   def gmaps4rails_address
     @country = I18n.t(:'site.address.ukraine')
     #"#{@country}, #{City.find(self.city).name}, #{self.street}"

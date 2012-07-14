@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711175401) do
+ActiveRecord::Schema.define(:version => 20120715000257) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -77,6 +77,22 @@ ActiveRecord::Schema.define(:version => 20120711175401) do
     t.datetime "updated_at"
     t.string   "avatar"
   end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "contacts", :force => true do |t|
     t.integer  "contact_type_id"
@@ -148,6 +164,8 @@ ActiveRecord::Schema.define(:version => 20120711175401) do
     t.integer "education_school_type_id"
     t.integer "location_id"
     t.integer "user_id"
+    t.text    "description"
+    t.string  "video_url"
   end
 
   create_table "social_activities", :force => true do |t|

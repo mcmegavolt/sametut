@@ -1,5 +1,7 @@
 %h2 School Types
-%p= link_to 'Add School type', new_admin_school_type_path, :class => 'link-icon icon-add'
+= link_to new_admin_school_type_path do
+  %i.icon-plus-sign
+  Add
 %hr/
 %table.table.table-striped.table-bordered.table-condensed
   %thead
@@ -17,7 +19,9 @@
       %td
         = school_type.school_type_name
       %td
-        = link_to 'Edit', edit_admin_school_type_path(school_type), :class => 'link-icon icon-delete'
-        = link_to 'Delete', admin_school_type_path(school_type), :method => :delete, :confirm => 'Are you sure?', :class => 'link-icon icon-delete'
+        = link_to 'Edit', edit_admin_school_type_path(school_type)
+        = link_to 'Delete', admin_school_type_path(school_type), :method => :delete, :confirm => 'Are you sure?'
 %hr/
-%p= link_to 'Add School type', new_admin_school_type_path, :class => 'link-icon icon-add'
+= link_to new_admin_school_type_path do
+  %i.icon-plus-sign
+  Add

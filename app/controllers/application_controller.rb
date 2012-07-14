@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
 
   def news_items
-    @news_items = NewsItem.all
+    @news_items = NewsItem.order('created_at DESC')
   end
   helper_method :news_items
 
