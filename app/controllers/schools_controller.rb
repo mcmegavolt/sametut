@@ -3,10 +3,11 @@ class SchoolsController < ApplicationController
   before_filter :require_user_or_admin!
 
   def index
-    @cities = City.order(:name)
     respond_to do |format|
       format.html
-      format.json { render :json => @cities.tokens(params[:q]), :only => [:id, :name] }
+      format.json {
+        render :json => City.order(:name).tokens(params[:q]).as_json(:only => [:id, :name], :include => {:region => {:only => :name}})
+      }
     end
   end
 

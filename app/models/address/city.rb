@@ -15,4 +15,10 @@ class City < ActiveRecord::Base
     self.where("name like ?", "%#{query}%")
   end
 
+  attr_accessor :region_name
+
+  def region_name
+    @region_name =  Region.find(self.region_id).name
+  end
+
 end

@@ -11,7 +11,13 @@ jQuery ->
     noResultsText: 'Населений пункт не знайдено'
     hintText: 'Почніть уводити назву'
     searchingText: 'Шукаємо...'
-    deleteText: 'Х'
+    deleteText: '<i class="icon-remove";></i>'
     prePopulate: $('#city_name_token').data('pre')
+    propertyToSearch: 'name'
+    resultsFormatter: (item) ->
+      "<li>" + item.name + " (" + item.region.name + ")</li>"
+    tokenFormatter: (item) ->
+      "<li>" + item.name + " (" + item.region.name + ")</li>"
+
 
 

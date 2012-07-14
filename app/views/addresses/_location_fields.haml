@@ -2,13 +2,11 @@
   %label.control-label
     = t(:'site.address.city')
   .controls
-    = f.text_field :city_id, :id => 'city_name_token', data: { pre: [school.location.city] }
+    = f.text_field :city_id, :id => 'city_name_token', data: { pre: [school.location.city.as_json(only: [:id, :name], include: :region) ]}
     -#%p.help-block
       %small
         = school.location.city.region.name + ' район /'
         = Region.find(school.location.city.region.parent_id).name
-
-
 .control-group
   %label.control-label
     = t(:'site.address.street')

@@ -43,16 +43,12 @@
       %p
         або
         = link_to 'увійти до системи', new_user_session_path
-
-
-
   .span4
     %p.lead= t(:'site.home.already_registered_users')
     - for a in applicants.reverse do
       - if a.avatar
         = link_to a do
           = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.profile.gender.to_s + ')' )
-
     %p
       = link_to t(:'site.home.applicants_count'), applicants_path
       = applicants.size.to_s
@@ -75,9 +71,9 @@
   .span12
     %hr/
     = t(:'site.static.home_description').html_safe
+    %hr/
+    = gmaps4rails(map)
 - if admin_signed_in?
-  %hr/
-  = gmaps4rails(map)
   %hr/
   .row
     .span12

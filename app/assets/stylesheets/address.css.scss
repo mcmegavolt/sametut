@@ -1,11 +1,11 @@
-// Place all the styles related to the address controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .control-group {
   .controls {
     ul.token-input-list {
+      li.token-input-token  {
+        background-color: #fff;
+        color: #555;
+        font-weight: normal;
+      }
       display: inline-block;
       width: 218px;
       height: 18px;
