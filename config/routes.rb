@@ -22,7 +22,7 @@ SameTut::Application.routes.draw do
   end
 
   resources :users
-  resources :applicant
+  resources :applicants
   resources :schools do
     resources :galleries
   end
