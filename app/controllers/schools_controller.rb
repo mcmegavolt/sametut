@@ -72,5 +72,4 @@ class SchoolsController < ApplicationController
   end
   helper_method :school
 
-
 end

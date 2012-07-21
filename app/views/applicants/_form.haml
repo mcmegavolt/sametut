@@ -20,28 +20,25 @@
           = f.label t(:'site.user.new.main_info.last_name')
         .controls
           = f.text_field :last_name
-      .control-group
+      -#.control-group
         %label{:class => 'control-label'}
           = f.label t(:'site.user.new.main_info.permalink')
         .controls
           = f.text_field :permalink
           %p.help-block
             = t(:'site.user.new.main_info.permalink_help').html_safe
-
     .span6
       %legend
         = t(:'site.user.edit_profile.avatar')
 
       .control-group
-        %label
-          = t(:'site.user.edit_profile.current_avatar')
+        = f.label t(:'site.user.edit_profile.current_avatar'), :class => 'control-label'
         .controls
           .span2.thumbnail
             = image_tag(applicant.avatar_url(:thumb)) if applicant.avatar?
 
       .control-group
-        %label
-          = t(:'site.user.edit_profile.change_avatar')
+        = f.label t(:'site.user.edit_profile.change_avatar'), :class => 'control-label'
         .controls
           = f.file_field :avatar
           = f.hidden_field :avatar_cache
@@ -52,10 +49,9 @@
           .controls
             = f.check_box :remove_avatar
 
-  %legend
-    = t(:'site.user.edit_profile.additional_info')
   = f.fields_for :profile do |p|
     = render 'profile_fields', :p => p
+
   %legend
     = t(:'site.user.new.headers.education')
   = f.fields_for :educations do |ed|

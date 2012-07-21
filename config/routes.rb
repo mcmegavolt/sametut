@@ -22,8 +22,12 @@ SameTut::Application.routes.draw do
   end
 
   resources :users
-  resources :applicants
-  resources :schools
+  resources :applicant
+  resources :schools do
+    resources :galleries
+  end
+
+  resources :galleries
 
   match '/home' => "home#index"
 

@@ -1,0 +1,13 @@
+.row
+  .span12
+    = render :partial => 'shared/form_errors', :locals => { :object => gallery }
+    - if admin_signed_in?
+      You are under admin!
+    %fieldset
+      .control-group
+        = f.label t(:'postings.titles.title'), :class => 'control-label'
+        .controls
+          = f.text_field :name, :class => 'span10'
+
+    -#= f.fields_for :images do |image|
+      = render :partial => 'images/image_fields', :locals => { :f => image }

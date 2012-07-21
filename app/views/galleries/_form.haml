@@ -1,0 +1,9 @@
+= form_for gallery, :html => {:class => 'form-horizontal'} do |f|
+
+  = render :partial => 'gallery_fields', :locals => { :f => f }
+
+  .form-actions
+    = submit_tag 'Save', :class => 'btn btn-large btn-success'
+    or
+    = link_to 'Cancel', school_path(school), :class => 'btn btn-large btn-danger'
+

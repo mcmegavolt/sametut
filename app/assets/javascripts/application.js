@@ -13,6 +13,53 @@
 //= require select2
 //= require_tree .
 
+
+$(document).ready(function(){
+
+    // UI
+    $('.datepicker').datepicker({
+        changeYear: true,
+        changeMonth: true,
+        yearRange: "-70y:-14y"
+    });
+
+    // Add caption to image from alt text in posting
+    $('.show_caption img').jcaption({
+        //Element to wrap the image and caption in
+        wrapperElement: 'div',
+        //Class for wrapper element
+        wrapperClass: 'caption',
+        //Caption Element
+        captionElement: 'span',
+        //Attribute of image to use as caption source
+        imageAttr: 'alt',
+        //If true, it checks to make sure there is caption copy before running on each image
+        requireText: false,
+        //Should inline style be copied from img element to wrapper
+        copyStyle: true,
+        //Strip inline style from image
+        removeStyle: false,
+        //Strip align attribute from image
+        removeAlign: true,
+        //Assign the value of the image's align attribute as a class to the wrapper
+        copyAlignmentToClass: false,
+        //Assign the value of the image's float value as a class to the wrapper
+        copyFloatToClass: true,
+        //Assign a width to the wrapper that matches the image
+        autoWidth: true,
+        //Animate on hover over the image
+        animate: false,
+        //Show Animation
+        show: {opacity: 'show'},
+        showDuration: 200,
+        //Hide Animation
+        hide: {opacity: 'hide'},
+        hideDuration: 200
+    });
+
+});
+
+
 function remove_fields(link) {
     $(link).prev("input[type=hidden]").val("1");
     $(link).closest(".control-group").fadeOut();

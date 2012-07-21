@@ -8,7 +8,7 @@
       = link_to  edit_applicant_path(applicant) do
         %i.icon-pencil
         Edit
-  .span7
+  .span9
 
     %ul#ProfileTabs.nav.nav-tabs
       %li.active
@@ -41,13 +41,6 @@
           %tr
             %td
               %b
-                = t(:'site.user.new.main_info.permalink')
-            %td
-              - if applicant.permalink
-                = applicant.permalink
-          %tr
-            %td
-              %b
                 = t(:'site.user.show_profile.full_name')
             %td
               - if applicant.first_name
@@ -75,13 +68,29 @@
               %b
                 = t(:'site.user.new.main_info.birth_location')
             %td
-              = City.find_by_id(applicant.profile.birth_location_id)
+              = City.find_by_id(applicant.profile.birth_location_id).name
           %tr
             %td
               %b
                 = t(:'site.user.new.main_info.current_location')
             %td
-              = City.find_by_id(applicant.profile.current_location_id)
+              = City.find_by_id(applicant.profile.current_location_id).name
+
+
+        - for contact in applicant.profile.contacts.by_type do
+          %p
+            - unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
+              %span{ :class => "span-icon icon-#{contact.contact_type}" }
+              = contact_value contact
+        %hr/
+        %p
+          - for contact in applicant.profile.contacts.by_type
+            - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
+              = social_icon contact
+
+
+
+
       #education.tab-pane.fade
         %table.table.table-striped.table-condensed
 

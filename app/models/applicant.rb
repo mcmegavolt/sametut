@@ -34,4 +34,17 @@ class Applicant < ActiveRecord::Base
 
   mount_uploader :avatar, ApplicantAvatarUploader
 
+  def to_param
+    "#{id}-#{permalink}"
+  end
+
+  def to_s
+    self.first_name + ' ' + self.middle_name + ' ' + self.last_name
+  end
+
+  def permalink
+    Russian.translit(self.first_name + '-' + self.middle_name + '-' + self.last_name).parameterize
+  end
+
+
 end

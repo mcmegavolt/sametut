@@ -1,38 +1,66 @@
-.row
-  .span12
-    - if admin_signed_in?
-      = link_to  edit_school_path(school) do
-        %i.icon-pencil
-        Edit
-    %legend= school.name
-    .row
-      .span3
-        - unless !school.director_profile
-          = image_tag school.director_profile.director_photo_url(:thumb), :class => 'thumbnail', :title => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name
-      .span9
-
-        %ul#ProfileTabs.nav.nav-tabs
-          %li.active
-            %a( href = "#main-info" data-toggle = "tab" )
-              = t(:'site.user.show_profile.main_info')
-          %li
-            %a( href = "#video" data-toggle = "tab" )
-              = t(:'site.user.profiles.school.show.video_tab')
-
-
-        #myTabContent.tab-content
-          #main-info.tab-pane.fade.active.in
-            = school.description.html_safe
-          #video.tab-pane.fade.in
-            - unless school.video_url.empty?
-              = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)
-            - else
-              No video presentation
-
-
-
+#school
+  #show
     .row
       .span12
-        -#%legend= t(:'site.address.map')
-        %hr/
-        = gmaps4rails(school.location.to_gmaps4rails)
+        .row
+          .span3
+            - if admin_signed_in?
+              = link_to  edit_school_path(school) do
+                %i.icon-pencil
+                Edit
+          .span9
+            %legend= school.name
+        .row
+          .span3
+            - unless !school.director_profile
+              .show_caption
+                = image_tag school.director_profile.director_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name, :alt => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name
+          .span9
+
+            %ul#ProfileTabs.nav.nav-tabs
+              %li.active
+                %a( href = "#main-info" data-toggle = "tab" )
+                  = t(:'site.user.profiles.school.show.main_info_html')
+              %li
+                %a( href = "#contacts" data-toggle = "tab" )
+                  = t(:'site.user.profiles.school.show.contacts_html')
+              %li
+                %a( href = "#location-map" data-toggle = "tab" )
+                  = t(:'site.user.profiles.school.show.map_html')
+              %li
+                - unless school.video_url.blank?
+                  %a( href = "#video" data-toggle = "tab" )
+                    = t(:'site.user.profiles.school.show.video_tab_html')
+                - else
+                  = link_to t(:'site.user.profiles.school.show.video_tab_html'), '#', style: 'color:silver;', title: t(:'site.user.profiles.school.show.video_tab_none')
+              %li
+                = link_to t(:'site.user.profiles.school.show.gallery_html'), '#', style: 'color:silver;', title: t(:'site.user.profiles.school.show.gallery_none')
+
+
+            #myTabContent.tab-content
+              #main-info.tab-pane.fade.active.in
+                = school.description.html_safe if school.description
+              #contacts.tab-pane.fade.in
+                .row
+                  .span4
+                    - for contact in school.contacts.by_type do
+                      %p
+                        - unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+                          %span{ :class => "span-icon icon-#{contact.contact_type}" }
+                          = contact_value contact
+                  .span5
+                    %p
+                      - for contact in school.contacts.by_type
+                        - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+                          = social_icon contact
+                          &nbsp;
+              - unless school.video_url.blank?
+                #video.tab-pane.fade.in
+                  = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)
+
+              #location-map.tab-pane.fade.in
+                = gmaps4rails(school.location.to_gmaps4rails)
+
+
+
+

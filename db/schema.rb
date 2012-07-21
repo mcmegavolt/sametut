@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715000257) do
+ActiveRecord::Schema.define(:version => 20120721205404) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -139,6 +139,24 @@ ActiveRecord::Schema.define(:version => 20120715000257) do
     t.datetime "updated_at"
   end
 
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.integer  "galleryable_id"
+    t.string   "galleryable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "galleries", ["galleryable_id", "galleryable_type"], :name => "index_galleries_on_galleryable_id_and_galleryable_type"
+
+  create_table "images", :force => true do |t|
+    t.string   "image"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "news_items", :force => true do |t|
     t.string   "title"
     t.string   "body"
@@ -166,6 +184,7 @@ ActiveRecord::Schema.define(:version => 20120715000257) do
     t.integer "user_id"
     t.text    "description"
     t.string  "video_url"
+    t.string  "permalink"
   end
 
   create_table "social_activities", :force => true do |t|

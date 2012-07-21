@@ -62,4 +62,24 @@ body {
       width: 687px;
     }
 
+  .caption {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    span {
+      display: block;
+      padding: 3px 10px 3px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffffff;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      -webkit-border-radius: 0px 0px 3px 3px;
+      border-radius: 0px 0px 3px 3px;
+    }
+
+
+  }
+
 }

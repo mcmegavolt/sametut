@@ -57,11 +57,15 @@
             .footer
               %hr/
               %p
-                = t(:'site.copyright').html_safe
+                = t(:'site.copyright_html').html_safe
                 - if current_admin
                   = link_to 'Admin Panel', admin_path
                   \|
                   = link_to 'Log Out', destroy_admin_session_path
                 - else
                   = link_to '[+]', new_admin_session_path
+                %br/
+                = t(:'site.ministry_of_education_html')
+                %i.icon-flag
+
   = yield :scripts

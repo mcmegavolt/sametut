@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def news_items
     @news_items = NewsItem.order('created_at DESC')
   end

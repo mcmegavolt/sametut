@@ -1,33 +1,43 @@
-.control-group
-  %label{:class => 'control-label'}
-    = p.label t(:'site.user.new.main_info.gender')
-  .controls
-    %label.radio
-      = p.radio_button :gender, 1, :checked => true
-      = t(:'site.user.new.main_info.male')
-    %label.radio
-      = p.radio_button :gender, 2
-      = t(:'site.user.new.main_info.female')
-.control-group
-  %label{:class => 'control-label'}
-    = p.label t(:'site.user.new.main_info.birth_date')
-  .controls
-    = p.datepicker :birth_date, :changeYear => true
-.control-group
-  %label{:class => 'control-label'}
-    = p.label t(:'site.user.new.main_info.birth_location')
-  .controls
-    = p.select :birth_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
-.control-group
+.row
+  .span6
+    %legend
+      = t(:'site.user.edit_profile.additional_info')
+    .control-group
+      %label{:class => 'control-label'}
+        = p.label t(:'site.user.new.main_info.gender')
+      .controls
+        %label.radio
+          = p.radio_button :gender, 1, :checked => true
+          = t(:'site.user.new.main_info.male')
+        %label.radio
+          = p.radio_button :gender, 2
+          = t(:'site.user.new.main_info.female')
+    .control-group
+      %label{:class => 'control-label'}
+        = p.label t(:'site.user.new.main_info.birth_date')
+      .controls
+        = p.datepicker :birth_date, :class => 'datepicker'
+    .control-group
+      %label{:class => 'control-label'}
+        = p.label t(:'site.user.new.main_info.birth_location')
+      .controls
+        = p.select :birth_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+    .control-group
 
-  %label{:class => 'control-label'}
-    = p.label t(:'site.user.new.main_info.current_location')
-  .controls
-    = p.select :current_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
-.control-group
-  %label{:class => 'control-label'}
-    = p.label t(:'site.user.new.main_info.video_url')
-  .controls
-    = p.text_field :video_url, :class => 'span5'
-    %p.help-block
-      = t(:'site.user.edit_profile.video_help').html_safe
+      %label{:class => 'control-label'}
+        = p.label t(:'site.user.new.main_info.current_location')
+      .controls
+        = p.select :current_location_id, City.all.collect{|d| [d.name, d.id]}, { :prompt => '---' }, :class => 'span2'
+    .control-group
+      %label{:class => 'control-label'}
+        = p.label t(:'site.user.new.main_info.video_url')
+      .controls
+        = p.text_field :video_url, :class => 'span3'
+        %p.help-block
+          = t(:'site.user.edit_profile.video_help').html_safe
+  .span6
+    %legend= t(:'site.contacts.title')
+    = p.fields_for :contacts do |c|
+      = render :partial => 'contacts/contact_fields', :locals => { :f => c }
+    .fields
+      = link_to_add_fields t(:'site.contacts.add_contact').html_safe, p, :contacts

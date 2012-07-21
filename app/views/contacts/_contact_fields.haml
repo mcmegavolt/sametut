@@ -1,4 +1,4 @@
 .control-group
-  = f.select :contact_type_id, Contact::CONTACT_TYPES.collect{|ct| [ct.capitalize, Contact::CONTACT_TYPES.index(ct)]}, { :include_blank => true }, :class => 'span2'
+  = f.select :contact_type_id, Contact::CONTACT_TYPES.collect{|ct| [t(:"site.contacts.#{ct}"), Contact::CONTACT_TYPES.index(ct)]}, { :include_blank => true }, :class => 'span2'
   = f.text_field :value, :class => 'span3'
   = link_to_remove_fields "[X]", f

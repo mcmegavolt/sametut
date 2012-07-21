@@ -1,0 +1,17 @@
+%fieldset
+  %legend= t(:'postings.main_image.legend')
+  .control-group
+    %label.control-label
+      - if f.object.image_url.present?
+        = image_tag f.object.image_url(:small).to_s
+    .controls
+      = f.file_field :image
+      = f.hidden_field :image_cache
+  .control-group
+    = f.label t(:'postings.main_image.title'), :class => 'control-label'
+    .controls
+      = f.text_field :title, :placeholder => t(:'postings.main_image.title_placeholder'), :class => 'span9'
+  .control-group
+    = f.label t(:'postings.main_image.description'), :class => 'control-label'
+    .controls
+      = f.text_field :description, :placeholder => t(:'postings.main_image.description_placeholder'), :class => 'span9'

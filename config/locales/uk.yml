@@ -16,7 +16,9 @@ uk:
       back_to_site: 'На головну'
       new_user: 'Зареєструватися'
       users_list: 'Список юзерів'
-    copyright: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-2012. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
+    copyright_html: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-2012. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
+    ministry_of_education_html: "При підтримці <a href=\'http://mon.gov.ua\' rel=\'nofollow\' target=\'_blank\'>міністерства освіти і науки, молоді та спорту</a>"
+
 
     schools:
       index:
@@ -57,7 +59,13 @@ uk:
             description: "Загальний опис"
 
           show:
-            video_tab: "Відео"
+            main_info_html: "<i class=\'icon-info-sign\'></i> Основна інформація"
+            video_tab_html: "<i class=\'icon-facetime-video\'></i> Відео"
+            video_tab_none: "Відео не завантажено"
+            map_html: "<i class=\'icon-map-marker\'></i> Мапа"
+            contacts_html: "<i class=\'icon-tasks\'></i> Контакти"
+            gallery_html: "<i class=\'icon-camera\'></i> Фотогалерея"
+            gallery_none: "Незабаром"
 
           director:
             legend: "Директор"
@@ -176,7 +184,7 @@ uk:
       room: "Кабінет"
       map: "Мапа"
       gmaps: "Не шукати на мапі"
-      gmaps_help: "Поставте галочку у разі проблеми з автоматичним пошуком на мапі."
+      gmaps_help_html: "Цю галочку потрібно знімати<br/>тільки у разі зміни адреси."
       gmaps_error_html: "Не вдалося відшукати адресу на мапі, будь-ласка, перевірте введені дані, або поставте галочку &laquo;Не шукати на мапі&raquo;"
     contacts:
       title: "Контакти"
@@ -188,8 +196,6 @@ uk:
       twitter: "Twitter"
       vkontakte: "Вконтакті"
       odnoklasniki: "Однокласники"
-      livejournal: "Живий журнал"
-      blogger: "Blogger"
       google: "Google+"
       youtube: "YouTube"
       vimeo: "Vimeo"
