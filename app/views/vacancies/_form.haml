@@ -1,0 +1,16 @@
+-#= form_for [school, vacancy] , :url => vacancy.new_record? ? school_vacancies_path : school_vacancy_path(school, vacancy)  do |f|
+= form_for [@school, @vacancy], :html => { :class => 'form-horizontal' } do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => @vacancy }
+  %fieldset
+    .control-group
+      %label.control-label= t(:'site.user.vacancies.specialty')
+      .controls
+        -#= f.select :specialty_id, Specialty.all.collect {|s| [ s.name, s.id]}#, {:prompt => 'Оберіть область'}
+        = f.grouped_collection_select :specialty_id, SpecialtyCategory.all(:order => 'name'), :specialties, :name, :id, :name, :class => 'select-region', :prompt => 'Оберіть район'
+    .control-group
+      %label.control-label= t(:'site.user.vacancies.value')
+      .controls
+        = f.number_field :value, :style => 'width: 35px;', :min => 0.1, :step => 0.1, :placeholder => '?'
+
+  .form-actions
+    = f.submit t(:'site.user.vacancies.submit'), :class => 'btn btn-large btn-success'

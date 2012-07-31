@@ -46,7 +46,7 @@
       .content
         .row{:style => 'margin-bottom: 20px;'}
           .span12
-            - if user_signed_in? || admin_signed_in?
+            - if user_signed_in?
               = render :partial => '/shared/top_nav'
 
         = render 'shared/flash_messages'
@@ -66,6 +66,5 @@
                   = link_to '[+]', new_admin_session_path
                 %br/
                 = t(:'site.ministry_of_education_html')
-                %i.icon-flag
 
   = yield :scripts

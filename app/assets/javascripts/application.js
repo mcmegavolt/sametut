@@ -16,6 +16,10 @@
 
 $(document).ready(function(){
 
+
+    // Gmaps show in tab fix
+    $('#location-map').on('shown', function (e) { google.maps.event.trigger(map, 'resize');})
+
     // UI
     $('.datepicker').datepicker({
         changeYear: true,

@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :applicant
 
-
   def regions
     @regions ||= Region.all
   end

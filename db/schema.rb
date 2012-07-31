@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721205404) do
+ActiveRecord::Schema.define(:version => 20120728202400) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(:version => 20120721205404) do
   end
 
   create_table "galleries", :force => true do |t|
-    t.string   "name"
     t.integer  "galleryable_id"
     t.string   "galleryable_type"
     t.datetime "created_at",       :null => false
@@ -149,14 +148,6 @@ ActiveRecord::Schema.define(:version => 20120721205404) do
 
   add_index "galleries", ["galleryable_id", "galleryable_type"], :name => "index_galleries_on_galleryable_id_and_galleryable_type"
 
-  create_table "images", :force => true do |t|
-    t.string   "image"
-    t.string   "title"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "news_items", :force => true do |t|
     t.string   "title"
     t.string   "body"
@@ -164,6 +155,15 @@ ActiveRecord::Schema.define(:version => 20120721205404) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "admin_id"
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "src"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "gallery_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -194,6 +194,19 @@ ActiveRecord::Schema.define(:version => 20120721205404) do
     t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "specialties", :force => true do |t|
+    t.string   "name"
+    t.integer  "specialty_category_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "specialty_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_types", :force => true do |t|
@@ -229,6 +242,14 @@ ActiveRecord::Schema.define(:version => 20120721205404) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "vacancies", :force => true do |t|
+    t.integer  "specialty_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "school_id"
+    t.float    "value"
+  end
 
   create_table "work_experiences", :force => true do |t|
     t.integer  "applicant_id"

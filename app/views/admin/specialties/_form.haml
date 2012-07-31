@@ -1,0 +1,15 @@
+= form_for specialty, :url => specialty.new_record? ? admin_specialties_path : admin_specialty_path(specialty), :html => { :class => 'form-horizontal' }  do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => specialty }
+
+  %fieldset
+    .control-group
+      %label.control-label= t(:'admin.specialties.name')
+      .controls
+        = f.text_field :name
+    .control-group
+      %label.control-label= t(:'admin.specialties.specialty_category')
+      .controls
+        = f.select :specialty_category_id, SpecialtyCategory.all.collect{ |sc| [ sc.name, sc.id ] }
+
+  .form-actions
+    = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-large btn-success'

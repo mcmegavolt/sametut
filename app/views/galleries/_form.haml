@@ -1,9 +1,11 @@
-= form_for gallery, :html => {:class => 'form-horizontal'} do |f|
-
-  = render :partial => 'gallery_fields', :locals => { :f => f }
-
+= form_for gallery, :html => {:class => 'form-horizontal'}, :url => gallery.new_record? ? school_gallery_path : school_gallery_path(school) do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => gallery }
+  .row
+    .span12
+      = f.fields_for :pictures do |p|
+        = render :partial => 'pictures/picture_fields', :locals => { :f => p }
+      %p
+        %i.icon-plus-sign
+        = link_to_add_fields t(:'site.user.gallery.images.add_image'), f, :pictures
   .form-actions
-    = submit_tag 'Save', :class => 'btn btn-large btn-success'
-    or
-    = link_to 'Cancel', school_path(school), :class => 'btn btn-large btn-danger'
-
+    = submit_tag t(:'site.user.gallery.save'), :class => 'btn btn-large btn-success'

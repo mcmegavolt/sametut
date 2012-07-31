@@ -10,9 +10,20 @@ class HomeController < ApplicationController
   helper_method :users
 
   def schools
-    @schools = School.all.size
+    @schools = School.all
   end
   helper_method :schools
+
+  def applicants
+    @applicants = Applicant.all
+  end
+  helper_method :applicants
+
+  def vacancies
+    @vacancies = Vacancy.all
+  end
+  helper_method :vacancies
+
 
   def map
     @json = Location.all.to_gmaps4rails do |location, marker|

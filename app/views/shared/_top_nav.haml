@@ -1,23 +1,33 @@
-- if user_signed_in?
-  = t(:'site.user.toolbar.hello')
-  - if current_user.applicant
-    = current_user.applicant.first_name + '!'
-  - else
-    = current_user.email + '!'
-  &nbsp;
-  - if current_user.applicant
-    = link_to applicant_path(current_user.applicant) do
-      %i.icon-user
-      = t(:'site.user.toolbar.my_profile')
-    &nbsp;
-    = link_to edit_applicant_path(current_user.applicant), :class => 'positive button' do
-      %i.icon-pencil
-      = t(:'site.user.toolbar.edit_profile')
-    &nbsp;
-  = link_to edit_user_registration_path do
-    %i.icon-cog
-    = t(:'site.user.toolbar.change_pass')
-    &nbsp;
-  = link_to destroy_user_session_path do
-    %i.icon-off
-    = t(:'site.user.devise.actions.log_out')
+.subnav
+  %ul.nav.nav-pills
+    - if user_signed_in?
+      -#%li
+        = t(:'site.user.toolbar.hello')
+        - if current_user.applicant
+          = current_user.applicant.first_name + '!'
+        - else
+          = current_user.email + '!'
+      - if current_user.applicant
+        %li
+          = link_to applicant_path(current_user.applicant) do
+            = t(:'site.user.toolbar.my_profile_html')
+        %li
+          = link_to edit_applicant_path(current_user.applicant), :class => 'positive button' do
+            = t(:'site.user.toolbar.edit_profile_html')
+
+      - if current_user.school
+        %li
+          = link_to t(:'site.user.toolbar.my_profile_html'), school_path(current_user.school)
+        %li
+          = link_to t(:'site.user.toolbar.edit_profile_html'), edit_school_path(current_user.school)
+        %li
+          = link_to t(:'site.user.toolbar.edit_gallery_html'), edit_school_gallery_path(current_user.school)
+        %li
+          = link_to t(:'site.user.toolbar.edit_vacancies_html'), school_vacancies_path(current_user.school)
+      %li
+        = link_to edit_user_registration_path do
+          = t(:'site.user.toolbar.change_pass_html')
+      %li
+        = link_to destroy_user_session_path do
+          %i.icon-off
+          = t(:'site.user.devise.actions.log_out')

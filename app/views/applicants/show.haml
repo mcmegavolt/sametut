@@ -24,8 +24,6 @@
         %a( href = "#soc-act" data-toggle = "tab" )
           = t(:'site.user.new.headers.social_activities')
 
-
-
     #myTabContent.tab-content
       #main-info.tab-pane.fade.active.in
         %table.table.table-striped.table-condensed
@@ -62,20 +60,19 @@
                 = t(:'site.user.new.main_info.birth_date')
             %td
               - if applicant.profile.birth_date
-                = applicant.profile.birth_date.to_s(:long)
+                = l applicant.profile.birth_date, :format => :long
           %tr
             %td
               %b
                 = t(:'site.user.new.main_info.birth_location')
             %td
-              = City.find_by_id(applicant.profile.birth_location_id).name
+              = City.find(applicant.profile.birth_location_id).name  unless applicant.profile.birth_location_id.blank?
           %tr
             %td
               %b
                 = t(:'site.user.new.main_info.current_location')
             %td
-              = City.find_by_id(applicant.profile.current_location_id).name
-
+              = City.find(applicant.profile.current_location_id).name unless applicant.profile.current_location_id.blank?
 
         - for contact in applicant.profile.contacts.by_type do
           %p
@@ -87,13 +84,9 @@
           - for contact in applicant.profile.contacts.by_type
             - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
               = social_icon contact
-
-
-
-
       #education.tab-pane.fade
-        %table.table.table-striped.table-condensed
-
+        %p Функція тимчасово недоступна
+        -#%table.table.table-striped.table-condensed
           %th
             Name
           %th
@@ -107,43 +100,37 @@
           - for education in applicant.educations
             %tr
               %td
-                %b
-                  = education.school.name
-              %td
-                = education.start_date
-              %td
-                = education.end_date
-              %td
-                = education.faculty
-              %td
-                = EducationDegreeLevel.find_by_id(education.education_degree_level_id).education_degree_level
+                %b= education.school.name
+              %td= education.start_date
+              %td= education.end_date
+              %td= education.faculty
+              %td= EducationDegreeLevel.find(education.education_degree_level_id).education_degree_level
       #work-exp.tab-pane.fade
         %table.table.table-striped.table-condensed
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.headers.work_experience')
-            %td
-              %ol
-                - for work_experience in applicant.work_experiences
-                  %li
-                    = work_experience.start_date
-                    = work_experience.end_date
-                    = work_experience.organization
-                    = work_experience.position
+          %thead
+            %th= t(:'site.user.new.work_experience.start_date')
+            %th= t(:'site.user.new.work_experience.end_date')
+            %th= t(:'site.user.new.work_experience.organization_name')
+            %th= t(:'site.user.new.work_experience.position')
+          - for work_experience in applicant.work_experiences
+            %tr
+              %td= l work_experience.start_date, :format => :long
+              %td= l work_experience.end_date, :format => :long
+              %td= work_experience.organization
+              %td= work_experience.position
+
+
       #soc-act.tab-pane.fade
         %table.table.table-striped.table-condensed
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.headers.social_activities')
-            %td
-              %ol
-                - for social_activity in applicant.social_activities
-                  %li
-                    = social_activity.activity_type
-                    = social_activity.duties
-                    = social_activity.position
+          %thead
+            %th= t(:'site.user.new.social_activities.activity_type')
+            %th= t(:'site.user.new.social_activities.position')
+            %th= t(:'site.user.new.social_activities.duties')
+          - for social_activity in applicant.social_activities
+            %tr
+              %td= social_activity.activity_type
+              %td= social_activity.duties
+              %td= social_activity.position
 
 
 %hr/

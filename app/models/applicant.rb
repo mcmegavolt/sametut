@@ -34,6 +34,7 @@ class Applicant < ActiveRecord::Base
 
   mount_uploader :avatar, ApplicantAvatarUploader
 
+
   def to_param
     "#{id}-#{permalink}"
   end

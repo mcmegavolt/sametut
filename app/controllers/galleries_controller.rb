@@ -11,31 +11,29 @@ class GalleriesController < ApplicationController
   end
 
   def new
-    gallery.images.build
   end
 
   def create
-    gallery.school = school
+    gallery.galleryable = school
     if gallery.save
       flash[:success] = t(:'postings.create.success')
       #NotificationMailer.posting_created(posting).deliver
-      redirect_to gallery_path(gallery)
+      redirect_to school_path(school)
     else
       render :new
     end
   end
 
   def edit
-    #@posting = current_user.postings.find(params[:posting])
-    #posting.images.build unless posting.images.size > 0
+    gallery.pictures.build unless !gallery.pictures
   end
 
   def update
     if gallery.update_attributes params[:gallery]
       flash[:notice] = t(:'postings.update.success')
-      redirect_to gallery_path(gallery)
+      redirect_to school_path(school)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -47,16 +45,14 @@ class GalleriesController < ApplicationController
   private
 
   def galleries
-    @galleries ||= if school.present?
-      school.galleries
-    else
-      Gallery
-    end
+    @galleries = Gallery.all
   end
   helper_method :galleries
 
   def gallery
-    @gallery ||= if params[:id]
+    @gallery ||= if school.present?
+      school.gallery || school.build_gallery
+    elsif params[:id]
       Gallery.find params[:id]
     else
       Gallery.new params[:gallery]
@@ -71,7 +67,7 @@ class GalleriesController < ApplicationController
 
   def require_owner
     unless admin_signed_in?
-      unless current_user == gallery.school.user
+      unless current_user == gallery.galleryable.user
         flash[:error] = t('site.errors.access_denied')
         redirect_to root_path
       end

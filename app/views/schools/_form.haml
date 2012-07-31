@@ -5,20 +5,23 @@
       %legend
         = t(:'site.user.profiles.school.edition.main_info')
       .control-group
-        = f.label t(:'site.user.profiles.school.edition.name'), :class => 'control-label'
+        = f.label :name, t(:'site.user.profiles.school.edition.name'), :class => 'control-label'
         .controls
           = f.text_field :name, :class => 'span9'
       .control-group
-        = f.label t(:'site.user.profiles.school.edition.school_type'), :class => 'control-label'
+        = f.label :education_school_type_id, t(:'site.user.profiles.school.edition.school_type'), :class => 'control-label'
         .controls
           = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
       .control-group
-        = f.label t(:'site.user.profiles.school.edition.description'), :class => 'control-label'
+        = f.label :description, t(:'site.user.profiles.school.edition.description'), :class => 'control-label'
         .controls
-          = f.cktext_area :description
+          - unless f.object.new_record?
+            = f.cktext_area :description, :class => 'span9'
+          - else
+            = f.text_area :description, :class => 'span9', :style => 'height:200px'
       .control-group
         %label{:class => 'control-label'}
-          = f.label t(:'site.user.new.main_info.video_url')
+          = f.label :video_url, t(:'site.user.new.main_info.video_url')
         .controls
           = f.text_field :video_url, :class => 'span7'
   .row
@@ -40,5 +43,4 @@
 
   .form-actions
     = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
-    %button.btn
-      = t(:'site.user.edit_profile.cancel')
+    = link_to t(:'site.user.edit_profile.cancel'), root_path, :class => 'btn'

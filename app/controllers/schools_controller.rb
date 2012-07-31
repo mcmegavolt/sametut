@@ -36,9 +36,10 @@ class SchoolsController < ApplicationController
 
   def create
     school.user_id = current_user.id
+    school.create_gallery
     if school.save
        flash[:success] = t(:'site.user.edit_profile.profile_created')
-       redirect_to root_url
+       redirect_to school_path(school)
      else
        render :action => "new"
      end

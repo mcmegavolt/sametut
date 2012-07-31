@@ -1,6 +1,6 @@
 SameTut::Application.routes.draw do
 
-  mount Ckeditor::Engine => '/ckeditor'
+  mount Ckeditor::Engine => "/ckeditor"
 
   devise_for :admins do
     get "/admins/sign_out" => "devise/sessions#destroy", :as => :destroy_admin_session
@@ -19,15 +19,19 @@ SameTut::Application.routes.draw do
     resources :user_types
     resources :cities
     resources :regions
+    resources :vacancies
+    resources :specialties
+    resources :specialty_categories
   end
 
   resources :users
   resources :applicants
   resources :schools do
-    resources :galleries
+    resource :gallery
+    resources :vacancies
   end
 
-  resources :galleries
+  resources :vacancies
 
   match '/home' => "home#index"
 

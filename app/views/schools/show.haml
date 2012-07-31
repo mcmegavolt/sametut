@@ -4,6 +4,7 @@
       .span12
         .row
           .span3
+            &nbsp;
             - if admin_signed_in?
               = link_to  edit_school_path(school) do
                 %i.icon-pencil
@@ -16,7 +17,6 @@
               .show_caption
                 = image_tag school.director_profile.director_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name, :alt => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name
           .span9
-
             %ul#ProfileTabs.nav.nav-tabs
               %li.active
                 %a( href = "#main-info" data-toggle = "tab" )
@@ -34,9 +34,22 @@
                 - else
                   = link_to t(:'site.user.profiles.school.show.video_tab_html'), '#', style: 'color:silver;', title: t(:'site.user.profiles.school.show.video_tab_none')
               %li
-                = link_to t(:'site.user.profiles.school.show.gallery_html'), '#', style: 'color:silver;', title: t(:'site.user.profiles.school.show.gallery_none')
-
-
+                - if school.gallery && school.gallery.pictures.present?
+                  %a( href = "#gallery" data-toggle = "tab" )
+                    = t(:'site.user.profiles.school.show.gallery_html')
+                    %sup= school.gallery.pictures.size
+                - else
+                  = link_to t(:'site.user.profiles.school.show.gallery_html'), '#', style: 'color:silver;', title: t(:'site.user.gallery.images.no_images')
+              %li
+                - if school.vacancies.present?
+                  %a( href = "#vacancies" data-toggle = "tab" )
+                    %i.icon-th-list
+                    = t(:'site.user.vacancies.title')
+                    %sup= + school.vacancies.size
+                - else
+                  = link_to '#', style: 'color:silver;', title: t(:'site.user.vacancies.no_vacancies') do
+                    %i.icon-th-list
+                    = t(:'site.user.vacancies.title')
             #myTabContent.tab-content
               #main-info.tab-pane.fade.active.in
                 = school.description.html_safe if school.description
@@ -54,13 +67,38 @@
                         - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
                           = social_icon contact
                           &nbsp;
-              - unless school.video_url.blank?
-                #video.tab-pane.fade.in
-                  = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)
 
               #location-map.tab-pane.fade.in
                 = gmaps4rails(school.location.to_gmaps4rails)
 
+              - unless school.video_url.blank?
+                #video.tab-pane.fade.in
+                  = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)
 
+              #gallery.tab-pane.fade.in
+                - if school.gallery && school.gallery.pictures.present?
+                  .imageRow
+                    .set
+                      - for pic in school.gallery.pictures
+                        .single
+                          = link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
+                            = image_tag pic.src_url(:medium), :width => '215px'
 
-
+              #vacancies.tab-pane.fade.in
+                %table.table.table-striped.table-condensed
+                  %thead
+                    %th
+                      = t(:'site.user.vacancies.specialty')
+                    %th
+                      = t(:'site.user.vacancies.value')
+                    %th
+                      = t(:'site.user.vacancies.update_date')
+                  %tbody
+                  - for v in school.vacancies
+                    %tr
+                      %td
+                        = v.specialty
+                      %td
+                        = v.value
+                      %td
+                        = time_ago_in_words(v.updated_at) + t(:'site.user.vacancies.ago')

@@ -1,27 +1,26 @@
-%h1 Listing applicants
+%h1
+  = t(:'site.applicant.index.title')
 %p
   %b
-    Applicants count:
+    = t(:'site.applicant.index.total')
   = applicants.size
-%table
-  %tr
+%table.table.table-striped.table-condensed
+  %thead
     %th
-    %th
-    %th
+    %th= t(:'site.applicant.index.created_at')
     %th
   - applicants.each do |applicant|
     %tr
+      %td= link_to applicant, applicant_path(applicant)
+      %td= (time_ago_in_words applicant.created_at).to_s + t(:'site.user.vacancies.ago')
       %td
-        = applicant.first_name
-      %td
-
-      %td
-        = link_to applicant, :class => 'primary button' do
-          %span.class
-          Show
-        = link_to edit_applicant_path(applicant), :class => "button" do
-          %span.pen.icon
-          Edit
-        = link_to applicant, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
-          %span.cross.icon
-          Destroy
+        - if admin_signed_in?
+          = link_to applicant, :class => 'primary button' do
+            %span.class
+            Show
+          = link_to edit_applicant_path(applicant), :class => "button" do
+            %span.pen.icon
+            Edit
+          = link_to applicant, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
+            %span.cross.icon
+            Destroy

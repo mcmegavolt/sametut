@@ -28,7 +28,7 @@ SameTut::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # Do not compress assets
-  config.assets.compress = false
+  config.assets.compress = true
 
   config.assets.debug = true
 

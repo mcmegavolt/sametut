@@ -1,11 +1,16 @@
 class Gallery < ActiveRecord::Base
-  attr_accessible :name
 
-  attr_accessor :image_attributes
+  attr_accessible :galleryable_id, :galleryable_type
+
+  attr_accessible :pictures_attributes
 
   belongs_to :galleryable, :polymorphic => true
 
-  has_many :images, :dependent => :destroy
-  accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if => lambda { |i| i[:image].blank? }
+  has_many :pictures, :dependent => :destroy
+  accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |i| i[:src].blank? }
+
+  def to_s
+    name
+  end
 
 end

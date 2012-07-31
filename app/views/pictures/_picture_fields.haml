@@ -1,0 +1,16 @@
+%fieldset
+  .control-group
+    %label.control-label
+      - if f.object.src_url.present?
+        = image_tag f.object.src_url(:small).to_s
+    .controls
+      = f.file_field :src
+      = f.hidden_field :src_cache
+  .control-group
+    = f.label :title, t(:'site.user.gallery.images.title'), :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'span4'
+  .control-group
+    = f.label :description, t(:'site.user.gallery.images.description'), :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'span4'

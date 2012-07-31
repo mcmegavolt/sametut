@@ -52,11 +52,12 @@
   = f.fields_for :profile do |p|
     = render 'profile_fields', :p => p
 
-  %legend
-    = t(:'site.user.new.headers.education')
-  = f.fields_for :educations do |ed|
-    = render 'education_fields', :f => ed
-  %p
+  %legend= t(:'site.user.new.headers.education')
+  %p.muted Розділ даних про освіту тимчасово недоступний. Триває удосконалення.
+  %br/
+  -#= f.fields_for :educations do |ed|
+    = render 'educations/education_fields', :f => ed
+  -#%p
     %i.icon-plus-sign
     = link_to_add_fields t(:'site.user.new.actions.add'), f, :educations
 
@@ -64,7 +65,7 @@
   %legend
     = t(:'site.user.new.headers.social_activities')
   = f.fields_for :social_activities do |sa|
-    = render 'social_activity_fields', :f => sa
+    = render 'social_activities/social_activity_fields', :f => sa
   %p
     %i.icon-plus-sign
     = link_to_add_fields t(:'site.user.new.actions.add'), f, :social_activities
@@ -72,7 +73,7 @@
   %legend
     = t(:'site.user.new.headers.work_experience')
   = f.fields_for :work_experiences do |we|
-    = render 'work_experience_fields', :f => we
+    = render 'work_experiences/work_experience_fields', :f => we
   %p
     %i.icon-plus-sign
     = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences

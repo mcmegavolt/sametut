@@ -1,5 +1,7 @@
 class School < ActiveRecord::Base
 
+  attr_accessor :gallery_attributes
+
   belongs_to :education_school_type
 
   belongs_to :user
@@ -13,8 +15,11 @@ class School < ActiveRecord::Base
   has_many :contacts, :as => :contactable, :dependent => :destroy
   accepts_nested_attributes_for :contacts, :reject_if => lambda { |c| c[:value].blank? || c[:contact_type_id].blank? }, :allow_destroy => true
 
-  has_many :galleries, :as => :galleryable, :dependent => :destroy
-  accepts_nested_attributes_for :galleries, :allow_destroy => true
+  has_one :gallery, :as => :galleryable, :dependent => :destroy
+  accepts_nested_attributes_for :gallery, :allow_destroy => true
+
+  has_many :vacancies, :dependent => :destroy
+  accepts_nested_attributes_for :vacancies, :reject_if => lambda { |c| c[:vacancy_value_id].blank? || c[:vacancy_category_id].blank? }, :allow_destroy => true
 
   def to_param
     "#{id}-#{permalink}"

@@ -21,14 +21,14 @@ class ApplicantsController < ApplicationController
   end
 
   def edit
-     unless applicant.user == current_user || admin_signed_in?
-       flash[:error] = t(:'errors.messages.no_access')
-       redirect_to root_url
-     else
+     if applicant.user == current_user || admin_signed_in?
        applicant.build_profile unless applicant.profile
        applicant.social_activities.build unless applicant.social_activities
        applicant.work_experiences.build unless applicant.work_experiences
        applicant.educations.build unless applicant.educations
+     else
+       flash[:error] = t(:'errors.messages.no_access')
+       redirect_to root_url
      end
   end
 

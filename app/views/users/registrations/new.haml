@@ -21,8 +21,12 @@
           .controls
             - UserType.all.each do |select_type|
               %label.radio
-                = f.radio_button :user_type_id, select_type.id
-                = select_type.user_type_name
+                - unless select_type.id == 3
+                  = f.radio_button :user_type_id, select_type.id
+                  = select_type.user_type_name
+                - else
+                  = f.radio_button :user_type_id, select_type.id, :disabled => true
+                  %span.muted= select_type.user_type_name
 
 
 

@@ -1,0 +1,22 @@
+%legend= t(:'admin.specialty_categories.title')
+%p= link_to t(:'admin.specialty_categories.add_html'), new_admin_specialty_category_path
+%hr/
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %th
+      id
+    %th
+      = t(:'admin.specialty_categories.name')
+    %th
+  %tbody
+  - for sc in specialty_categories
+    %tr
+      %td
+        = sc.id
+      %td
+        = sc.name
+      %td
+        = link_to t(:'site.user.vacancies.edit_html'), edit_admin_specialty_category_path(sc)
+        = link_to t(:'site.user.vacancies.delete_html'), admin_specialty_category_path(sc), :method => :delete, :confirm => 'Are you sure?'
+%hr/
+%p= link_to t(:'admin.specialty_categories.add_html'), new_admin_specialty_category_path

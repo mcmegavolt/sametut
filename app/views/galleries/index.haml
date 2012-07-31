@@ -1,10 +1,10 @@
-- set_meta_tags :title => t(:'seo.users.user_postings') + user.to_s, :description => user.profile.bio
+-#- set_meta_tags :title => t(:'seo.users.user_postings') + user.to_s, :description => user.profile.bio
 #postings
   #index
     .row
       .span8
-        %h1= t(:'postings.user_postings')
-        .header
+        %h1 Galleries
+        -#.header
           .row
             .span1
               = image_tag user.profile.avatar_url(:thumb), :class => 'rounded_2'
@@ -13,7 +13,5 @@
               %p= user.profile.bio
               %p= t(:'visitor.profile.profile_age') + time_ago_in_words(user.created_at)
 
-        = render postings
-      .span4
-        = render :partial => 'shared/widgets/widgets'
+        = render galleries
 
