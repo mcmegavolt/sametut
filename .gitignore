@@ -2,7 +2,6 @@
 .bundle
 *~
 tmp/
-mcmegavolt/
 *.swp
 log/*.log
 .sass-cache/
