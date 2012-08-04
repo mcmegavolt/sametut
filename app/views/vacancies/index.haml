@@ -1,43 +1,52 @@
 .row
-  .span9
+  .span12
     %legend
-      = t(:'site.user.vacancies.title') + ' / ' + school.name
-    - if current_user == school.user || admin_signed_in?
-      = link_to new_school_vacancy_path(school) do
-        %i.icon-plus-sign
-        = t(:'site.user.vacancies.add')
-      %br/
-      %br/
-    %table.table.table-striped.table-condensed
-      %thead
-        %th
-          = t(:'site.user.vacancies.specialty')
-        %th
-          = t(:'site.user.vacancies.value')
-        %th
-          = t(:'site.user.vacancies.update_date')
+      = t(:'site.user.vacancies.title')
+    %p.muted= t(:'site.user.vacancies.total') + vacancies.size.to_s
+    - if current_user && school
+      - if current_user == school.user || admin_signed_in?
+        = link_to new_school_vacancy_path(school) do
+          %i.icon-plus-sign
+          = t(:'site.user.vacancies.add')
+        %br/
+        %br/
+    - if vacancies.present?
+      %table.table.table-striped.table-condensed
+        %thead
+          %th
+            = t(:'site.user.vacancies.specialty')
+          %th
+            = t(:'site.user.vacancies.value')
+          %th
+            = t(:'site.user.vacancies.update_date')
+          - if current_user && school
+            - if current_user == school.user || admin_signed_in?
+              %th(width='100px;')
+              %th(width='100px;')
+          - else
+            %th= t(:'site.user.vacancies.school_belong')
+        %tbody
+        - for v in vacancies
+          %tr
+            %td
+              = v.specialty
+            %td
+              = v.value
+            %td
+              = time_ago_in_words(v.updated_at) + t(:'site.user.vacancies.ago')
+            - if current_user && school
+              - if current_user == school.user || admin_signed_in?
+                %td
+                  = link_to t(:'site.user.vacancies.edit_html'), edit_school_vacancy_path(school, v)
+                %td
+                  = link_to t(:'site.user.vacancies.delete_html'), [school, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
+            - else
+              %td= link_to v.school, school_path(v.school)
+      - if current_user && school
         - if current_user == school.user || admin_signed_in?
-          %th(width='100px;')
-          %th(width='100px;')
-      %tbody
-      - for v in vacancies
-        %tr
-          %td
-            = v.specialty
-          %td
-            = v.value
-          %td
-            = time_ago_in_words(v.updated_at) + t(:'site.user.vacancies.ago')
-          - if current_user == school.user || admin_signed_in?
-            %td
-              = link_to t(:'site.user.vacancies.edit_html'), edit_school_vacancy_path(school, v)
-            %td
-              = link_to t(:'site.user.vacancies.delete_html'), [school, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
-    - if current_user == school.user || admin_signed_in?
-      %br/
-      = link_to new_school_vacancy_path(school) do
-        %i.icon-plus-sign
-        = t(:'site.user.vacancies.add')
-  .span3
-    %legend &nbsp;
-    = t(:'site.user.vacancies.total') + school.vacancies.size.to_s
+          %br/
+          = link_to new_school_vacancy_path(school) do
+            %i.icon-plus-sign
+            = t(:'site.user.vacancies.add')
+
+    %p.muted= t(:'site.user.vacancies.total') + vacancies.size.to_s

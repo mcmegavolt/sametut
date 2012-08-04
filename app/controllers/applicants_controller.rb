@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
 
-  before_filter :require_user_or_admin!
+  before_filter :require_user_or_admin!, :except => :index
 
   def index
   end
@@ -55,8 +55,5 @@ class ApplicantsController < ApplicationController
      applicant.destroy
      redirect_to root_url
   end
-
-
-
 
 end

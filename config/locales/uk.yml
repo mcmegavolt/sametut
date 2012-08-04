@@ -28,8 +28,12 @@ uk:
 
     schools:
       index:
-        title: "Список зареєстрованих навчальних закладів"
-        count: "Всього:"
+        title: "Зареєстровані навчальні заклади"
+        count: "Всього: "
+        name: "Назва школи"
+        region: "Регіон"
+        reg_date: "Дата реєстрації"
+        vacancies_count: "Вакансій"
 
     user:
       gallery:
@@ -40,9 +44,13 @@ uk:
         name: "Назва"
         images:
           add_image: "Додати фотографію"
-          title: "Назва"
+          remove_image: "Видалити фотографію"
           description: "Короткий опис"
           no_images: "Немає фотографій"
+        messages:
+          updated: "Фотогалерею оновлено!"
+          error: "Полмилка при оновленні фотогалереї"
+
       toolbar:
         hello: "Вітаємо, "
         my_profile_html: "<i class=\'icon-user\'></i> Мій профіль"
@@ -66,6 +74,7 @@ uk:
         total: "Всього вакансій: "
         submit: "Зберегти"
         no_vacancies: "Вакансії не зазначені"
+        school_belong: "Навчальний заклад"
         messages:
           created: "Нову вакансію створено"
           updated: "Вакансію оновлено"

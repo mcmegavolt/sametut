@@ -4,7 +4,7 @@ jQuery ->
 
   $("#popover").popover()
 
-  $("a[rel=tooltip]").tooltip()
+  $("a[rel='tooltip']").tooltip()
 
   $(".collapse").collapse({ toggle: true })
 

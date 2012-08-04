@@ -47,5 +47,9 @@ class Applicant < ActiveRecord::Base
     Russian.translit(self.first_name + '-' + self.middle_name + '-' + self.last_name).parameterize
   end
 
+  def full_name
+    first_name + middle_name + last_name
+  end
+
 
 end

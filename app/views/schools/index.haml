@@ -1,16 +1,21 @@
-%h2= t(:'site.schools.index.title')
-%p
-  %b
-    = t(:'site.schools.index.count')
-  = schools.size
-%hr/
-- for school in schools
-  %p
-    = link_to school.name, school_path(school)
+#schools
+  #index
+    .row
+      .span12
+        %legend= t(:'site.schools.index.title')
+        %p.muted= t(:'site.schools.index.count') + schools.size.to_s
+        %table.table.table-striped.table-condensed
+          %thead
+            %th= t(:'site.schools.index.name')
+            %th= t(:'site.schools.index.region')
+            %th= t(:'site.schools.index.vacancies_count')
+            %th= t(:'site.schools.index.reg_date')
 
-    = school.location.city.region.name + ' район' if school.location.city
+          - for s in schools
+            %tr
+              %td= link_to s.name, school_path(s)
+              %td= s.location.city.region.name if s.location.city
+              %td= s.vacancies.size
+              %td= time_ago_in_words(s.user.created_at) + t(:'site.user.vacancies.ago')
+        %p.muted= t(:'site.schools.index.count') + schools.size.to_s
 
-    - if admin_signed_in?
-      = link_to edit_school_path(school), :class => "btn btn-small" do
-        %span.icon-pencil
-        Редагувати

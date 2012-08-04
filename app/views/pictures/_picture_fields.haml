@@ -6,11 +6,11 @@
     .controls
       = f.file_field :src
       = f.hidden_field :src_cache
+      -#%label.checkbox
+        = f.check_box :remove_src
+        = t(:'site.user.gallery.images.remove_image')
   .control-group
-    = f.label :title, t(:'site.user.gallery.images.title'), :class => 'control-label'
+    = f.label :title, t(:'site.user.gallery.images.description'), :class => 'control-label'
     .controls
       = f.text_field :title, :class => 'span4'
-  .control-group
-    = f.label :description, t(:'site.user.gallery.images.description'), :class => 'control-label'
-    .controls
-      = f.text_field :description, :class => 'span4'
+%hr/

@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  #after :store, :delete_original_file
+  after :store, :delete_original_file
 
   def delete_original_file(new_file)
     File.delete path if version_name.blank?
@@ -39,11 +39,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fill => [390, 240]
+    process :resize_to_fill => [320, 240]
   end
 
   version :wide do
-    process :resize_to_fill => [620, 300]
+    process :resize_to_limit => [800, 800]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

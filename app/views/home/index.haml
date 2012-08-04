@@ -57,20 +57,24 @@
   .row
     .span3
       .count
-        %p.number= schools.size
-        %p.title навчальних закладів
+        = link_to schools_path do
+          %p.number= schools.size
+          %p.title навчальних закладів
     .span3
       .count
-        %p.number= vacancies.size
-        %p.title вакансій
+        = link_to vacancies_path do
+          %p.number= vacancies.size
+          %p.title вакансій
     .span3
       .count
-        %p.number= applicants.size
-        %p.title пошукачів
+        = link_to applicants_path do
+          %p.number= applicants.size
+          %p.title пошукачів
     .span3
       .count
-        %p.number 0
-        %p.title відділів освіти
+        = link_to '#' do
+          %p.number 0
+          %p.title відділів освіти
 
 
 

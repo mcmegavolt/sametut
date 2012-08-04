@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
 
-  before_filter :require_user_or_admin!
+  before_filter :require_user_or_admin!, :except => [:index, :show]
 
   def index
     respond_to do |format|

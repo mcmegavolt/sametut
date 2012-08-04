@@ -25,14 +25,15 @@ class GalleriesController < ApplicationController
   end
 
   def edit
-    gallery.pictures.build unless !gallery.pictures
+    gallery.pictures.build if !gallery.pictures && gallery.pictures.size > 0
   end
 
   def update
     if gallery.update_attributes params[:gallery]
-      flash[:notice] = t(:'postings.update.success')
+      flash[:success] = t(:'site.user.gallery.messages.updated')
       redirect_to school_path(school)
     else
+      flash[:success] = t(:'site.user.gallery.messages.error')
       render :edit
     end
   end

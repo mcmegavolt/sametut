@@ -1,26 +1,11 @@
-%h1
-  = t(:'site.applicant.index.title')
-%p
-  %b
-    = t(:'site.applicant.index.total')
-  = applicants.size
-%table.table.table-striped.table-condensed
-  %thead
-    %th
-    %th= t(:'site.applicant.index.created_at')
-    %th
-  - applicants.each do |applicant|
-    %tr
-      %td= link_to applicant, applicant_path(applicant)
-      %td= (time_ago_in_words applicant.created_at).to_s + t(:'site.user.vacancies.ago')
-      %td
-        - if admin_signed_in?
-          = link_to applicant, :class => 'primary button' do
-            %span.class
-            Show
-          = link_to edit_applicant_path(applicant), :class => "button" do
-            %span.pen.icon
-            Edit
-          = link_to applicant, :confirm => 'Are you sure?', :class => "negative button", :method => :delete do
-            %span.cross.icon
-            Destroy
+#applicants
+  #index
+    .row
+      .span12
+        %legend= t(:'site.applicant.index.title')
+        - applicants.each do |a|
+          = link_to applicant_path(a), :rel => 'tooltip', 'data-original-title' => a.full_name, :class => 'icon' do
+            = image_tag a.avatar_url(:icon50).to_s
+        %br/
+        %br/
+        %p.muted= t(:'site.applicant.index.total') + applicants.size.to_s

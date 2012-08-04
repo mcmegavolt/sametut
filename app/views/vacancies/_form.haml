@@ -6,7 +6,7 @@
       %label.control-label= t(:'site.user.vacancies.specialty')
       .controls
         -#= f.select :specialty_id, Specialty.all.collect {|s| [ s.name, s.id]}#, {:prompt => 'Оберіть область'}
-        = f.grouped_collection_select :specialty_id, SpecialtyCategory.all(:order => 'name'), :specialties, :name, :id, :name, :class => 'select-region', :prompt => 'Оберіть район'
+        = f.grouped_collection_select :specialty_id, SpecialtyCategory.all(:order => 'name'), :specialties, :name, :id, :name, :class => 'select-region', :prompt => 'Оберіть спеціальність'
     .control-group
       %label.control-label= t(:'site.user.vacancies.value')
       .controls
