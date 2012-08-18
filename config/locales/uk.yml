@@ -139,6 +139,8 @@ uk:
         video_help: "Youtube, Vimeo та інших. <br/>Наприклад: <a href=\"http://www.youtube.com/watch?v=mBY5iHcc1DU\" target=\"_blank\">http://www.youtube.com/watch?v=mBY5iHcc1DU</a>"
         change_avatar: "Змінити аватар"
         delete_avatar: "Видалити аватар"
+        upload_resume: "Завантажити резюме"
+        current_resume_file: "Поточне резюме"
         save_applicant: "Зберегти зміни"
         cancel: "Відмінити"
         profile_created: "Вітаємо! Ви створили свій профіль!"
@@ -184,6 +186,7 @@ uk:
           social_activities: 'Соціальна діяльність'
           work_experience: 'Досвід роботи'
           education: 'Освіта'
+          resume: "Резюме"
         main_info:
           permalink: 'Нікнейм'
           permalink_help: 'Наприклад, <b>bobrovnik-yura</b>, лише латинські символи та цифри. Без пробілів.</a>'
@@ -215,10 +218,17 @@ uk:
           organization_name: 'Назва організації'
           position: 'Посада'
           duties: 'Обовязки'
+        resume:
+          extention: "Формат"
+          file_size: "Об\'єм файлу"
+          download: "Завантажити файл резюме"
         actions:
           submit: 'Відправити'
           cancel: 'Відміна'
           add: 'Додати'
+          add_education: 'Додати дані про освіту'
+          add_work_experience: 'Додати дані про досвід роботи'
+          add_social_activity: 'Додати дані про соціальну діяльність'
           remove: 'Видалити'
         selectors:
           day: 'Оберіть число'

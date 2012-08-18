@@ -20,13 +20,17 @@
           = f.label t(:'site.user.new.main_info.last_name')
         .controls
           = f.text_field :last_name
-      -#.control-group
-        %label{:class => 'control-label'}
-          = f.label t(:'site.user.new.main_info.permalink')
+      - if f.object.resume_src.present?
+        .control-group
+          = f.label t(:'site.user.edit_profile.current_resume_file'), :class => 'control-label'
+          .controls
+            = link_to File.basename(f.object.resume_src_url), f.object.resume_src_url, :target => '_blank'
+      .control-group
+        = f.label t(:'site.user.edit_profile.upload_resume'), :class => 'control-label'
         .controls
-          = f.text_field :permalink
-          %p.help-block
-            = t(:'site.user.new.main_info.permalink_help').html_safe
+          = f.file_field :resume_src
+          = f.hidden_field :resume_src_cache
+
     .span6
       %legend
         = t(:'site.user.edit_profile.avatar')
@@ -49,17 +53,18 @@
           .controls
             = f.check_box :remove_avatar
 
+
   = f.fields_for :profile do |p|
     = render 'profile_fields', :p => p
 
   %legend= t(:'site.user.new.headers.education')
-  %p.muted Розділ даних про освіту тимчасово недоступний. Триває удосконалення.
-  %br/
-  -#= f.fields_for :educations do |ed|
+  -#%p.muted Розділ даних про освіту тимчасово недоступний. Триває удосконалення.
+  -#%br/
+  = f.fields_for :educations do |ed|
     = render 'educations/education_fields', :f => ed
-  -#%p
+  %p
     %i.icon-plus-sign
-    = link_to_add_fields t(:'site.user.new.actions.add'), f, :educations
+    = link_to_add_fields t(:'site.user.new.actions.add_education'), f, :educations
 
 
   %legend
@@ -68,7 +73,7 @@
     = render 'social_activities/social_activity_fields', :f => sa
   %p
     %i.icon-plus-sign
-    = link_to_add_fields t(:'site.user.new.actions.add'), f, :social_activities
+    = link_to_add_fields t(:'site.user.new.actions.add_social_activity'), f, :social_activities
 
   %legend
     = t(:'site.user.new.headers.work_experience')
@@ -76,7 +81,7 @@
     = render 'work_experiences/work_experience_fields', :f => we
   %p
     %i.icon-plus-sign
-    = link_to_add_fields t(:'site.user.new.actions.add'), f, :work_experiences
+    = link_to_add_fields t(:'site.user.new.actions.add_work_experience'), f, :work_experiences
 
   .form-actions
     = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'

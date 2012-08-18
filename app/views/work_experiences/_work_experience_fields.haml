@@ -1,31 +1,29 @@
 %fieldset
-  .control-group
-    = f.label t(:'site.user.new.work_experience.start_date'), :class => 'control-label'
-    .controls
-      = f.date_select :start_date, :changeYear => true
-
-  .control-group
-    = f.label t(:'site.user.new.work_experience.end_date'), :class => 'control-label'
-    .controls
-      = f.date_select :end_date, :changeYear => true
-
-  .control-group
-    = f.label t(:'site.user.new.work_experience.organization_name'), :class => 'control-label'
-    .controls
-      = f.text_field :organization, :size => 20
-
-  .control-group
-    = f.label t(:'site.user.new.work_experience.position'), :class => 'control-label'
-    .controls
-      = f.text_field :position, :size => 20
-
-  .control-group
-    = f.label t(:'site.user.new.work_experience.duties'), :class => 'control-label'
-    .controls
-      = f.text_field :duties, :size => 20
-
-  .control-group
-    .controls
-      %i.icon-remove
-      = link_to_remove_fieldset t(:'site.user.new.actions.remove'), f
+  .row
+    .span6
+      .control-group
+        = f.label t(:'site.user.new.work_experience.start_date'), :class => 'control-label'
+        .controls
+          = f.datepicker :start_date, :class => 'datepicker'
+      .control-group
+        = f.label t(:'site.user.new.work_experience.organization_name'), :class => 'control-label'
+        .controls
+          = f.text_field :organization, :size => 20
+      .control-group
+        = f.label t(:'site.user.new.work_experience.duties'), :class => 'control-label'
+        .controls
+          = f.text_field :duties, :size => 20
+    .span6
+      .control-group
+        = f.label t(:'site.user.new.work_experience.end_date'), :class => 'control-label'
+        .controls
+          = f.datepicker :end_date, :class => 'datepicker'
+      .control-group
+        = f.label t(:'site.user.new.work_experience.position'), :class => 'control-label'
+        .controls
+          = f.text_field :position, :size => 20
+      .control-group
+        .controls
+          %i.icon-remove
+          = link_to_remove_fieldset t(:'site.user.new.actions.remove'), f
   %hr/

@@ -1,22 +1,23 @@
 %fieldset
-  .control-group
-    = f.label t(:'site.user.new.social_activities.activity_type'), :class => 'control-label'
-    .controls
-      = f.text_field :activity_type, :size => 20
-
-  .control-group
-    = f.label  t(:'site.user.new.social_activities.duties'), :class => 'control-label'
-    .controls
-      = f.text_field :duties, :size => 20
-
-  .control-group
-    = f.label  t(:'site.user.new.social_activities.position'), :class => 'control-label'
-    .controls
-      = f.text_field :position, :size => 20
-  .control-group
-    .controls
-      %i.icon-remove
-      = link_to_remove_fieldset t(:'site.user.new.actions.remove'), f
+  .row
+    .sspan6
+      .control-group
+        = f.label t(:'site.user.new.social_activities.activity_type'), :class => 'control-label'
+        .controls
+          = f.text_field :activity_type, :size => 20
+      .control-group
+        = f.label  t(:'site.user.new.social_activities.position'), :class => 'control-label'
+        .controls
+          = f.text_field :position, :size => 20
+    .span6
+      .control-group
+        = f.label  t(:'site.user.new.social_activities.duties'), :class => 'control-label'
+        .controls
+          = f.text_field :duties, :size => 20
+      .control-group
+        .controls
+          %i.icon-remove
+          = link_to_remove_fieldset t(:'site.user.new.actions.remove'), f
   %hr/
 
 

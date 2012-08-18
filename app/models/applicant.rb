@@ -29,10 +29,11 @@ class Applicant < ActiveRecord::Base
   end
 
   def educations_blank entry
-    entry[:school_id].blank?
+    entry[:school].blank?
   end
 
   mount_uploader :avatar, ApplicantAvatarUploader
+  mount_uploader :resume_src, ApplicantResumeUploader
 
 
   def to_param

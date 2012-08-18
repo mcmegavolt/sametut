@@ -23,6 +23,9 @@
       %li
         %a( href = "#soc-act" data-toggle = "tab" )
           = t(:'site.user.new.headers.social_activities')
+      %li
+        %a( href = "#resume" data-toggle = "tab" )
+          = t(:'site.user.new.headers.resume')
 
     #myTabContent.tab-content
       #main-info.tab-pane.fade.active.in
@@ -85,22 +88,16 @@
             - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
               = social_icon contact
       #education.tab-pane.fade
-        %p Функція тимчасово недоступна
-        -#%table.table.table-striped.table-condensed
-          %th
-            Name
-          %th
-            Start
-          %th
-            End
-          %th
-            Faculty
-          %th
-            Degree
+        -#%p Функція тимчасово недоступна
+        %table.table.table-striped.table-condensed
+          %th= t(:'site.user.new.education_info.school_name')
+          %th= t(:'site.user.new.education_info.start_date')
+          %th= t(:'site.user.new.education_info.end_date')
+          %th= t(:'site.user.new.education_info.faculty')
+          %th= t(:'site.user.new.education_info.degree_level')
           - for education in applicant.educations
             %tr
-              %td
-                %b= education.school.name
+              %td= education.school
               %td= education.start_date
               %td= education.end_date
               %td= education.faculty
@@ -131,7 +128,12 @@
               %td= social_activity.activity_type
               %td= social_activity.duties
               %td= social_activity.position
-
+      #resume.tab-pane.fade
+        - if applicant.resume_src.present?
+          %p.muted
+            = "#{File.basename(applicant.resume_src_url)}"
+            %i.icon-download-alt
+            = link_to t(:'site.user.new.resume.download'), applicant.resume_src_url
 
 %hr/
 .row

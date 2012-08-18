@@ -20,6 +20,7 @@ gem 'russian'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 gem "ckeditor", "3.7.1"
+gem 'thin'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"
