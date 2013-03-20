@@ -6,5 +6,4 @@ jQuery ->
   $("#register-dialog").modal
     keyboard: true
     show: false
-
   $(".tooltip").tooltip()
