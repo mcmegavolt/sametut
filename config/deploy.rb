@@ -9,7 +9,7 @@ set :application, "sametut"
 set :scm, :git
 set :repository,  ".git"
 set :branch, "develop"
-server "85.25.100.135", :web, :app, :db, :primary => true
+server "91.239.233.144", :web, :app, :db, :primary => true
 set :ssh_options, { :forward_agent => true, :paranoid => false }
 set :user, "sametut"
 set :password, "s!AmeTu7_0RgU@"
