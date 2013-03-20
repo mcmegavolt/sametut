@@ -10,11 +10,9 @@ gem 'kaminari'
 gem 'url_to_media_tag'
 gem 'haml'
 gem 'json'
-# gem 'execjs'
-# gem 'therubyracer'
 gem 'devise'
 gem 'devise-async'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.0.1'
 gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
@@ -27,7 +25,6 @@ gem 'inherited_resources'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
 
-
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'bootstrap-sass'
@@ -38,6 +35,11 @@ group :assets do
   gem 'jquery-ui-rails'
   gem 'rails_tokeninput'
   gem "select2-rails"
+end
+
+group :production do
+  gem 'backup'
+  gem 'whenever'  
 end
 
 group :development do
