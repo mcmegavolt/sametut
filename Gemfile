@@ -18,7 +18,7 @@ gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'russian'
 gem 'gmaps4rails'
-gem "ckeditor", "3.7.1"
+gem "ckeditor"
 gem 'thin'
 gem 'unicorn'
 gem 'inherited_resources'
