@@ -219,7 +219,6 @@ DEPENDENCIES
   ckeditor (= 3.7.1)
   coffee-rails
   devise
-  execjs
   faker
   font-awesome-sass-rails
   gmaps4rails
