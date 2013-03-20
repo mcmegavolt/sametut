@@ -27,7 +27,7 @@ group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'bootstrap-sass'
   gem 'font-awesome-sass-rails'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails'
   gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
@@ -42,6 +42,7 @@ group :development do
   gem 'faker'
   gem 'nifty-generators'
   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
