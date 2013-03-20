@@ -24,12 +24,11 @@
           = f.label :video_url, t(:'site.user.new.main_info.video_url')
         .controls
           = f.text_field :video_url, :class => 'span7'
-  .row
-    .span6
+  
       %legend= t(:'site.address.title')
       = f.fields_for :location do |l|
         = render :partial => 'addresses/location_fields', :locals => { :f => l }
-    .span6
+  
       %legend= t(:'site.contacts.title')
       = f.fields_for :contacts do |c|
         = render :partial => 'contacts/contact_fields', :locals => { :f => c }

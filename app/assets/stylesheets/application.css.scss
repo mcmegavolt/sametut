@@ -82,4 +82,13 @@ body {
 
   }
 
+
+  // Fix for Geocomplete map canvas
+  .geocomplete-map {
+    height: 250px;
+    img {
+      max-width: none !important;
+    }
+  }
+
 }

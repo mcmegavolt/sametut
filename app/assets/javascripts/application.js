@@ -7,14 +7,45 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.tokeninput
+//= require jquery.geocomplete.min
 //= require bootstrap
+//= require jquery.tokeninput
 //= require ckeditor/init
 //= require select2
 //= require_tree .
 
 
 $(document).ready(function(){
+
+
+    // Geocomplete
+
+    $("#geocomplete").geocomplete({
+      map: ".geocomplete-map",
+      mapOptions: {
+        scrollwheel: true,
+        zoom: 17
+      },
+      location: [50.44405, 30.52083],
+      details: "form",
+      detailsAttribute: "populate",
+      markerOptions: {
+        draggable: true
+      }
+    });
+    
+    $("#geocomplete").bind("geocode:dragged", function(event, latLng){
+      $("input[name=lat]").val(latLng.lat());
+      $("input[name=lng]").val(latLng.lng());
+      $("#reset").show();
+    });
+    
+    $("#reset").click(function(){
+      $("#geocomplete").geocomplete("resetMarker");
+      $("#reset").hide();
+      return false;
+    });
+
 
 
     // Gmaps show in tab fix

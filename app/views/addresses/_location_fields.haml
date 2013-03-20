@@ -1,22 +1,36 @@
+/ .control-group
+/   %label.control-label
+/     = t(:'site.address.city')
+/   .controls
+/     = f.text_field :city_id, :id => 'city_name_token', data: { pre: [school.location.city.as_json(only: [:id, :name], include: :region) ]}
+/     -#%p.help-block
+/       %small
+/         = school.location.city.region.name + ' район /'
+/         = Region.find(school.location.city.region.parent_id).name
+
 .control-group
-  %label.control-label
-    = t(:'site.address.city')
-  .controls
-    = f.text_field :city_id, :id => 'city_name_token', data: { pre: [school.location.city.as_json(only: [:id, :name], include: :region) ]}
-    -#%p.help-block
-      %small
-        = school.location.city.region.name + ' район /'
-        = Region.find(school.location.city.region.parent_id).name
+  %label.control-label Type location
+  .controls        
+    = text_field_tag "geocomplete", nil, :class => 'span8', :autocomplete => "off", :id => 'geocomplete'
+
+    .geocomplete-map.img-rounded{:style => 'margin-top: 20px;'}
+    = link_to '#', :style => "display: none;", :id => "reset" do
+      %i.icon-refresh
+      Скинути вказівник на вихідну позицію
+
+
+
+
 .control-group
   %label.control-label
     = t(:'site.address.street')
   .controls
-    = f.text_field :street, :class => 'span3'
+    = f.text_field :street, :populate => 'route', :class => 'span6'
 .control-group
   %label.control-label
     = t(:'site.address.building')
   .controls
-    = f.text_field :building, :class => 'span1'
+    = f.text_field :building, :populate => 'street_number', :class => 'span1'
 .control-group
   %label.control-label
     = t(:'site.address.apartment')

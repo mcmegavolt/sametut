@@ -236,7 +236,7 @@ DEPENDENCIES
   backup
   better_errors
   binding_of_caller
-  bootstrap-sass
+  bootstrap-sass (~> 2.3.1.0)
   capistrano (= 2.12.0)
   carrierwave
   ckeditor
@@ -266,7 +266,7 @@ DEPENDENCIES
   rails_tokeninput
   russian
   rvm-capistrano
-  sass-rails (~> 3.2.3)
+  sass-rails (~> 3.2)
   select2-rails
   sqlite3
   thin

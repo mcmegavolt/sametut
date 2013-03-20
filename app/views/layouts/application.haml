@@ -18,12 +18,18 @@
   %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
   %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
   %link{ :href => "http://fonts.googleapis.com/css?family=Ubuntu&subset=cyrillic,latin", :rel => "stylesheet", :type => "text/css"}/
+
+  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&language=uk", :type => "text/javascript"}
+
+
   = stylesheet_link_tag "application"
   = javascript_include_tag "application"
   /[if IE]
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
+
   = csrf_meta_tags
   = render :partial => 'shared/google_analytics_code'
+
 %body
   .grid-bg
     .container
@@ -67,4 +73,5 @@
                 %br/
                 = t(:'site.ministry_of_education_html')
 
+  
   = yield :scripts

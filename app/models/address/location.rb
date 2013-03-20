@@ -1,5 +1,7 @@
 class Location < ActiveRecord::Base
+
   include Address
+
   def self.table_name_prefix
     'address_'
   end
