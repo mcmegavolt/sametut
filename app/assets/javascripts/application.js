@@ -8,7 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.tokeninput
-//= require twitter/bootstrap
+//= require bootstrap
 //= require ckeditor/init
 //= require select2
 //= require_tree .
