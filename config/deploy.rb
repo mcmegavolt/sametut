@@ -24,8 +24,8 @@ set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 set :keep_releases, 5
 after "deploy:update", "deploy:cleanup"
 
-set :whenever_command, "bundle exec whenever"
-set :rails_env, "production" #added for delayed job
+# set :whenever_command, "bundle exec whenever"
+# set :rails_env, "production" #added for delayed job
 
 
 namespace :deploy do
@@ -39,12 +39,27 @@ namespace :deploy do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
 
-  task :sitemap_refresh do
-    run "cd '#{current_path}' && #{rake} sitemap:refresh RAILS_ENV=#{rails_env}"
-  end
+  # task :sitemap_refresh do
+  #   run "cd '#{current_path}' && #{rake} sitemap:refresh RAILS_ENV=#{rails_env}"
+  # end
 
   task :migrate_database do
     run "cd '#{current_path}' && #{rake} db:migrate RAILS_ENV=#{rails_env}"
+  end
+
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      begin
+        from = source.next_revision(current_revision) # <-- Fail here at first-time deploy because of current/REVISION absence
+      rescue
+        err_no = true
+      end
+      if err_no || capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+   end
   end
 
 end

@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: 679fc6ee91b8e77e4f30625ca574c142ac3d5782
-  specs:
-    twitter-bootstrap-rails (2.2.6)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
-
-GIT
   remote: https://github.com/ivankukobko/ukrainian.git
   revision: 182708f217a4fcaa9e626e9d5bbdc114849b493e
   specs:
@@ -48,6 +39,11 @@ GEM
     ansi (1.4.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.7.2)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    bootstrap-sass (2.3.1.0)
+      sass (~> 3.2)
     builder (3.0.4)
     capistrano (2.14.2)
       highline
@@ -61,6 +57,7 @@ GEM
     ckeditor (3.7.1)
       mime-types
       orm_adapter
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -78,6 +75,11 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     gmaps4rails (1.5.6)
     haml (4.0.0)
       tilt
@@ -96,6 +98,9 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.2)
+      jquery-rails
+      railties (>= 3.1.0)
     jquery-ui-themes (0.0.8)
       httparty
     jquery_datepicker (0.4)
@@ -126,8 +131,10 @@ GEM
     net-ssh (2.6.6)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nifty-generators (0.4.6)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    populator (1.0.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -206,16 +213,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  bootstrap-sass
   capistrano
   carrierwave
   ckeditor (= 3.7.1)
   coffee-rails (~> 3.2.1)
   devise
   execjs
+  faker
+  font-awesome-sass-rails
   gmaps4rails
   haml
   haml-rails
   jquery-rails
+  jquery-ui-rails
   jquery-ui-themes
   jquery_datepicker
   json
@@ -223,6 +235,8 @@ DEPENDENCIES
   letter_opener
   mini_magick
   mysql2
+  nifty-generators
+  populator
   rails (= 3.2.11)
   rails_tokeninput
   russian
@@ -233,7 +247,6 @@ DEPENDENCIES
   therubyracer
   thin
   turn
-  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   ukrainian!
   unicorn
