@@ -18,23 +18,30 @@ gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'russian'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 gem "ckeditor", "3.7.1"
 gem 'thin'
 gem 'unicorn'
 
 group :assets do
-  gem 'sass-rails', "~> 3.2.3"
-  gem 'coffee-rails', "~> 3.2.1"
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'bootstrap-sass'
+  gem 'font-awesome-sass-rails'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
+  gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-ui-rails'
   gem 'rails_tokeninput'
   gem "select2-rails"
 end
 
 group :development do
-  gem "letter_opener"
+  gem 'sqlite3'
+  gem 'letter_opener'
+  gem 'populator'
+  gem 'faker'
+  gem 'nifty-generators'
+  gem 'better_errors'
 end
 
 group :test do

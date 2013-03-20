@@ -7,6 +7,6 @@ class CreateGalleries < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :galleries, [:galleryable_id, :galleryable_type]
+    add_index :galleries, [:galleryable_id, :galleryable_type], :name => 'galleries_index'
   end
 end

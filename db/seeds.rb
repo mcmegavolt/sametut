@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-Admin.create({:email => 'admin@admin.com', :password => 'mcmegavolt'})
+Admin.create({:email => 'admin@sametut.org', :password => 'Jesus_Christ1984'})
 
 UserType.create([
   {:user_type_name => "Пошукач (студент, випускник)"},

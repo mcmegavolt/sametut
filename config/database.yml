@@ -1,20 +1,14 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  database: sametut_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  timeout: 5000
 
 test:
-  adapter: mysql2
-  encoding: utf8
-  database: sametut_test
+  adapter: sqlite3
+  database: db/test.sqlite3
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  timeout: 5000
 
 production:
   adapter: mysql2
@@ -22,5 +16,5 @@ production:
   database: sametut_production
   pool: 5
   username: root
-  password: '123456'
+  password: '&7Qo.;[nW4$^7[n'
   socket: /var/run/mysqld/mysqld.sock
