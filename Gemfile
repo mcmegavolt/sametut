@@ -34,7 +34,6 @@ group :assets do
   gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
-  gem "select2-rails"
 end
 
 group :production do

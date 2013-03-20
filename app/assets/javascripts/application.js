@@ -7,10 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.geocomplete.min
+
 //= require bootstrap
 //= require ckeditor/init
-//= require select2
 //= require_tree .
 
 $(document).ready(function(){
