@@ -44,13 +44,13 @@ namespace :deploy do
   #   run "cd '#{current_path}' && #{rake} sitemap:refresh RAILS_ENV=#{rails_env}"
   # end
 
-  task :migrate_database do
-    run "cd '#{current_path}' && #{rake} db:migrate RAILS_ENV=#{rails_env}"
-  end
+  # task :migrate_database do
+  #   run "cd '#{current_path}' && #{rake} db:migrate RAILS_ENV=#{rails_env}"
+  # end
 
 end
 
-after  "deploy:finalize_update", "deploy:migrate_database"
+# after  "deploy:finalize_update", "deploy:migrate_database"
 # after 'deploy:finalize_update', "deploy:sitemap_refresh"
 
 # ==============================
