@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'mini_magick'
 gem 'carrierwave'
@@ -21,6 +21,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'gmaps4rails'
 gem "ckeditor", "3.7.1"
 gem 'thin'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"

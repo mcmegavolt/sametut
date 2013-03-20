@@ -1,55 +1,56 @@
-# RVM
-
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-#set :rvm_ruby_string, 'default'
-set :rvm_type, :system
-set :rvm_ruby_string, 'ruby-1.9.3-p0@sametut'
-
-
-task :trust_rvmrc do
-    run "rvm rvmrc trust #{latest_release}"
-end
-
-
-# Bundler
-
 require "bundler/capistrano"
+# require "whenever/capistrano"
+# require "delayed/recipes"
+# require 'thinking_sphinx/deploy/capistrano'
 
-# General
-
-set :application, "SameTut"
-set :user, "root"
-
-#set :deploy_to, "/home/#{user}/#{application}"
-set :deploy_to, "/home/sametut/#{application}"
-set :deploy_via, :copy
-
-#set :use_sudo, false
-
-# Git
-
+set :rvm_type, :system
+set :application, "sametut"
 set :scm, :git
-set :repository,  "/media/Work/Dropbox/rails_sites/#{application}/.git"
-set :branch, "master"
+set :repository,  ".git"
+set :branch, "develop"
+server "85.25.100.135", :web, :app, :db, :primary => true
+set :ssh_options, { :forward_agent => true, :paranoid => false }
+set :user, "sametut"
+set :password, "s!AmeTu7_0RgU@"
+set :use_sudo, false
+set :deploy_via, :copy
+set :deploy_to, "/home/sametut/#{application}"
+set :normalize_asset_timestamps, false
 
-# VPS
+set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
+set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
-role :web, "kursor.org.ua"
-role :app, "kursor.org.ua"
-role :db,  "kursor.org.ua", :primary => true
-role :db,  "kursor.org.ua"
+set :keep_releases, 5
+after "deploy:update", "deploy:cleanup"
 
-# Passenger
+set :whenever_command, "bundle exec whenever"
+set :rails_env, "production" #added for delayed job
+
 
 namespace :deploy do
- task :start do ; end
- task :stop do ; end
- task :restart, :roles => :app, :except => { :no_release => true } do
-   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
- end
+  task :restart do
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+  end
+  task :start do
+    run "bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
+  end
+  task :stop do
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+  end
+
+  task :sitemap_refresh do
+    run "cd '#{current_path}' && #{rake} sitemap:refresh RAILS_ENV=#{rails_env}"
+  end
+
+  task :migrate_database do
+    run "cd '#{current_path}' && #{rake} db:migrate RAILS_ENV=#{rails_env}"
+  end
+
 end
 
+after  "deploy:finalize_update", "deploy:migrate_database"
+# after 'deploy:finalize_update', "deploy:sitemap_refresh"
 
 # ==============================
 # Uploads
@@ -62,11 +63,7 @@ namespace :uploads do
     and sets the proper upload permissions.
   EOD
   task :setup, :except => { :no_release => true } do
-#    dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
-    #run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
     run "#{try_sudo} mkdir -p #{shared_path}/uploads"
-    run "#{try_sudo} mkdir -p #{shared_path}/uploads/applicant"
-    run "#{try_sudo} mkdir -p #{shared_path}/uploads/director_profile"
     run "#{try_sudo} chmod 0777 -R #{shared_path}/uploads"
   end
 
@@ -84,11 +81,32 @@ namespace :uploads do
     and registers them in Capistrano environment.
   EOD
   task :register_dirs do
-#    set :uploads_dirs, ['uploads', 'uploads/applicant']
-#    set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
+    set :uploads_dirs,    %w(uploads)
+    set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
   end
 
-  after       "deploy:finalize_update", "uploads:symlink"
+  after       "deploy:finalize_update", "uploads:symlink", "deploy:migrate_database"
   on :start,  "uploads:register_dirs"
 
 end
+
+
+########### SPHINX
+
+# namespace :sphinx do
+#   desc "Symlink Sphinx indexes"
+#   task :symlink_indexes, :roles => [:app] do
+#     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
+#   end
+# end
+
+# before 'deploy:update_code', 'thinking_sphinx:stop'
+# after 'deploy:update_code', 'thinking_sphinx:start'
+
+# after 'deploy:finalize_update', 'sphinx:symlink_indexes'
+
+########### DELAYED JOB
+
+# after "deploy:stop",    "delayed_job:stop"
+# after "deploy:start",   "delayed_job:start"
+# after "deploy:restart", "delayed_job:restart"
