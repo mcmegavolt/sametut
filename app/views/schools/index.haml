@@ -14,7 +14,7 @@
           - for s in schools
             %tr
               %td= link_to s.name, school_path(s)
-              %td= s.location.city.region.name if s.location.city
+              %td= s.location.state + ', ' +s.location.city
               %td= s.vacancies.size
               %td= time_ago_in_words(s.user.created_at) + t(:'site.user.vacancies.ago')
         %p.muted= t(:'site.schools.index.count') + schools.size.to_s
