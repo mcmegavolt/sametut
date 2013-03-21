@@ -3,12 +3,12 @@ class SchoolsController < ApplicationController
   before_filter :require_user_or_admin!, :except => [:index, :show]
 
   def index
-    respond_to do |format|
-      format.html
-      format.json {
-        render :json => City.order(:name).tokens(params[:q]).as_json(:only => [:id, :name], :include => {:region => {:only => :name}})
-      }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json {
+    #     render :json => City.order(:name).tokens(params[:q]).as_json(:only => [:id, :name], :include => {:region => {:only => :name}})
+    #   }
+    # end
   end
 
   def show

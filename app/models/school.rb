@@ -30,7 +30,7 @@ class School < ActiveRecord::Base
   end
 
   def permalink
-    Russian.translit(name).parameterize
+    I18n.transliterate(name).parameterize
   end
 
 

@@ -344,6 +344,18 @@ uk:
     attributes:
       location:
         gmaps4rails_address: ""
+        state: "Область"
+        state2: "Район"
+        postal_code: "Пошт. інд."
+        formatted_address: "Повна адреса"
+        sublocality: "Міський район"
+        city: "Населений пункт"
+        street: "Вулиця"
+        building: "Номер будинку"
+        latitude: "Широта"
+        longitude: "Довгота"
+        type_location: "Локація"
+
       user:
         password_confirmation: "Повторіть пароль"
         password: "Пароль"

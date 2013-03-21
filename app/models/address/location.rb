@@ -7,18 +7,17 @@ class Location < ActiveRecord::Base
   end
 
   belongs_to :addressable, :polymorphic => true
-  belongs_to :city
+
+  # belongs_to :city
+
   belongs_to :school
 
-  validates_presence_of :city
+  # validates_presence_of :city
 
-  acts_as_gmappable :msg => I18n.t(:'site.address.gmaps_error_html'),
-                    :validation => true
+  acts_as_gmappable :msg => I18n.t(:'site.address.gmaps_error_html'), :validation => false
 
   def gmaps4rails_address
-    @country = I18n.t(:'site.address.ukraine')
-    #"#{@country}, #{City.find(self.city).name}, #{self.street}"
-    "#{@country}, #{self.city.region.name}, #{self.city.name}, #{self.street}, #{self.building}"
+    formatted_address
   end
 
 end
