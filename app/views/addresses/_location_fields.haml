@@ -14,7 +14,7 @@
     .control-group
       = f.label :type_location, :class => 'control-label'
       .controls        
-        = text_field_tag "geocomplete", nil, :class => 'span8', :autocomplete => "off", :id => 'geocomplete', :value => (f.object.formatted_address unless f.object.new_record?)
+        = text_field_tag "geocomplete", nil, :class => 'span8', :autocomplete => "off", :id => 'geocomplete'#, :value => (f.object.formatted_address unless f.object.new_record?)
 
         .geocomplete-map.img-rounded{:style => 'margin-top: 20px;'}
         = link_to '#', :style => "display: none;", :id => "reset" do
@@ -24,63 +24,56 @@
     .control-group
       = f.label :formatted_address, :class => 'control-label'
       .controls
-        = f.text_field :formatted_address, :populate => 'formatted_address', :disabled => true, :class => 'span9'
+        = f.text_field :formatted_address, :populate => 'formatted_address', :class => 'span9'
 .row
   .span5
     .control-group
       = f.label :city, :class => 'control-label'
       .controls
-        = f.text_field :city, :populate => 'locality', :disabled => true, :class => 'span4'
+        = f.text_field :city, :populate => 'locality', :class => 'span4'
   .span7
     .control-group
       = f.label :state, :class => 'control-label'
       .controls
-        = f.text_field :state, :populate => 'administrative_area_level_1', :disabled => true, :class => 'span4'
+        = f.text_field :state, :populate => 'administrative_area_level_1', :class => 'span4'
 .row
   .span5
     .control-group
       = f.label :street, :class => 'control-label'
       .controls
-        = f.text_field :street, :populate => 'route', :disabled => true, :class => 'span4'
+        = f.text_field :street, :populate => 'route', :class => 'span4'
   .span7  
     .control-group
       = f.label :state2, :class => 'control-label'
       .controls
-        = f.text_field :state2, :populate => 'administrative_area_level_2', :disabled => true, :class => 'span4'
+        = f.text_field :state2, :populate => 'administrative_area_level_2', :class => 'span4'
 .row
   .span2
     .control-group
       = f.label :building, :class => 'control-label'
       .controls
-        = f.text_field :building, :populate => 'street_number', :disabled => true, :class => 'span1'
+        = f.text_field :building, :populate => 'street_number', :class => 'span1'
   .span3
     .control-group
       = f.label :postal_code, :class => 'control-label'
       .controls
-        = f.text_field :postal_code, :populate => 'postal_code', :disabled => true, :class => 'span1'
+        = f.text_field :postal_code, :populate => 'postal_code', :class => 'span1'
   .span6
     .control-group
       = f.label :sublocality, :class => 'control-label'
       .controls
-        = f.text_field :sublocality, :populate => 'sublocality', :disabled => true, :class => 'span4'
+        = f.text_field :sublocality, :populate => 'sublocality', :class => 'span4'
 .row
   .span2
     .control-group
       = f.label :latitude, :class => 'control-label'
       .controls
-        = f.text_field :latitude, :populate => 'lat', :disabled => true, :class => 'span1'
+        = f.text_field :latitude, :populate => 'lat', :class => 'span1'
   .span10
     .control-group
       = f.label :longitude, :class => 'control-label'
       .controls
-        = f.text_field :longitude, :populate => 'lng', :disabled => true, :class => 'span1'
-
-
-
-
-
-
-
+        = f.text_field :longitude, :populate => 'lng', :class => 'span1'
 
 / .control-group
 /   %label.control-label
