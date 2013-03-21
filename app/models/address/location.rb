@@ -12,7 +12,7 @@ class Location < ActiveRecord::Base
 
   belongs_to :school
 
-  # validates_presence_of :city
+  validates_presence_of :city, :street, :formatted_address
 
   acts_as_gmappable :msg => I18n.t(:'site.address.gmaps_error_html'), :validation => false
 
