@@ -16,7 +16,6 @@
         = f.label :description, t(:'site.user.profiles.school.edition.description'), :class => 'control-label'
         .controls
           / - unless f.object.new_record?
-          /   = javascript_include_tag "ckeditor/init"
           /   = f.cktext_area :description, :class => 'span9'
           / - else
           = f.text_area :description, :class => 'span9', :style => 'height:200px'
