@@ -3,16 +3,17 @@ SameTut::Application.configure do
   Encoding.default_external = "UTF-8"
 
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address => 'mail.neasmo.org.ua',
-  :domain  => 'neasmo.org.ua',
-  :port      => 26,
-  :user_name => 'admin+neasmo.org.ua',
-  :password => 'cCRuAS%Ls1g+',
-  :authentication => :plain,
-  :openssl_verify_mode  => 'none'
-  }
+  
+ 
+  # config.action_mailer.smtp_settings = {
+  # :address => 'mail.neasmo.org.ua',
+  # :domain  => 'neasmo.org.ua',
+  # :port      => 26,
+  # :user_name => 'admin+neasmo.org.ua',
+  # :password => 'cCRuAS%Ls1g+',
+  # :authentication => :plain,
+  # :openssl_verify_mode  => 'none'
+  # }
 
 
   # Settings specified here will take precedence over those in config/application.rb
@@ -74,8 +75,9 @@ SameTut::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-
   config.action_mailer.default_url_options = { :host => 'sametut.org' }
 
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.sendmail_settings = { :arguments => "-i" }
 
 end
