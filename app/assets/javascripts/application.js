@@ -14,7 +14,36 @@
 
 $(document).ready(function(){
 
- 
+    // Geocomplete
+
+    curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
+    
+    $("#geocomplete").geocomplete({
+        map: ".geocomplete-map",
+        mapOptions: {
+          scrollwheel: true,
+          zoom: gon.map_zoom
+        },
+        location: curLocation,
+        details: "form",
+        detailsAttribute: "populate",
+        markerOptions: {
+          draggable: true,
+          position: curLocation
+        }
+    });
+
+    $("#geocomplete").bind("geocode:dragged", function(event, latLng){
+        $("input[populate=lat]").val(latLng.lat());
+        $("input[populate=lng]").val(latLng.lng());
+        $("#reset").fadeIn();
+    });
+  
+    $("#reset").click(function(){
+        $("#geocomplete").geocomplete("resetMarker");
+        $("#reset").fadeOut();
+        return false;
+    });
 
 
 
