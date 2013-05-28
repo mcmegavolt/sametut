@@ -9,7 +9,7 @@
 //= require jquery-ui
 //= require jquery.geocomplete.min
 //= require bootstrap
-//= require rails.validations
+
 //= require_tree .
 
 $(document).ready(function(){
