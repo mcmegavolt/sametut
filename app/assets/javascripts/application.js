@@ -22,7 +22,7 @@ $(document).ready(function(){
         map: ".geocomplete-map",
         mapOptions: {
           scrollwheel: true,
-          zoom: gon.map_zoom,
+          zoom: gon.map_zoom
 
         },
         location: curLocation,
