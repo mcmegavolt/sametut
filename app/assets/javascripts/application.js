@@ -16,13 +16,13 @@ $(document).ready(function(){
 
     // Geocomplete
 
-    curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
+    curLocation = new window.google.maps.LatLng( alert(gon.latitude), alert(gon.longitude) );
     
     $("#geocomplete").geocomplete({
         map: ".geocomplete-map",
         mapOptions: {
           scrollwheel: true,
-          zoom: gon.map_zoom
+          zoom: alert(gon.map_zoom)
 
         },
         location: curLocation,
@@ -43,7 +43,6 @@ $(document).ready(function(){
     $("#reset").click(function(){
         $("#geocomplete").geocomplete("resetMarker");
         $("#reset").fadeOut();
-
         return false;
     });
 
