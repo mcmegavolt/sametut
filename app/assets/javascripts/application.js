@@ -9,21 +9,20 @@
 //= require jquery-ui
 //= require jquery.geocomplete.min
 //= require bootstrap
-//= require rails.validations
+
 //= require_tree .
 
 $(document).ready(function(){
 
     // Geocomplete
 
-    curLocation = new window.google.maps.LatLng( alert(gon.latitude), alert(gon.longitude) );
+    curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
     
     $("#geocomplete").geocomplete({
         map: ".geocomplete-map",
         mapOptions: {
           scrollwheel: true,
-          zoom: alert(gon.map_zoom)
-
+          zoom: gon.map_zoom
         },
         location: curLocation,
         details: "form",
@@ -45,6 +44,8 @@ $(document).ready(function(){
         $("#reset").fadeOut();
         return false;
     });
+
+
 
     // UI
     $('.datepicker').datepicker({
