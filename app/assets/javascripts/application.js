@@ -38,7 +38,6 @@ $(document).ready(function(){
         $("input[populate=lat]").val(latLng.lat());
         $("input[populate=lng]").val(latLng.lng());
         $("#reset").fadeIn();
-        $(form).resetClientSideValidations();
     });
   
     $("#reset").click(function(){
