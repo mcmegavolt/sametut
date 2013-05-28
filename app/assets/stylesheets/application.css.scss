@@ -97,6 +97,12 @@ body {
     }
   }
 
-
+  form {
+    .field_with_errors {
+      label.message {
+        color: red;
+      }
+    }
+  }
 
 }
