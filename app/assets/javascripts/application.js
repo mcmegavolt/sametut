@@ -9,42 +9,44 @@
 //= require jquery-ui
 //= require jquery.geocomplete.min
 //= require bootstrap
+//= require rails.validations
 //= require_tree .
 
 $(document).ready(function(){
 
     // Geocomplete
 
+    curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
+    
     $("#geocomplete").geocomplete({
-      map: ".geocomplete-map",
-      mapOptions: {
-        scrollwheel: true,
-        zoom: 17
-      },
-      location: [50.44405, 30.52083],
-      details: "form",
-      detailsAttribute: "populate",
-      markerOptions: {
-        draggable: true
-      }
+        map: ".geocomplete-map",
+        mapOptions: {
+          scrollwheel: true,
+          zoom: gon.map_zoom,
+
+        },
+        location: curLocation,
+        details: "form",
+        detailsAttribute: "populate",
+        markerOptions: {
+          draggable: true,
+          position: curLocation
+        }
     });
-    
+
     $("#geocomplete").bind("geocode:dragged", function(event, latLng){
-      $("input[name=lat]").val(latLng.lat());
-      $("input[name=lng]").val(latLng.lng());
-      $("#reset").show();
+        $("input[populate=lat]").val(latLng.lat());
+        $("input[populate=lng]").val(latLng.lng());
+        $("#reset").fadeIn();
+        $(form).resetClientSideValidations();
     });
-    
+  
     $("#reset").click(function(){
-      $("#geocomplete").geocomplete("resetMarker");
-      $("#reset").hide();
-      return false;
+        $("#geocomplete").geocomplete("resetMarker");
+        $("#reset").fadeOut();
+
+        return false;
     });
-
-
-
-    // Gmaps show in tab fix
-    $('#location-map').on('shown', function (e) { google.maps.event.trigger(map, 'resize');})
 
     // UI
     $('.datepicker').datepicker({

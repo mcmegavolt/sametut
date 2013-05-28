@@ -24,8 +24,16 @@ body {
         background-position: top;
     }
 
+    h1, h2 {
+      font-size: 22px;
+    }
+
     header {
         margin-bottom: 20px;
+    }
+
+    legend {
+      font-size: 16px;
     }
 
     .main-nav {
@@ -86,6 +94,14 @@ body {
     height: 250px;
     img {
       max-width: none !important;
+    }
+  }
+
+  form {
+    .field_with_errors {
+      label.message {
+        color: red;
+      }
     }
   }
 

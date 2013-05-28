@@ -10,12 +10,31 @@
             %th= t(:'site.schools.index.region')
             %th= t(:'site.schools.index.vacancies_count')
             %th= t(:'site.schools.index.reg_date')
+            
+            - if admin_signed_in?
+              %th
+                INFO
 
           - for s in schools
             %tr
               %td= link_to s.name, school_path(s)
-              %td= s.location.state + ', ' +s.location.city
+              %td
+                - if s.location
+                  = s.location.state + ', ' +s.location.city
               %td= s.vacancies.size
               %td= time_ago_in_words(s.user.created_at) + t(:'site.user.vacancies.ago')
+              - if admin_signed_in?
+                %td
+                  - if s.location 
+                    - if s.location.latitude == 52.73013479999999 && s.location.latitude == 52.73013479999999
+                      = link_to edit_school_path(s), :target => '_blank' do
+                        %i.icon-exclamation-sign
+                        wrong location
+                    - else
+                      = s.location.latitude
+                      = s.location.latitude
+                  - else
+                    %i.icon-remove
+                      NO LOCATION
         %p.muted= t(:'site.schools.index.count') + schools.size.to_s
 

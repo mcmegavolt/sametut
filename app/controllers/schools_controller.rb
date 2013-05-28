@@ -29,8 +29,18 @@ class SchoolsController < ApplicationController
        flash[:error] = t(:'errors.messages.no_access')
        redirect_to root_url
      else
-       school.build_director_profile unless school.director_profile
-       school.build_location unless school.location
+       
+      school.build_director_profile unless school.director_profile
+      
+      if school.location
+        gon.latitude = school.location.latitude
+        gon.longitude = school.location.longitude
+      else
+        school.build_location 
+        gon.latitude = 50.44405 
+        gon.longitude = 30.52083
+      end
+        gon.map_zoom = 16
      end
   end
 
