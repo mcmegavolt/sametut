@@ -25,7 +25,7 @@ gem 'unicorn'
 gem 'inherited_resources'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
-gem 'gon'
+# gem 'gon'
 
 group :assets do
   gem 'sass-rails', '~> 3.2'
