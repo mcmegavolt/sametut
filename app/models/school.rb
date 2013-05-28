@@ -21,6 +21,8 @@ class School < ActiveRecord::Base
   has_many :vacancies, :dependent => :destroy
   accepts_nested_attributes_for :vacancies, :reject_if => lambda { |c| c[:vacancy_value_id].blank? || c[:vacancy_category_id].blank? }, :allow_destroy => true
 
+  validates_presence_of :name
+
   def to_param
     "#{id}-#{permalink}"
   end

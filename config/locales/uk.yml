@@ -118,7 +118,7 @@ uk:
             video_tab_html: "<i class=\'icon-facetime-video\'></i> Відео"
             video_tab_none: "Відео не завантажено"
             map_html: "<i class=\'icon-map-marker\'></i> Мапа"
-            contacts_html: "<i class=\'icon-tasks\'></i> Контакти"
+            contacts_html: "<i class=\'icon-book\'></i> Контакти"
             gallery_html: "<i class=\'icon-camera\'></i> Фотогалерея"
             gallery_none: "Незабаром"
 

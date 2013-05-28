@@ -25,10 +25,12 @@ gem 'unicorn'
 gem 'inherited_resources'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
+gem 'gon'
 
 group :assets do
   gem 'sass-rails', '~> 3.2'
   gem 'bootstrap-sass', '~> 2.3.1.0'
+  # gem 'bootswatch-rails'
   gem 'coffee-rails'
   gem 'font-awesome-sass-rails'
   gem 'haml-rails'

@@ -1,4 +1,4 @@
-= form_for school, :html => {:class => 'form-horizontal'}, :url => school.new_record? ? schools_path : school_path(school) do |f|
+= form_for school, :html => {:class => 'form-horizontal'}, :url => school.new_record? ? schools_path : school_path(school), :validate => true do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => school }
   .row
     .span12
@@ -11,7 +11,7 @@
       .control-group
         = f.label :education_school_type_id, t(:'site.user.profiles.school.edition.school_type'), :class => 'control-label'
         .controls
-          = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {:prompt => 'School type'}, :class => 'span4'
+          = f.select :education_school_type_id, EducationSchoolType.all.collect {|p| [ p.school_type_name, p.id ] }, {}, :class => 'span4'
       .control-group
         = f.label :description, t(:'site.user.profiles.school.edition.description'), :class => 'control-label'
         .controls
@@ -43,3 +43,6 @@
   .form-actions
     = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
     = link_to t(:'site.user.edit_profile.cancel'), root_path, :class => 'btn'
+
+
+

@@ -8,8 +8,6 @@ class Location < ActiveRecord::Base
 
   belongs_to :addressable, :polymorphic => true
 
-  # belongs_to :city
-
   belongs_to :school
 
   validates_presence_of :city, :street, :formatted_address
