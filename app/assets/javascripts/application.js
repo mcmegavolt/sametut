@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     // Geocomplete
 
-    curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
+    // curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
     
     $("#geocomplete").geocomplete({
         map: ".geocomplete-map",
