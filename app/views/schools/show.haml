@@ -50,7 +50,7 @@
                       - for pic in school.gallery.pictures
                         .single
                           = link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
-                            = image_tag pic.src_url(:medium), :width => '215px'
+                            = image_tag pic.src_url(:medium), :width => '214px'
                 - else
                   =t(:'site.user.gallery.images.no_images')
               .span6

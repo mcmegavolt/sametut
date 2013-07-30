@@ -2,7 +2,9 @@
   .span12
     %legend
       = t(:'site.user.vacancies.title')
-    %p.muted= t(:'site.user.vacancies.total') + vacancies.size.to_s
+    %p.muted
+      = t(:'site.user.vacancies.total')
+      = vacancies_count
     - if current_user && school
       - if current_user == school.user || admin_signed_in?
         = link_to new_school_vacancy_path(school) do
@@ -48,5 +50,5 @@
           = link_to new_school_vacancy_path(school) do
             %i.icon-plus-sign
             = t(:'site.user.vacancies.add')
-
-    %p.muted= t(:'site.user.vacancies.total') + vacancies.size.to_s
+    - unless school.present?
+      = paginate vacancies, :theme => 'twitter-bootstrap'

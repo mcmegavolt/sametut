@@ -1,8 +1,7 @@
 #home
   .row
-    .span6
-      .well
-        = t(:'site.static.home_description').html_safe
+    .span12
+      = t(:'site.static.home_description').html_safe
     -#.span4
       %p.lead= t(:'site.home.already_registered_users')
       - for a in applicants.reverse do
@@ -15,7 +14,8 @@
         %br
           = link_to t(:'site.home.schools_count'), schools_path
           = schools.size
-    .span6
+  .row
+    .span12
       - if user_signed_in?
         - if current_user.applicant?
           - unless current_user.applicant
@@ -36,13 +36,18 @@
           = t(:'site.user.profiles.school.messages.your_user_type')
           %b= current_user.user_type
       - else
-        %h1= t(:'site.home.welcome_text_1')
-        %p.lead= t(:'site.home.welcome_text_2')
-        %p
-          = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success", :style => 'width: 250px; font-size: 24px'
-        %p
-          або
-          = link_to 'увійти до системи', new_user_session_path
+        %hr/
+        .row
+          .span7
+            %p.lead
+              / = t(:'site.home.welcome_text_1')
+              = t(:'site.home.welcome_text_2')
+          .span5
+            %p
+              = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success", :style => 'width: 250px; font-size: 24px'
+            %p
+              або
+              = link_to 'увійти до системи', new_user_session_path
       -#%p.lead= t(:'site.home.news')
       -#- for news_item in news_items
         %p
@@ -54,6 +59,7 @@
           %span{:style => 'color: gray; float: right;'}
             = l news_item.released_at.to_date, :format => :long
         %br
+  %hr/
   .row
     .span3
       .count

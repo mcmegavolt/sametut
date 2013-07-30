@@ -337,6 +337,13 @@ uk:
       size_too_small: "is too small (повинен бути щонайменше %{file_size})"
       size_too_big: "надто великий (максимально %{file_size})"
 
+  views:
+    pagination:
+      first: "&laquo; На початок"
+      last: "В кінець &raquo;"
+      previous: "&lsaquo; Назад"
+      next: "Вперед  &rsaquo;"
+      truncate: "..."
 
   activerecord:
     models:

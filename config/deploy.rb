@@ -1,10 +1,12 @@
 
 require "bundler/capistrano"
+require "rvm/capistrano"
 # require "whenever/capistrano"
 # require "delayed/recipes"
 # require 'thinking_sphinx/deploy/capistrano'
 
-set :rvm_type, :system
+# set :rvm_type, :system
+
 set :application, "sametut"
 set :scm, :git
 set :repository,  ".git"
@@ -113,4 +115,3 @@ end
 # after "deploy:restart", "delayed_job:restart"
 
 
-require "rvm/capistrano"

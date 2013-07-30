@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable
 
-  # Setup accessible (or protected) attributes for your model
-
   validates_presence_of :user_type_id
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :user_type_id
@@ -19,7 +17,7 @@ class User < ActiveRecord::Base
   belongs_to :user_type
 
   def online?
-  updated_at > 10.minutes.ago
+    updated_at > 10.minutes.ago
   end
 
   def applicant?

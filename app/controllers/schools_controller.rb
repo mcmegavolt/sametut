@@ -70,7 +70,7 @@ class SchoolsController < ApplicationController
   end
 
   def schools
-    @schools ||= School.all
+    @schools ||= School.page params[:page]
   end
   helper_method :schools
 
@@ -82,5 +82,13 @@ class SchoolsController < ApplicationController
     end
   end
   helper_method :school
+
+
+  def schools_count
+    @schools_count = School.count
+  end
+  helper_method :schools_count
+
+
 
 end

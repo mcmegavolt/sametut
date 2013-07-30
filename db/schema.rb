@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "apartment"
     t.integer  "addressable_id"
     t.string   "addressable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   add_index "admins", ["authentication_token"], :name => "index_admins_on_authentication_token", :unique => true
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "last_name"
     t.string   "permalink"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "avatar"
     t.string   "resume_src"
   end
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.integer  "contactable_id"
     t.string   "contactable_type"
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   add_index "contacts", ["director_profile_id"], :name => "index_contacts_on_director_profile_id"
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "name"
     t.integer  "school_id"
     t.string   "director_photo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "gender"
   end
 
@@ -142,8 +142,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.integer  "education_school_type_id"
     t.string   "faculty"
     t.integer  "applicant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "school"
   end
 
@@ -154,14 +154,14 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.datetime "updated_at",       :null => false
   end
 
-  add_index "galleries", ["galleryable_id", "galleryable_type"], :name => "index_galleries_on_galleryable_id_and_galleryable_type"
+  add_index "galleries", ["galleryable_id", "galleryable_type"], :name => "galleries_index"
 
   create_table "news_items", :force => true do |t|
     t.string   "title"
     t.string   "body"
     t.datetime "released_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "admin_id"
   end
 
@@ -179,8 +179,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.integer  "current_location_id"
     t.string   "video_url"
     t.integer  "applicant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "gender"
   end
 
@@ -199,8 +199,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "activity_type"
     t.string   "duties"
     t.string   "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "specialties", :force => true do |t|
@@ -218,8 +218,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
 
   create_table "user_types", :force => true do |t|
     t.string   "user_type_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -240,8 +240,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "user_type_id"
   end
 
@@ -265,8 +265,8 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "organization"
     t.string   "position"
     t.string   "duties"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

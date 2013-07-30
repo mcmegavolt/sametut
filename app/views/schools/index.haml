@@ -3,7 +3,9 @@
     .row
       .span12
         %legend= t(:'site.schools.index.title')
-        %p.muted= t(:'site.schools.index.count') + schools.size.to_s
+        %p.muted
+          = t(:'site.schools.index.count')
+          = schools_count
         %table.table.table-striped.table-condensed
           %thead
             %th= t(:'site.schools.index.name')
@@ -36,5 +38,4 @@
                   - else
                     %i.icon-remove
                       NO LOCATION
-        %p.muted= t(:'site.schools.index.count') + schools.size.to_s
-
+        = paginate schools, :theme => 'twitter-bootstrap'

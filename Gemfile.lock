@@ -47,6 +47,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
+    bootstrap-kaminari-views (0.0.2)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (2.3.1.2)
       sass (~> 3.2)
     builder (3.0.4)
@@ -135,6 +138,9 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.1.1)
       launchy (~> 2.2)
+    letter_opener_web (1.0.3)
+      letter_opener (~> 1.0)
+      rails (~> 3.2)
     libv8 (3.11.8.17)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -238,6 +244,7 @@ DEPENDENCIES
   backup
   better_errors
   binding_of_caller
+  bootstrap-kaminari-views
   bootstrap-sass (~> 2.3.1.0)
   capistrano
   carrierwave
@@ -261,6 +268,7 @@ DEPENDENCIES
   json
   kaminari
   letter_opener
+  letter_opener_web (~> 1.0)
   mini_magick
   mysql2
   nifty-generators

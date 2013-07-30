@@ -62,7 +62,7 @@ class VacanciesController < ApplicationController
         if school.present?
           school.vacancies
         else
-          Vacancy.all
+          Vacancy.page params[:page]
         end
   end
   helper_method :vacancies
@@ -71,6 +71,11 @@ class VacanciesController < ApplicationController
     @school ||= School.find params[:school_id] if params[:school_id]
   end
   helper_method :school
+
+  def vacancies_count
+    @vacancies_count = Vacancy.count
+  end
+  helper_method :vacancies_count
 
 
 end
