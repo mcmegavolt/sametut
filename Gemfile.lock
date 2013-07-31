@@ -221,6 +221,9 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
+    turbo-sprockets-rails3 (0.3.6)
+      railties (> 3.2.8, < 4.0.0)
+      sprockets (>= 2.0.0)
     turn (0.9.6)
       ansi
     tzinfo (0.3.37)
@@ -251,7 +254,7 @@ DEPENDENCIES
   carrierwave
   ckeditor (= 4.0.2)
   client_side_validations
-  coffee-rails
+  coffee-rails (~> 3.2.1)
   delayed_job_active_record
   devise
   devise-async
@@ -277,10 +280,11 @@ DEPENDENCIES
   rails (= 3.2.13)
   russian
   rvm-capistrano
-  sass-rails (~> 3.2)
+  sass-rails (~> 3.2.6)
   sqlite3
   therubyracer
   thin
+  turbo-sprockets-rails3
   turn
   uglifier (>= 1.0.3)
   ukrainian!
