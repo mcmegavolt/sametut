@@ -27,16 +27,17 @@ gem 'inherited_resources'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
 gem 'gon'
+gem 'font-awesome-sass-rails'
 
 group :assets do
-  gem 'sass-rails', '~> 3.2'
+  gem 'sass-rails', '~> 3.2.6'
   gem 'bootstrap-sass', '~> 2.3.1.0'
   # gem 'bootswatch-rails'
-  gem 'coffee-rails'
-  gem 'font-awesome-sass-rails'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :production do
