@@ -37,7 +37,7 @@ group :assets do
   gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
-  gem 'turbo-sprockets-rails3'
+  # gem 'turbo-sprockets-rails3'
 end
 
 group :production do
