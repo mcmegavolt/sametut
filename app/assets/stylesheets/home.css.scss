@@ -7,6 +7,7 @@
         font-weight: bold;
         text-align: center;
         color: #999999;
+        margin-bottom: 0px;
         -webkit-transition: all 200ms ease-in-out;
         -moz-transition: all 200ms ease-in-out;
         -ms-transition: all 200ms ease-in-out;
@@ -29,7 +30,7 @@
       text-decoration: none;
 
       p.number {
-        color: #FF922F;
+        color: $linkColor;
         -webkit-transition: all 200ms ease-in-out;
         -moz-transition: all 200ms ease-in-out;
         -ms-transition: all 200ms ease-in-out;
@@ -37,7 +38,7 @@
         transition: all 200ms ease-in-out;
       }
       p.title {
-        color: #08C;
+        color: $linkColor;
         -webkit-transition: all 200ms ease-in-out;
         -moz-transition: all 200ms ease-in-out;
         -ms-transition: all 200ms ease-in-out;

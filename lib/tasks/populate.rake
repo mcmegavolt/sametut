@@ -6,70 +6,17 @@ namespace :db do
     require 'populator'
     require 'faker'
                                                                                                                                                                                                                           
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
-                                                                                                                                                                                                                          
-         ##   ##### ###### #### ####  ##     ######  
-        ####  ##  ##  ##    ## ##  ## ##     ##      
-       ##  ## ##  ##  ##    ## ##     ##     ##      
-       ###### #####   ##    ## ##     ##     ####    
-       ##  ## ####    ##    ## ##     ##     ##      
-       ##  ## ## ##   ##    ## ##  ## ##     ##      
-       ##  ## ##  ##  ##   #### ####  ###### ######  
-                
+      UserType.populate 1 do |t|
+        t.user_type_name = 'Applicant'
+      end
 
-    ### First create root category                                                                                                                                                                                                                                                                       
-    # Article::Category.populate 3 do |cat|
-    #   cat.permalink = Populator.words(1).parameterize
-    #   cat.name = (cat.permalink + ' root cat').titleize
-    #   cat.description = Populator.paragraphs(1)
-    #   cat.position = 0
+      UserType.populate 1 do |t|
+        t.user_type_name = 'School'
+      end
 
-      ### Create some sub-categories
-      # Article::Category.populate 2..3 do |subcat|
-      #   subcat.permalink = Populator.words(2).parameterize
-      #   subcat.name = (subcat.permalink + ' sub cat').titleize
-      #   subcat.description = Populator.paragraphs(1)
-      #   subcat.position = 0
-      #   subcat.ancestry = cat.id.to_s
-
-      #   ### Create some pages for sub-category
-      #   Article::Page.populate 2..4 do |page|
-      #     page.permalink = Populator.words(1..2).parameterize
-      #     page.title = (page.permalink + ' sub page').titleize
-      #     page.body = Populator.paragraphs(3..5)
-      #     page.entry = Populator.paragraphs(1)
-      #     page.published = true
-      #     page.category_id = subcat.id
-      #   end
-
-      # end
-
-      ### Create some pages for root category
-      # Article::Page.populate 1..3 do |page|
-      #   page.permalink = Populator.words(1).parameterize
-      #   page.title = (page.permalink + ' root page').titleize
-      #   page.body = Populator.paragraphs(3..5)
-      #   page.entry = Populator.paragraphs(1)
-      #   page.published = true
-      #   page.category_id = cat.id
-      # end
-
-    # end
-
-    ### Create some static pages
-    # Article::Page.populate 2 do |static|
-    #   static.permalink = Populator.words(1).parameterize
-    #   static.title = static.permalink.titleize
-    #   static.body = Populator.paragraphs(3..5)
-    #   static.entry = Populator.paragraphs(1)
-    #   static.published = true
-    # end
-
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
-    ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######  
+      UserType.populate 1 do |t|
+        t.user_type_name = 'Department'
+      end
 
       # Specialties
 
@@ -86,7 +33,6 @@ namespace :db do
       EducationSchoolType.populate 3 do |t|
         t.school_type_name = Faker::Company.name
       end
-
 
       # Schools
 
@@ -132,7 +78,7 @@ namespace :db do
           end
 
           Vacancy.populate 5..10 do |v|
-            v.specialty_id = 0..79
+            v.specialty_id = 1..80
             v.school_id = s.id
             v.value = 1..3
           end
@@ -147,7 +93,7 @@ namespace :db do
           end
 
           s.name = Faker::Company.name
-          s.education_school_type_id = (0..2)
+          s.education_school_type_id = (1..3)
           s.location_id = @location_id
           s.user_id = u.id
           s.description = Populator.paragraphs(2..3)
@@ -162,7 +108,10 @@ namespace :db do
         u.confirm!
       end
 
-
+      a = Admin.new
+      a.email = "admin@sametut.org"
+      a.password = "mcmegavolt"
+      a.save
 
   end
 end

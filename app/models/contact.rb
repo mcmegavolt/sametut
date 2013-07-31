@@ -10,5 +10,4 @@ class Contact < ActiveRecord::Base
     CONTACT_TYPES[contact_type_id]
   end
 
-
 end

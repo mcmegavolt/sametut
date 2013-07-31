@@ -1,7 +1,8 @@
 #home
   .row
     .span12
-      = t(:'site.static.home_description').html_safe
+      .well
+        = t(:'site.static.home_description').html_safe
     -#.span4
       %p.lead= t(:'site.home.already_registered_users')
       - for a in applicants.reverse do
@@ -38,15 +39,15 @@
       - else
         %hr/
         .row
-          .span7
+          .span6
             %p.lead
               / = t(:'site.home.welcome_text_1')
               = t(:'site.home.welcome_text_2')
-          .span5
+          .span6
             %p
-              = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success", :style => 'width: 250px; font-size: 24px'
-            %p
+              = link_to t(:'site.home.register'), new_user_registration_path, :class => "btn btn-large btn-success", :style => 'width: 200px; font-size: 18px; margin-right: 20px;'
               або
+              &nbsp;&nbsp;
               = link_to 'увійти до системи', new_user_session_path
       -#%p.lead= t(:'site.home.news')
       -#- for news_item in news_items
@@ -82,58 +83,57 @@
           %p.number 0
           %p.title відділів освіти
 
-
-
   .row
     .span12
       %hr/
       = gmaps4rails(map)
-  - if admin_signed_in?
-    %hr/
-    .row
-      .span12
-        %h3 Just registered
-        %table.table.table-striped.table-bordered.table-condensed
-          %thead
-            %tr
-              %th
-                id
-              %th
-                email
-              %th
-                User type
-              %th
-                Is activated?
-              %th
-                Profile?
-              %th
-                Is online?
-              %th
-                Login count
-          %tbody
-            - users.each do |user|
-              - if user
-                %tr
-                  %td
-                    = user.id
-                  %td
-                    = user.email
-                  %td
-                    - if user.user_type_id?
-                      = UserType.find_by_id(user.user_type_id).id
-                  %td
-                    - if user.confirmed_at?
-                      Yes
-                    - else
-                      No
-                  %td
-                    - if user.applicant
-                      Yes
-                    - else
-                      No profile
+  
+  / - if admin_signed_in?
+  /   %hr/
+  /   .row
+  /     .span12
+  /       %h3 Just registered
+  /       %table.table.table-striped.table-bordered.table-condensed
+  /         %thead
+  /           %tr
+  /             %th
+  /               id
+  /             %th
+  /               email
+  /             %th
+  /               User type
+  /             %th
+  /               Is activated?
+  /             %th
+  /               Profile?
+  /             %th
+  /               Is online?
+  /             %th
+  /               Login count
+  /         %tbody
+  /           - users.each do |user|
+  /             - if user
+  /               %tr
+  /                 %td
+  /                   = user.id
+  /                 %td
+  /                   = user.email
+  /                 %td
+  /                   - if user.user_type_id?
+  /                     = UserType.find_by_id(user.user_type_id).id
+  /                 %td
+  /                   - if user.confirmed_at?
+  /                     Yes
+  /                   - else
+  /                     No
+  /                 %td
+  /                   - if user.applicant
+  /                     Yes
+  /                   - else
+  /                     No profile
 
-                  %td
-                    - if user.online?
-                      .online-blink
-                  %td
-                    = user.sign_in_count
+  /                 %td
+  /                   - if user.online?
+  /                     .online-blink
+  /                 %td
+  /                   = user.sign_in_count

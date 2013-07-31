@@ -1,11 +1,24 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope. require jquery-ui/ui-lightness
- *= require_self
- *= require jquery-ui/ui-lightness
- *= require_tree .
-*/
+
+// First import journal variables
+@import "bootswatch/flatly/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/flatly/bootswatch";
+
+// Whatever application styles you have go last
+@import "font-awesome";
+@import "address";
+@import "applicants";
+@import "gmaps4rails";
+@import "home";
+@import "school";
+@import "toolbar";
+@import "plugins/bootstrap-image-gallery";
+@import "plugins/lightbox";
+@import "jquery-ui/ui-lightness";
 
 @-webkit-keyframes blinker {
   from { opacity: 1.0; }
@@ -13,19 +26,20 @@
 }
 
 body {
-    background-image: url("bg-colors-line.png");
-    background-repeat: repeat-x;
-    background-position: top;
-    padding-top: 10px;
-
-    div.grid-bg {
-        background: url("bg-grid.png");
-        background-repeat: repeat-x;
-        background-position: top;
-    }
 
     h1, h2 {
       font-size: 22px;
+    }
+
+    .logo {
+      a {
+        font-size: 70px;
+        font-weight: bold;
+        line-height: 80px;
+      }
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     header {
@@ -39,13 +53,6 @@ body {
     .main-nav {
         margin-top: 30px;
     }   
-
-    .content {
-      background: #fff;
-      -webkit-box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 1);
-      -moz-box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 1);
-      box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 1);
-    }
 
     .online-blink {
         -webkit-animation-name: blinker;
