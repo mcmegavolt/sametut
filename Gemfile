@@ -19,7 +19,7 @@ gem 'jquery_datepicker'
 gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'russian'
-gem 'gmaps4rails'
+
 gem 'ckeditor', '4.0.2'
 gem 'thin'
 gem 'unicorn'
@@ -38,6 +38,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
   gem 'font-awesome-sass-rails'
+  gem 'gmaps4rails'
   # gem 'turbo-sprockets-rails3'
 end
 
