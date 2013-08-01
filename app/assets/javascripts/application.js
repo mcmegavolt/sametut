@@ -4,9 +4,9 @@
 // = require jquery.ui.datepicker
 // = require bootstrap
 // = require boot_strap
+// = require jquery.geocomplete.min
 // = require gmaps4rails/gmaps4rails.base
 // = require gmaps4rails/gmaps4rails.googlemaps
-// = require jquery.geocomplete.min
 // = require plugins/bootstrap-image-gallery.min
 // = require plugins/jcaption
 // = require plugins/lightbox
@@ -46,8 +46,6 @@ $(document).ready(function(){
         $("#reset").fadeOut();
         return false;
     });
-
-
 
     // UI
     $('.datepicker').datepicker({
