@@ -4,7 +4,6 @@
 // = require jquery.ui.datepicker
 // = require bootstrap
 // = require boot_strap
-// = require jquery.geocomplete.min
 // = require gmaps4rails/gmaps4rails.base
 // = require gmaps4rails/gmaps4rails.googlemaps
 // = require plugins/bootstrap-image-gallery.min

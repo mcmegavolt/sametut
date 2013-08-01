@@ -19,10 +19,12 @@
   %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
 
   = include_gon
-
-
+  / - if params[:controller] == 'schools' && (params[:action] == 'edit' || params[:action] == 'new')
+  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&language=uk", :type => "text/javascript"}  
+  
   = stylesheet_link_tag "application"
   = javascript_include_tag "application"
+  = javascript_include_tag "jquery.geocomplete.min"
   
   /[if IE]
     %script{ :src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
@@ -75,7 +77,5 @@
 
   
   
-  - if params[:controller] == 'schools' && (params[:action] == 'edit' || params[:action] == 'new')
-    %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&language=uk", :type => "text/javascript"}  
-  - else
-    = yield :scripts
+
+  = yield :scripts
