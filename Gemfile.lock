@@ -66,9 +66,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
     chronic (0.9.1)
-    ckeditor (4.0.2)
-      mime-types
-      orm_adapter
     client_side_validations (3.2.5)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -254,7 +251,6 @@ DEPENDENCIES
   bootswatch-rails
   capistrano
   carrierwave
-  ckeditor (= 4.0.2)
   client_side_validations
   coffee-rails (~> 3.2.1)
   delayed_job_active_record

@@ -9,7 +9,6 @@
 // = require plugins/bootstrap-image-gallery.min
 // = require plugins/jcaption
 // = require plugins/lightbox
-// = require ckeditor/config
 // = require rails.validations
 // = require jquery.geocomplete
 // = require custom
