@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(function(){
 
-    // Geocomplete
+ // Geocomplete
 
     curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
     
@@ -30,6 +30,12 @@ $(document).ready(function(){
         $("#reset").fadeOut();
         return false;
     });
+    
+});
+
+
+
+$(document).ready(function(){
 
     // UI
     $('.datepicker').datepicker({
