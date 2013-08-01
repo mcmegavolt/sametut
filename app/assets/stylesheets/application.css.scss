@@ -1,3 +1,11 @@
+// $blue:                  #3498DB !default;
+// $blueDark:              #2C3E50 !default;
+// $green:                 #18BC9C !default;
+// $red:                   #E74C3C !default;
+// $yellow:                #e6bb0d !default;
+// $orange:                #F39C12 !default;
+// $pink:                  #ff6699 !default;
+// $purple:                #8E44AD !default;
 
 // First import journal variables
 @import "bootswatch/flatly/variables";
@@ -25,34 +33,20 @@
   to { opacity: 0.0; }
 }
 
+
+
 body {
+
+    padding-top: 70px;
 
     h1, h2 {
       font-size: 22px;
     }
 
-    .logo {
-      a {
-        font-size: 70px;
-        font-weight: bold;
-        line-height: 80px;
-      }
-      a:hover {
-        text-decoration: none;
-      }
-    }
 
-    header {
-        margin-bottom: 20px;
+    a.brand {
+      font-size: 30px !important;
     }
-
-    legend {
-      font-size: 16px;
-    }
-
-    .main-nav {
-        margin-top: 30px;
-    }   
 
     .online-blink {
         -webkit-animation-name: blinker;

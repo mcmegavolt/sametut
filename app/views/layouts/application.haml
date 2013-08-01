@@ -34,24 +34,27 @@
   = render :partial => 'shared/google_analytics_code'
 
 %body
-  .container
-    %header
-      .row
-        .span5
-          .logo
-            = link_to root_path do
-              СамеТут
-              / = image_tag 'logo.png'
-        .span7
-          .main-nav
-            %ul.nav.nav-pills
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        = link_to root_path, :class => 'brand' do
+          СамеТут
+        #main-menu.nav-collapse.collapse
+          %ul#main-menu-left.nav.pull-right
+            %li
+              = link_to root_path do
+                %i.icon-home
+                = t(:'site.nav.back_to_site')
+            - unless user_signed_in?
               %li
-                = link_to t(:'site.nav.back_to_site'), root_path
-              - unless user_signed_in?
-                %li
-                  = link_to t(:'site.nav.new_user'), new_user_registration_path
-                %li
-                  = link_to t(:'site.user.devise.links.sign_in'), new_user_session_path
+                = link_to new_user_registration_path do
+                  %i.icon-plus-sign
+                  = t(:'site.nav.new_user')
+              %li
+                = link_to new_user_session_path do
+                  %i.icon-user
+                  = t(:'site.user.devise.links.sign_in')
+  .container
     .content
       .row{:style => 'margin-bottom: 20px;'}
         .span12
