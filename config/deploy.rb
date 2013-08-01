@@ -16,8 +16,8 @@ set :ssh_options, { :forward_agent => true, :paranoid => false }
 set :user, "sametut"
 set :password, "s!AmeTu7_0RgU@"
 set :use_sudo, false
-  set :deploy_via, :copy
-  set :copy_exclude, [".git"]
+set :deploy_via, :copy
+set :copy_exclude, [".git"]
 set :deploy_to, "/home/sametut/#{application}"
 set :normalize_asset_timestamps, false
 
