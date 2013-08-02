@@ -31,7 +31,7 @@ class HomeController < ApplicationController
 
 
   def map
-    @json = Location.all.to_gmaps4rails do |location, marker|
+    @json = Location.where(:addressable_type => 'School').to_gmaps4rails do |location, marker|
       marker.infowindow render_to_string(:partial => "shared/gmaps/info_window", :locals => { :school => School.find(location.addressable_id)})
       marker.title   ""
       marker.sidebar ""
