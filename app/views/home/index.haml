@@ -3,18 +3,7 @@
     .span12
       .well
         = t(:'site.static.home_description').html_safe
-    -#.span4
       %p.lead= t(:'site.home.already_registered_users')
-      - for a in applicants.reverse do
-        - if a.avatar
-          = link_to a do
-            = image_tag a.avatar.url(:icon50).to_s, :title => ( a.first_name + ' (' + a.profile.gender.to_s + ')' )
-      %p
-        = link_to t(:'site.home.applicants_count'), applicants_path
-        = applicants.size.to_s
-        %br
-          = link_to t(:'site.home.schools_count'), schools_path
-          = schools.size
   .row
     .span12
       - if user_signed_in?
