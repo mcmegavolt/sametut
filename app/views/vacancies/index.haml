@@ -18,18 +18,18 @@
         %thead
           %th
             = t(:'site.user.vacancies.specialty')
-          %th
+          %th{:style => 'width: 70px'}
             = t(:'site.user.vacancies.value')
-          %th
+          %th{:style => 'width: 130px'}
             = t(:'site.user.vacancies.update_date')
-          %th
+          %th{:style => 'width: 130px'}
             = t(:'site.user.vacancies.expiry_date')
           - if current_user && school
             - if current_user == school.user || admin_signed_in?
               %th(width='100px;')
               %th(width='100px;')
           - else
-            %th= t(:'site.user.vacancies.school_belong')
+            %th{:style => 'width: 300px'}= t(:'site.user.vacancies.school_belong')
         %tbody
         - for v in vacancies
           %tr

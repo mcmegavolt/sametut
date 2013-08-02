@@ -16,7 +16,7 @@ uk:
       back_to_site: 'На головну'
       new_user: 'Зареєструватися'
       users_list: 'Список юзерів'
-    copyright_html: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-2012. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
+    copyright_html: "<a href=\"http://sametut.org/\" >СамеТут</a> - Всі права збережено &copy; 2011-%{date}. Розробка <a href=\"http://alexponomarenko.com/\" target=\"_blank\">Aleksandr Ponomarenko.</a>"
     ministry_of_education_html: "При підтримці <a href=\'http://mon.gov.ua\' rel=\'nofollow\' target=\'_blank\'>міністерства освіти і науки, молоді та спорту України</a>"
 
     applicant:
