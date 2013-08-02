@@ -34,12 +34,12 @@ uk:
         region: "Регіон"
         reg_date: "Дата реєстрації"
         vacancies_count: "Вакансій"
-    
+
     departments:
       index:
         title: "Зареєстровані відділи освіти"
         count: "Всього: "
-        name: "Назва школи"
+        name: "Назва відділу"
         region: "Регіон"
         reg_date: "Дата реєстрації"
 

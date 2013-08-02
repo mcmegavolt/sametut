@@ -14,7 +14,7 @@
             
             - if admin_signed_in?
               %th
-                INFO
+                Location Test
 
           - for s in departments
             %tr
@@ -26,13 +26,14 @@
               - if admin_signed_in?
                 %td
                   - if s.location 
-                    - if s.location.latitude == 52.73013479999999 && s.location.latitude == 52.73013479999999
+                    - if s.location.latitude == 50.44405 && s.location.longitude == 30.52083
                       = link_to edit_department_path(s), :target => '_blank' do
                         %i.icon-exclamation-sign
                         wrong location
                     - else
-                      = s.location.latitude
-                      = s.location.latitude
+                      = link_to "http://maps.google.com.au/maps?ll=#{s.location.latitude},#{s.location.longitude}", :target => "_blank" do
+                        = s.location.latitude
+                        = s.location.longitude
                   - else
                     %i.icon-remove
                       NO LOCATION

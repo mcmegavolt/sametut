@@ -57,13 +57,13 @@
             %p
               = t(:'site.copyright_html', :date => Date.today.year).html_safe
               - if current_admin
-                = link_to 'Admin Panel', admin_path
+                = link_to 'Адмін-панель', admin_path
                 \|
-                = link_to 'Log Out', destroy_admin_session_path
+                = link_to 'Вийти', destroy_admin_session_path
               - else
                 = link_to '[+]', new_admin_session_path
               %br/
-              = t(:'site.ministry_of_education_html')
+              / = t(:'site.ministry_of_education_html')
 
   
   
