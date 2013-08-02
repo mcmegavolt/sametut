@@ -24,6 +24,7 @@ SameTut::Application.routes.draw do
 
   resources :users
   resources :applicants
+  resources :departments
   resources :schools do
     resource :gallery
     resources :vacancies

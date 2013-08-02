@@ -29,10 +29,12 @@
               = t(:'site.user.profiles.school.messages.no_profile').html_safe
             %p
               = link_to t(:'site.user.profiles.school.actions.create_profile'), new_school_path, :class => "btn btn-large btn-success"
-        - else
-          %p.lead= t(:'site.user.profiles.school.messages.home_title')
-          .alert.alert-error= t(:'site.user.profiles.school.messages.no_features')
-          .alert.alert-info= t(:'site.user.profiles.school.messages.how_to_change_user_type')
+        - elsif current_user.department?
+          - unless current_user.department
+            %p.lead
+              = t(:'site.user.profiles.department.messages.no_profile').html_safe
+            %p
+              = link_to t(:'site.user.profiles.department.actions.create_profile'), new_department_path, :class => "btn btn-large btn-success"
         %p
           = t(:'site.user.profiles.school.messages.your_user_type')
           %b= current_user.user_type
@@ -65,22 +67,22 @@
     .span3
       .count
         = link_to schools_path do
-          %p.number= schools.size
+          %p.number= schools_count
           %p.title навчальних закладів
     .span3
       .count
         = link_to vacancies_path do
-          %p.number= vacancies.size
+          %p.number= vacancies_count
           %p.title вакансій
     .span3
       .count
         = link_to applicants_path do
-          %p.number= applicants.size
+          %p.number= applicants_count
           %p.title пошукачів
     .span3
       .count
-        = link_to '#' do
-          %p.number 0
+        = link_to departments_path do
+          %p.number= departments_count
           %p.title відділів освіти
 
   .row

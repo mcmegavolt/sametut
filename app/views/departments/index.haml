@@ -1,0 +1,39 @@
+#departments
+  #index
+    .row
+      .span12
+        %legend= t(:'site.departments.index.title')
+        %p.muted
+          = t(:'site.departments.index.count')
+          = departments_count
+        %table.table.table-striped.table-condensed
+          %thead
+            %th= t(:'site.departments.index.name')
+            %th= t(:'site.departments.index.region')
+            %th= t(:'site.departments.index.reg_date')
+            
+            - if admin_signed_in?
+              %th
+                INFO
+
+          - for s in departments
+            %tr
+              %td= link_to s.name, department_path(s)
+              %td
+                - if s.location
+                  = s.location.state + ', ' +s.location.city
+              %td= time_ago_in_words(s.user.created_at) + t(:'site.user.vacancies.ago')
+              - if admin_signed_in?
+                %td
+                  - if s.location 
+                    - if s.location.latitude == 52.73013479999999 && s.location.latitude == 52.73013479999999
+                      = link_to edit_department_path(s), :target => '_blank' do
+                        %i.icon-exclamation-sign
+                        wrong location
+                    - else
+                      = s.location.latitude
+                      = s.location.latitude
+                  - else
+                    %i.icon-remove
+                      NO LOCATION
+        = paginate departments, :theme => 'twitter-bootstrap'

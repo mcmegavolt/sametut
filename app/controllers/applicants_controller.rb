@@ -36,7 +36,7 @@ class ApplicantsController < ApplicationController
     applicant.user_id = current_user.id
     if applicant.save
        flash[:success] = t(:'site.user.edit_profile.profile_created')
-       redirect_to root_url
+       redirect_to applicant_path(applicant)
      else
        render :action => "new"
      end

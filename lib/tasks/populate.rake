@@ -5,7 +5,9 @@ namespace :db do
 
     require 'populator'
     require 'faker'
-                                                                                                                                                                                                                          
+                           
+    # User types
+
       UserType.populate 1 do |t|
         t.user_type_name = 'Applicant'
       end
@@ -24,8 +26,14 @@ namespace :db do
         sc.name = Faker::Name.name
         Specialty.populate 40 do |s|
           s.specialty_category_id = sc.id
-          s.name = Faker::Name.name
+          s.name = Faker::Company.name
         end
+      end
+
+      # Education degree levels
+
+      EducationDegreeLevel.populate 5 do |e|
+        e.education_degree_level = Faker::Name.name
       end
 
       # School Types
@@ -81,6 +89,7 @@ namespace :db do
             v.specialty_id = 1..80
             v.school_id = s.id
             v.value = 1..3
+            v.expiry_date = (Date.today + 10)..(Date.today + 60)
           end
 
           Gallery.populate 1 do |g|
@@ -112,6 +121,27 @@ namespace :db do
       a.email = "admin@sametut.org"
       a.password = "mcmegavolt"
       a.save
+
+      u = User.new
+      u.email = "school@sametut.org"
+      u.password = "mcmegavolt"
+      u.user_type_id = 2
+      u.save
+      u.confirm!
+
+      u = User.new
+      u.email = "applicant@sametut.org"
+      u.password = "mcmegavolt"
+      u.user_type_id = 1
+      u.save
+      u.confirm!
+
+      u = User.new
+      u.email = "department@sametut.org"
+      u.password = "mcmegavolt"
+      u.user_type_id = 3
+      u.save
+      u.confirm!
 
   end
 end

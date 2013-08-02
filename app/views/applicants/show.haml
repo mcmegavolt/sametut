@@ -69,13 +69,13 @@
               %b
                 = t(:'site.user.new.main_info.birth_location')
             %td
-              = City.find(applicant.profile.birth_location_id).name  unless applicant.profile.birth_location_id.blank?
+              = applicant.profile.birth_location
           %tr
             %td
               %b
                 = t(:'site.user.new.main_info.current_location')
             %td
-              = City.find(applicant.profile.current_location_id).name unless applicant.profile.current_location_id.blank?
+              = applicant.profile.current_location
 
         - for contact in applicant.profile.contacts.by_type do
           %p

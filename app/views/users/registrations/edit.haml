@@ -2,33 +2,32 @@
   = devise_error_messages!
 
   .row
-    .span6
+    .span7
       %fieldset
         %legend= t(:'site.user.devise.edit.title')
         .control-group
-          = f.label :email, :class => 'label-control'
+          = f.label :email, :class => 'control-label'
           .controls
             = f.email_field :email
-
         .control-group
-          = f.label t(:'site.user.devise.edit.new_pass'), :class => 'label-control'
+          = f.label t(:'site.user.devise.edit.new_pass'), :class => 'control-label'
           .controls
             = f.password_field :password
             %p.help-block=t(:'site.user.devise.edit.leave_blank')
         .control-group
           = f.label t(:'site.user.devise.edit.new_pass_confirm')
           .controls
-            = f.password_field :password_confirmation, :class => 'label-control'
+            = f.password_field :password_confirmation, :class => 'control-label'
 
         .control-group
-          = f.label t(:'site.user.devise.edit.current_pass'), :class => 'label-control'
+          = f.label t(:'site.user.devise.edit.current_pass'), :class => 'control-label'
           .controls
             = f.password_field :current_password
             %p.help-block=t(:'site.user.devise.edit.current_pass_help')
 
 
 
-    .span6
+    .span5
       %fieldset
         %legend= t(:'site.user.devise.cancel_account.title')
         .control-group

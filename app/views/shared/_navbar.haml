@@ -1,0 +1,23 @@
+#main-menu.nav-collapse.collapse
+	%ul#main-menu-left.nav.pull-right
+		%li
+			= link_to root_path do
+				%i.icon-home
+				= t(:'site.nav.back_to_site')
+		- if user_signed_in?
+			%li
+				= link_to "#" do
+					Вітаємо, #{current_user.email}.
+			%li
+				= link_to destroy_user_session_path do
+					%i.icon-off
+					= t(:'site.user.devise.actions.log_out')
+		- else
+			%li
+				= link_to new_user_registration_path do
+					%i.icon-plus-sign
+					= t(:'site.nav.new_user')
+			%li
+				= link_to new_user_session_path do
+					%i.icon-user
+					= t(:'site.user.devise.links.sign_in')

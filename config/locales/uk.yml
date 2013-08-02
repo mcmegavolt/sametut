@@ -34,6 +34,14 @@ uk:
         region: "Регіон"
         reg_date: "Дата реєстрації"
         vacancies_count: "Вакансій"
+    
+    departments:
+      index:
+        title: "Зареєстровані відділи освіти"
+        count: "Всього: "
+        name: "Назва школи"
+        region: "Регіон"
+        reg_date: "Дата реєстрації"
 
     user:
       gallery:
@@ -70,6 +78,7 @@ uk:
         value: "Ставка"
         specialty: "Посада"
         update_date: "Дата оновлення"
+        expiry_date: "Дійсна до"
         ago: " назад"
         total: "Всього вакансій: "
         submit: "Зберегти"
@@ -96,7 +105,6 @@ uk:
           messages:
             no_profile: "Увага! Ви ще не створили профіль навчального закладу!"
             is_profile: "Відомості про акаунт<br/><u>активний</u>"
-            no_features: "Для Вашого типу акаунту немає функцій. Ми працюємо над цим."
             how_to_change_user_type: "Щоб змінити тип акаунту потрібно видалити поточний та зареєструватись наново."
             your_user_type: "Ви зареєстровані, як"
           actions:
@@ -120,7 +128,6 @@ uk:
             map_html: "<i class=\'icon-map-marker\'></i> Мапа"
             contacts_html: "<i class=\'icon-book\'></i> Контакти"
             gallery_html: "<i class=\'icon-camera\'></i> Фотогалерея"
-            gallery_none: "Незабаром"
 
           director:
             legend: "Директор"
@@ -128,6 +135,36 @@ uk:
             photo: "Фото"
             change_photo: "Змінити фото"
             delete_photo: "Видалити фото"
+
+        department:
+          messages:
+            no_profile: "Увага! Ви ще не створили профіль відділу освіти!"
+            is_profile: "Відомості про акаунт<br/><u>активний</u>"
+            how_to_change_user_type: "Щоб змінити тип акаунту потрібно видалити поточний та зареєструватись наново."
+            your_user_type: "Ви зареєстровані, як"
+          actions:
+            actions: "Мій профіль"
+            show_profile: "Сторінка профілю"
+            edit_profile: "Редагувати профіль"
+            create_profile: "Створити профіль відділу освіти..."
+
+          edition:
+            new_school: "Створення профілю відділу освіти"
+            title: "Редагування профілю відділу освіти"
+            name: "Назва"
+            description: "Загальний опис"
+
+          show:
+            map_html: "<i class=\'icon-map-marker\'></i> Мапа"
+            contacts_html: "<i class=\'icon-book\'></i> Контакти"
+
+          chief:
+            legend: "Завідуючий відділом"
+            name: "ПІБ"
+            photo: "Фото"
+            change_photo: "Змінити фото"
+            delete_photo: "Видалити фото"
+
 
 
       edit_profile:

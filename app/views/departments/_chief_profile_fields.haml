@@ -1,0 +1,33 @@
+.row
+  .span6
+    .control-group
+      = p.label t(:'site.user.profiles.department.chief.name'), :class => 'control-label'
+      .controls
+        = p.text_field :name, :class => 'span4'
+        %p.help-block
+    .control-group
+      = p.label t(:'site.user.new.main_info.gender'), :class => 'control-label'
+      .controls
+        %label.radio
+          = p.radio_button :gender, 1, :checked => true
+          = t(:'site.user.new.main_info.male')
+        %label.radio
+          = p.radio_button :gender, 2
+          = t(:'site.user.new.main_info.female')
+  .span6
+    .control-group
+      = p.label t(:'site.user.profiles.department.chief.photo'), :class => 'control-label'
+      .controls
+        = image_tag department.chief_profile.chief_photo_url(:thumb), :style => 'width: 150px'
+
+    .control-group
+      = p.label t(:'site.user.profiles.department.chief.change_photo'), :class => 'control-label'
+      .controls
+        = p.file_field :chief_photo
+        = p.hidden_field :chief_photo_cache
+    - if department.chief_profile.chief_photo?
+      .control-group
+        %label.control-label
+          = t(:'site.user.profiles.department.chief.delete_photo')
+        .controls
+          = p.check_box :remove_chief_photo

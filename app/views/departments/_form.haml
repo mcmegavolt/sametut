@@ -1,0 +1,37 @@
+= form_for department, :html => {:class => 'form-horizontal'}, :url => department.new_record? ? departments_path : department_path(department), :validate => true do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => department }
+  .row
+    .span12
+      .control-group
+        = f.label :name, t(:'site.user.profiles.department.edition.name'), :class => 'control-label'
+        .controls
+          = f.text_field :name, :class => 'span9'
+      .control-group
+        = f.label :description, t(:'site.user.profiles.department.edition.description'), :class => 'control-label'
+        .controls
+          / - unless f.object.new_record?
+          /   = f.cktext_area :description, :class => 'span9'
+          / - else
+          = f.text_area :description, :class => 'span9', :style => 'height:200px'
+
+      %legend= t(:'site.address.title')
+      = f.fields_for :location do |l|
+        = render :partial => 'addresses/location_fields', :locals => { :f => l }
+  
+      %legend= t(:'site.contacts.title')
+      = f.fields_for :contacts do |c|
+        = render :partial => 'contacts/contact_fields', :locals => { :f => c }
+      .fields
+        = link_to_add_fields t(:'site.contacts.add_contact').html_safe, f, :contacts
+
+
+  %legend= t(:'site.user.profiles.department.chief.legend')
+  = f.fields_for :chief_profile do |p|
+    = render 'chief_profile_fields', :p => p
+
+  .form-actions
+    = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
+    = link_to t(:'site.user.edit_profile.cancel'), root_path, :class => 'btn'
+
+
+

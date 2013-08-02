@@ -2,9 +2,10 @@
   .span12
     %legend
       = t(:'site.user.vacancies.title')
-    %p.muted
-      = t(:'site.user.vacancies.total')
-      = vacancies_count
+    - unless school
+      %p.muted
+        = t(:'site.user.vacancies.total')
+        = vacancies_count
     - if current_user && school
       - if current_user == school.user || admin_signed_in?
         = link_to new_school_vacancy_path(school) do
@@ -21,6 +22,8 @@
             = t(:'site.user.vacancies.value')
           %th
             = t(:'site.user.vacancies.update_date')
+          %th
+            = t(:'site.user.vacancies.expiry_date')
           - if current_user && school
             - if current_user == school.user || admin_signed_in?
               %th(width='100px;')
@@ -35,7 +38,9 @@
             %td
               = v.value
             %td
-              = time_ago_in_words(v.updated_at) + t(:'site.user.vacancies.ago')
+              = l v.updated_at.to_date, :format => :long
+            %td
+              = l v.expiry_date, :format => :long
             - if current_user && school
               - if current_user == school.user || admin_signed_in?
                 %td

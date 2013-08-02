@@ -15,8 +15,8 @@ gem 'therubyracer'
 gem 'devise'
 gem 'devise-async'
 gem 'jquery-rails', '2.0.1'
-gem 'jquery_datepicker'
-gem 'jquery-ui-themes'
+# gem 'jquery_datepicker'
+# gem 'jquery-ui-themes'
 gem 'ukrainian', :git => "https://github.com/ivankukobko/ukrainian.git"
 gem 'russian'
 gem 'gmaps4rails'
@@ -37,8 +37,8 @@ group :assets do
   gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
+  gem 'bootstrap-datepicker-rails'
   gem 'font-awesome-sass-rails'
-
   # gem 'turbo-sprockets-rails3'
 end
 

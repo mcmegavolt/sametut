@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321011357) do
+ActiveRecord::Schema.define(:version => 20130801231452) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.string   "resume_src"
   end
 
+  create_table "chief_profiles", :force => true do |t|
+    t.string  "name"
+    t.integer "department_id"
+    t.string  "chief_photo"
+    t.integer "gender"
+  end
+
+  add_index "chief_profiles", ["department_id"], :name => "index_chief_profiles_on_department_id"
+
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
     t.string   "data_content_type"
@@ -116,6 +125,17 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
   add_index "contacts", ["director_profile_id"], :name => "index_contacts_on_director_profile_id"
   add_index "contacts", ["profile_id"], :name => "index_contacts_on_profile_id"
   add_index "contacts", ["school_id"], :name => "index_contacts_on_school_id"
+
+  create_table "departments", :force => true do |t|
+    t.string  "name"
+    t.string  "description"
+    t.string  "permalink"
+    t.integer "location_id"
+    t.integer "user_id"
+  end
+
+  add_index "departments", ["location_id"], :name => "index_departments_on_location_id"
+  add_index "departments", ["user_id"], :name => "index_departments_on_user_id"
 
   create_table "director_profiles", :force => true do |t|
     t.string   "name"
@@ -175,13 +195,13 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
 
   create_table "profiles", :force => true do |t|
     t.date     "birth_date"
-    t.integer  "birth_location_id"
-    t.integer  "current_location_id"
     t.string   "video_url"
     t.integer  "applicant_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "gender"
+    t.string   "birth_location"
+    t.string   "current_location"
   end
 
   create_table "schools", :force => true do |t|
@@ -256,6 +276,7 @@ ActiveRecord::Schema.define(:version => 20130321011357) do
     t.datetime "updated_at",   :null => false
     t.integer  "school_id"
     t.float    "value"
+    t.date     "expiry_date"
   end
 
   create_table "work_experiences", :force => true do |t|

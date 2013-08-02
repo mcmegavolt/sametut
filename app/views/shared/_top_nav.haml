@@ -24,6 +24,11 @@
           = link_to t(:'site.user.toolbar.edit_gallery_html'), edit_school_gallery_path(current_user.school)
         %li
           = link_to t(:'site.user.toolbar.edit_vacancies_html'), school_vacancies_path(current_user.school)
+      - if current_user.department
+        %li
+          = link_to t(:'site.user.toolbar.my_profile_html'), department_path(current_user.department)
+        %li
+          = link_to t(:'site.user.toolbar.edit_profile_html'), edit_department_path(current_user.department)
       %li
         = link_to edit_user_registration_path do
           = t(:'site.user.toolbar.change_pass_html')

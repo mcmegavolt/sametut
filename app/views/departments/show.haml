@@ -1,0 +1,45 @@
+#department
+	#show
+		.row
+			.span12
+				.row
+					.span12
+						%h1= department.name
+						- if admin_signed_in?
+							= link_to  department_path(department) do
+								%i.icon-pencil
+								Edit
+						.row
+							.span10
+								= department.description.html_safe if department.description
+							.span2
+								- unless !department.chief_profile
+									.thumbnail.with-caption
+										= image_tag department.chief_profile.chief_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name, :alt => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name
+										/ <p>Dumb ways to die<small>Metro</small></p>
+										%p
+											= department.chief_profile.name
+											%small= t(:'site.user.profiles.department.chief.legend')
+
+						.row
+							.span6
+								%legend= t(:'site.user.profiles.department.show.map_html')
+								= gmaps4rails department.location.to_gmaps4rails            
+							.span6
+								%legend= t(:'site.user.profiles.department.show.contacts_html')
+								- for contact in department.contacts.by_type do
+									%p
+										- unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+											- if contact.contact_type == 'phone'
+												%i{ :class => "icon icon-phone" }
+											- elsif contact.contact_type == 'email'
+												%i{ :class => "icon icon-envelope-alt" }
+											- elsif contact.contact_type == 'url'
+												%i{ :class => "icon icon-globe" }
+											- elsif contact.contact_type == 'skype'
+												= image_tag 'contact-icons/skype.png'
+											= contact_value contact
+								- for contact in department.contacts.by_type
+									- if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+										= social_icon contact
+										&nbsp;

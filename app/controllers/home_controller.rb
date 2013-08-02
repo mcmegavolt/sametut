@@ -9,20 +9,25 @@ class HomeController < ApplicationController
   end
   helper_method :users
 
-  def schools
-    @schools = School.all
+  def schools_count
+    @schools = School.count
   end
-  helper_method :schools
+  helper_method :schools_count
 
-  def applicants
-    @applicants = Applicant.all
+  def departments_count
+    @schools = Department.count
   end
-  helper_method :applicants
+  helper_method :departments_count
 
-  def vacancies
-    @vacancies = Vacancy.all
+  def applicants_count
+    @applicants = Applicant.count
   end
-  helper_method :vacancies
+  helper_method :applicants_count
+
+  def vacancies_count
+    @vacancies = Vacancy.count
+  end
+  helper_method :vacancies_count
 
 
   def map

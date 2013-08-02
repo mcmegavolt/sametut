@@ -21,22 +21,13 @@
           .controls
             - UserType.all.each do |select_type|
               %label.radio
-                - if select_type.id == 2
-                  = f.radio_button :user_type_id, select_type.id, :checked => (true if select_type.id == 2)
-                  = select_type.user_type_name
-                - else
-                  = f.radio_button :user_type_id, select_type.id, :disabled => true
-                  %span.muted= select_type.user_type_name
-
-
-
-
-
+                = f.radio_button :user_type_id, select_type.id, :checked => (true if select_type.id == 1)
+                = select_type.user_type_name
 
     .span5
       %legend= t(:'site.user.devise.tools')
       = render "users/links"
 
   .form-actions
-    = f.submit t(:'site.user.devise.actions.sign_up'), :class => 'btn-success btn-large'
+    = f.submit t(:'site.user.devise.actions.sign_up'), :class => 'btn-primary btn-large'
 

@@ -9,7 +9,6 @@
               = link_to  edit_school_path(school) do
                 %i.icon-pencil
                 Edit
-            %legend= t(:'site.user.profiles.school.show.main_info_html')
             .row
               .span10
 
@@ -17,8 +16,12 @@
                 
               .span2
                 - unless !school.director_profile
-                  .show_caption
+                  .thumbnail.with-caption
                     = image_tag school.director_profile.director_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name, :alt => t(:'site.user.profiles.school.director.legend') + ": " + school.director_profile.name
+                    / <p>Dumb ways to die<small>Metro</small></p>
+                    %p
+                      = school.director_profile.name
+                      %small= t(:'site.user.profiles.school.director.legend')
             .row
               .span6
                 %legend= t(:'site.user.profiles.school.show.map_html')
@@ -41,24 +44,6 @@
                   - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
                     = social_icon contact
                     &nbsp;
-            .row
-              .span6
-                %legend= t(:'site.user.profiles.school.show.gallery_html')  
-                - if school.gallery && school.gallery.pictures.present?
-                  .imageRow
-                    .set
-                      - for pic in school.gallery.pictures
-                        .single
-                          = link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
-                            = image_tag pic.src_url(:medium), :width => '214px'
-                - else
-                  =t(:'site.user.gallery.images.no_images')
-              .span6
-                %legend= t(:'site.user.profiles.school.show.video_tab_html')
-                - unless school.video_url.blank?
-                  = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)  
-                - else
-                  =t(:'site.user.profiles.school.show.video_tab_none')
             %legend= t(:'site.user.vacancies.title')
             - if school.vacancies.present?
               %table.table.table-striped.table-condensed
@@ -80,3 +65,21 @@
                       = time_ago_in_words(v.updated_at) + t(:'site.user.vacancies.ago')
             - else
               =t(:'site.user.vacancies.no_vacancies')            
+            .row
+              .span6
+                %legend= t(:'site.user.profiles.school.show.gallery_html')  
+                - if school.gallery && school.gallery.pictures.present?
+                  .imageRow
+                    .set
+                      - for pic in school.gallery.pictures
+                        .single
+                          = link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
+                            = image_tag pic.src_url(:medium), :width => '214px'
+                - else
+                  =t(:'site.user.gallery.images.no_images')
+              .span6
+                %legend= t(:'site.user.profiles.school.show.video_tab_html')
+                - unless school.video_url.blank?
+                  = UrlToMediaTag.convert(school.video_url, :width => 480, :height => 320)  
+                - else
+                  =t(:'site.user.profiles.school.show.video_tab_none')

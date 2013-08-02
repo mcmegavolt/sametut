@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_one :school, :dependent => :destroy
   accepts_nested_attributes_for :school
 
+  has_one :department, :dependent => :destroy
+  accepts_nested_attributes_for :department
+
   belongs_to :user_type
 
   def online?

@@ -45,7 +45,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def permalink
-    Russian.translit(self.first_name + '-' + self.middle_name + '-' + self.last_name).parameterize
+    I18n.transliterate(self.first_name + '-' + self.middle_name + '-' + self.last_name).parameterize
   end
 
   def full_name
