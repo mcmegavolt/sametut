@@ -3,7 +3,6 @@
     .span12
       .well
         = t(:'site.static.home_description').html_safe
-      %p.lead= t(:'site.home.already_registered_users')
   .row
     .span12
       - if user_signed_in?
@@ -40,17 +39,6 @@
               або
               &nbsp;&nbsp;
               = link_to 'увійти до системи', new_user_session_path
-      -#%p.lead= t(:'site.home.news')
-      -#- for news_item in news_items
-        %p
-          %b
-            = news_item.title
-          %br
-          = news_item.body
-          %br
-          %span{:style => 'color: gray; float: right;'}
-            = l news_item.released_at.to_date, :format => :long
-        %br
   %hr/
   .row
     .span3
