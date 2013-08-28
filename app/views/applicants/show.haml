@@ -10,135 +10,121 @@
         Edit
   .span9
 
-    %ul#ProfileTabs.nav.nav-tabs
-      %li.active
-        %a( href = "#main-info" data-toggle = "tab" )
-          = t(:'site.user.show_profile.main_info')
-      %li
-        %a( href = "#education" data-toggle = "tab" )
-          = t(:'site.user.new.headers.education')
-      %li
-        %a( href = "#work-exp" data-toggle = "tab" )
-          = t(:'site.user.new.headers.work_experience')
-      %li
-        %a( href = "#soc-act" data-toggle = "tab" )
-          = t(:'site.user.new.headers.social_activities')
-      %li
-        %a( href = "#resume" data-toggle = "tab" )
-          = t(:'site.user.new.headers.resume')
-
-    #myTabContent.tab-content
-      #main-info.tab-pane.fade.active.in
-        %table.table.table-striped.table-condensed
-          %tr
-            %td
-              %b
-                Email:
-            %td
-              - if current_user == applicant.user || admin_signed_in?
-                = applicant.user.email
-              - else
-                = t(:'site.user.show_profile.hidden')
-          %tr
-            %td
-              %b
-                = t(:'site.user.show_profile.full_name')
-            %td
-              - if applicant.first_name
-                = applicant.first_name
-              - if applicant.middle_name
-                = applicant.middle_name
-              - if applicant.last_name
-                = applicant.last_name
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.main_info.gender')
-            %td
-              = t(:'site.user.new.main_info.male') if applicant.profile.gender == 1
-              = t(:'site.user.new.main_info.female') if applicant.profile.gender == 2
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.main_info.birth_date')
-            %td
-              - if applicant.profile.birth_date
-                = l applicant.profile.birth_date, :format => :long
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.main_info.birth_location')
-            %td
-              = applicant.profile.birth_location
-          %tr
-            %td
-              %b
-                = t(:'site.user.new.main_info.current_location')
-            %td
-              = applicant.profile.current_location
-
+    %p.legend Основні дані
+    %table.table.table-striped.table-condensed
+      %tr
+        %td
+          %b
+            Email:
+        %td
+          - if current_user == applicant.user || admin_signed_in?
+            = applicant.user.email
+          - else
+            = t(:'site.user.show_profile.hidden')
+      %tr
+        %td
+          %b
+            = t(:'site.user.show_profile.full_name')
+        %td
+          - if applicant.first_name
+            = applicant.first_name
+          - if applicant.middle_name
+            = applicant.middle_name
+          - if applicant.last_name
+            = applicant.last_name
+      %tr
+        %td
+          %b
+            = t(:'site.user.new.main_info.gender')
+        %td
+          = t(:'site.user.new.main_info.male') if applicant.profile.gender == 1
+          = t(:'site.user.new.main_info.female') if applicant.profile.gender == 2
+      %tr
+        %td
+          %b
+            = t(:'site.user.new.main_info.birth_date')
+        %td
+          - if applicant.profile.birth_date
+            = l applicant.profile.birth_date, :format => :long
+      %tr
+        %td
+          %b
+            = t(:'site.user.new.main_info.birth_location')
+        %td
+          = applicant.profile.birth_location
+      %tr
+        %td
+          %b
+            = t(:'site.user.new.main_info.current_location')
+        %td
+          = applicant.profile.current_location
+    %p.legend Контакти
+    .row
+      .span5
         - for contact in applicant.profile.contacts.by_type do
           %p
             - unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
-              %span{ :class => "span-icon icon-#{contact.contact_type}" }
+              - if contact.contact_type == 'email'
+                %i.icon-envelope
+              - if contact.contact_type == 'phone'
+                %i.icon-phone
+              - if contact.contact_type == 'skype'
+                = image_tag 'contact-icons'
               = contact_value contact
-        %hr/
-        %p
-          - for contact in applicant.profile.contacts.by_type
-            - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
-              = social_icon contact
-      #education.tab-pane.fade
-        -#%p Функція тимчасово недоступна
-        %table.table.table-striped.table-condensed
-          %th= t(:'site.user.new.education_info.school_name')
-          %th= t(:'site.user.new.education_info.start_date')
-          %th= t(:'site.user.new.education_info.end_date')
-          %th= t(:'site.user.new.education_info.faculty')
-          %th= t(:'site.user.new.education_info.degree_level')
-          - for education in applicant.educations
-            %tr
-              %td= education.school
-              %td= education.start_date
-              %td= education.end_date
-              %td= education.faculty
-              %td= EducationDegreeLevel.find(education.education_degree_level_id).education_degree_level
-      #work-exp.tab-pane.fade
-        %table.table.table-striped.table-condensed
-          %thead
-            %th= t(:'site.user.new.work_experience.start_date')
-            %th= t(:'site.user.new.work_experience.end_date')
-            %th= t(:'site.user.new.work_experience.organization_name')
-            %th= t(:'site.user.new.work_experience.position')
-          - for work_experience in applicant.work_experiences
-            %tr
-              %td= l work_experience.start_date, :format => :long
-              %td= l work_experience.end_date, :format => :long
-              %td= work_experience.organization
-              %td= work_experience.position
+      .span4    
+        - for contact in applicant.profile.contacts.by_type
+          - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|livejournal|blogger|google|youtube|vimeo/
+            = social_icon contact
+    %hr/    
+    %table.table.table-striped.table-condensed
+      %th= t(:'site.user.new.education_info.school_name')
+      %th= t(:'site.user.new.education_info.start_date')
+      %th= t(:'site.user.new.education_info.end_date')
+      %th= t(:'site.user.new.education_info.faculty')
+      %th= t(:'site.user.new.education_info.degree_level')
+      - for education in applicant.educations
+        %tr
+          %td= education.school
+          %td= education.start_date
+          %td= education.end_date
+          %td= education.faculty
+          %td= EducationDegreeLevel.find(education.education_degree_level_id).education_degree_level
+    
+
+    %table.table.table-striped.table-condensed
+      %thead
+        %th= t(:'site.user.new.work_experience.start_date')
+        %th= t(:'site.user.new.work_experience.end_date')
+        %th= t(:'site.user.new.work_experience.organization_name')
+        %th= t(:'site.user.new.work_experience.position')
+      - for work_experience in applicant.work_experiences
+        %tr
+          %td= l work_experience.start_date, :format => :long
+          %td= l work_experience.end_date, :format => :long
+          %td= work_experience.organization
+          %td= work_experience.position
 
 
-      #soc-act.tab-pane.fade
-        %table.table.table-striped.table-condensed
-          %thead
-            %th= t(:'site.user.new.social_activities.activity_type')
-            %th= t(:'site.user.new.social_activities.position')
-            %th= t(:'site.user.new.social_activities.duties')
-          - for social_activity in applicant.social_activities
-            %tr
-              %td= social_activity.activity_type
-              %td= social_activity.duties
-              %td= social_activity.position
-      #resume.tab-pane.fade
-        - if applicant.resume_src.present?
-          %p.muted
-            = "#{File.basename(applicant.resume_src_url)}"
-            %i.icon-download-alt
-            = link_to t(:'site.user.new.resume.download'), applicant.resume_src_url
+    %table.table.table-striped.table-condensed
+      %thead
+        %th= t(:'site.user.new.social_activities.activity_type')
+        %th= t(:'site.user.new.social_activities.position')
+        %th= t(:'site.user.new.social_activities.duties')
+      - for social_activity in applicant.social_activities
+        %tr
+          %td= social_activity.activity_type
+          %td= social_activity.duties
+          %td= social_activity.position
+    - if applicant.resume_src.present?
+      %p.muted
+        = "#{File.basename(applicant.resume_src_url)}"
+        %i.icon-download-alt
+        = link_to t(:'site.user.new.resume.download'), applicant.resume_src_url
 
-%hr/
-.row
-  .span12
-    - if applicant.profile.video_url.to_s != ""
-      = UrlToMediaTag.convert(applicant.profile.video_url, :width => 480, :height => 320)
-    - else
-      No video presentation
+    %hr/
+    .row
+      .span12
+        - if applicant.profile.video_url.to_s != ""
+          = UrlToMediaTag.convert(applicant.profile.video_url, :width => 480, :height => 320)
+        - else
+          No video presentation

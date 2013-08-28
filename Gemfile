@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 gem 'mysql2'
 gem 'mini_magick'
 gem 'carrierwave'
@@ -27,6 +27,7 @@ gem 'inherited_resources'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
 gem 'gon'
+# gem 'simple_form'
 
 
 group :assets do

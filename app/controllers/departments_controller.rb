@@ -40,6 +40,7 @@ class DepartmentsController < ApplicationController
 
   def create
     department.user_id = current_user.id
+    department.create_gallery
     if department.save
        flash[:success] = t(:'site.user.edit_profile.profile_created')
        redirect_to department_path(department)

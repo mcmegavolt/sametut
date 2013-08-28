@@ -42,10 +42,13 @@ namespace :db do
         t.school_type_name = Faker::Company.name
       end
 
-      # Schools
+      
 
       @longitude = 50.27
       @latitude = 30.30
+
+
+      # Schools
 
       User.populate 70 do |u|
         u.email = Faker::Internet.email
@@ -107,6 +110,65 @@ namespace :db do
           s.user_id = u.id
           s.description = Populator.paragraphs(2..3)
           s.video_url = "http://www.youtube.com/watch?v=NbRck_G_1AI"
+          s.permalink = s.name.parameterize
+        end
+
+      end
+
+        # Department
+
+      User.populate 40 do |u|
+        u.email = Faker::Internet.email
+        u.encrypted_password = '#########'
+        u.user_type_id = 3
+
+        Department.populate 1 do |s|
+          
+          Location.populate 1 do |l|
+            l.street = Faker::Address.street_name
+            l.building = (2.50)
+            l.apartment = (5..60)
+            l.addressable_id = s.id
+            l.addressable_type = "Department"
+            l.latitude = @longitude += rand(-0.1..0.1)
+            l.longitude = @latitude += rand(-0.1..0.1)
+            l.gmaps = true
+            l.city = Faker::Address.city
+            l.formatted_address = Faker::Address.street_address
+            l.state = Faker::Address.state
+            l.postal_code = Faker::Address.zip
+            l.state2 = Faker::Address.state
+            l.sublocality = Faker::Address.city
+            @location_id = l.id
+          end
+
+          @contact_type_id = -1
+          Contact.populate 11 do |c|
+            c.contact_type_id = (@contact_type_id += 1)
+            c.contactable_id = s.id
+            c.contactable_type = "Department"
+            c.value = Populator.words(1)
+          end
+
+          ChiefProfile.populate 1 do |d|
+            d.name = Faker::Name.name
+            d.department_id = s.id
+            d.gender = 1..2
+          end
+
+          Gallery.populate 1 do |g|
+            g.galleryable_id = s.id
+            g.galleryable_type = "Department"
+            Picture.populate 10 do |p|
+              p.gallery_id = g.id
+              p.title = Faker::Name.name
+            end
+          end
+
+          s.name = Faker::Company.name
+          s.location_id = @location_id
+          s.user_id = u.id
+          s.description = Populator.paragraphs(2..3)
           s.permalink = s.name.parameterize
         end
 

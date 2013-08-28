@@ -43,3 +43,15 @@
 									- if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
 										= social_icon contact
 										&nbsp;
+						.row
+							.span12
+								%legend= t(:'site.user.profiles.school.show.gallery_html')  
+								- if department.gallery && department.gallery.pictures.present?
+									.imageRow
+										.set
+											- for pic in department.gallery.pictures
+												.single
+													= link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
+														= image_tag pic.src_url(:medium), :width => '214px'
+								- else
+									=t(:'site.user.gallery.images.no_images')

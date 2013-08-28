@@ -1,3 +1,4 @@
+/ = form_for gallery, :html => {:class => 'form-horizontal'}, :url => gallery.new_record? ? school_gallery_path : school_gallery_path(school) do |f|
 = form_for gallery, :html => {:class => 'form-horizontal'}, :url => gallery.new_record? ? school_gallery_path : school_gallery_path(school) do |f|
   = render :partial => 'shared/form_errors', :locals => { :object => gallery }
   .row

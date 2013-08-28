@@ -4,21 +4,21 @@ class GalleriesController < ApplicationController
 
   before_filter :require_owner, :only => [ :edit, :update, :destroy ]
 
-  def index
-  end
+  inherited_resources
 
-  def show
-  end
-
-  def new
-  end
+  belongs_to :school, :department
 
   def create
-    gallery.galleryable = school
+    
+    if current_user.school?
+      gallery.galleryable = school
+    elsif current_user.department?
+      gallery.galleryable = department
+    end
+        
     if gallery.save
       flash[:success] = t(:'postings.create.success')
-      #NotificationMailer.posting_created(posting).deliver
-      redirect_to school_path(school)
+      # redirect_to galleryable_path(gallery.galleryable)
     else
       render :new
     end
@@ -31,7 +31,7 @@ class GalleriesController < ApplicationController
   def update
     if gallery.update_attributes params[:gallery]
       flash[:success] = t(:'site.user.gallery.messages.updated')
-      redirect_to school_path(school)
+      # redirect_to galleryable_path(gallery.galleryable)
     else
       flash[:success] = t(:'site.user.gallery.messages.error')
       render :edit
@@ -40,7 +40,7 @@ class GalleriesController < ApplicationController
 
   def destroy
     gallery.destroy
-    redirect_to school_path(school)
+    # redirect_to school_path(school)
   end
 
   private

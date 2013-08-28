@@ -191,6 +191,7 @@ uk:
       devise:
         tools: "Інструменти"
         sign_in: "Вхід до системи"
+        reset_password: "Скидування паролю"
         edit:
           title: "Редагування акаунту"
           new_pass: "Новий пароль"
@@ -214,6 +215,7 @@ uk:
           sign_in: "Увійти"
           log_out: "Вийти"
           remember_me: "Запамятати мене"
+          reset_password: "Скинути пароль"
         select_boxes:
           select_user_type: "-- Оберіть --"
 

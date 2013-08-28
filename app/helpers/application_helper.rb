@@ -45,6 +45,7 @@ end
       url = "http://#{cleaned}"
       link_to cleaned, url, :rel => 'nofollow', :target => '_blank'
     elsif contact.contact_type.to_sym == :email
+
       link_to contact.value, "mailto:#{contact.value}"
     else
       contact.value

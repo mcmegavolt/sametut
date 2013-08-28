@@ -1,6 +1,10 @@
 -#- set_meta_tags :title => posting.title + ' | ' + t(:'seo.sections.postings'), :description => posting.excerpt, :keywords => ( posting.tags.each do |tag| tag.name end )
 #postings
-  #show
-    .row
-      .span8
-        %p= link_to gallery.galleryable, school_path(gallery.galleryable)
+	#show
+		.row
+			.span8
+				%p
+					- if current_user.school?
+						= link_to 'Gallery', school_gallery_path(current_user.school)
+					- if current_user.department?
+						= link_to 'Gallery', department_gallery_path(current_user.department)
