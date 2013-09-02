@@ -14,7 +14,18 @@ class Department < ActiveRecord::Base
   has_one :gallery, :as => :galleryable, :dependent => :destroy
   accepts_nested_attributes_for :gallery, :allow_destroy => true
 
+
+  has_many :school_departments, :dependent => :destroy
+  accepts_nested_attributes_for :school_departments, :allow_destroy => true
+  has_many :schools, :through => :school_departments
+
+  has_many :vacancies, through: :schools
+
   validates_presence_of :name
+
+  # def school_ids=(ids)
+  #   self.schools = School.find(ids)
+  # end
 
   def to_param
     "#{id}-#{permalink}"

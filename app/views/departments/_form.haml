@@ -29,6 +29,11 @@
   = f.fields_for :chief_profile do |p|
     = render 'chief_profile_fields', :p => p
 
+  %legend Schools
+  .control-group
+    .controls
+      = f.select :school_ids, School.all.collect{|s| [s.name, s.id]}, {}, {:multiple => true}
+
   .form-actions
     = f.submit t(:'site.user.edit_profile.save_applicant'), :class => 'btn btn-success btn-large'
     = link_to t(:'site.user.edit_profile.cancel'), root_path, :class => 'btn'

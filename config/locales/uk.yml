@@ -125,7 +125,7 @@ uk:
             main_info_html: "<i class=\'icon-info-sign\'></i> Основна інформація"
             video_tab_html: "<i class=\'icon-facetime-video\'></i> Відео"
             video_tab_none: "Відео не завантажено"
-            map_html: "<i class=\'icon-map-marker\'></i> Мапа"
+            map_html: "Мапа <i class=\'icon-map-marker\'></i>"
             contacts_html: "<i class=\'icon-book\'></i> Контакти"
             gallery_html: "<i class=\'icon-camera\'></i> Фотогалерея"
 
@@ -157,6 +157,7 @@ uk:
           show:
             map_html: "<i class=\'icon-map-marker\'></i> Мапа"
             contacts_html: "<i class=\'icon-book\'></i> Контакти"
+            schools_html: "Школи і вакансії"
 
           chief:
             legend: "Завідуючий відділом"
@@ -308,6 +309,9 @@ uk:
     static:
       home_description: '<p>Сайт покликаний максимально спростити процедуру підбору персоналу для компаній та відповідно допомогти пошукачу роботи віднайти пропозиції роботодавця не виходячи з кімнати. Окрім того, ресурс завдяки максимальній візуалізації, пошукача та роботодавця, дозволяє скоротити час прийняття рішення про працевлаштування. Таким чином, сам процес співбесіди проходить он-лайн, максимально швидко та зручно, без посередників.</p><p><b>На першому етапі реалізації ресурс орієнтований допомогти у пошуку місця роботи студентам-випускникам педагогічних вузів.</b></p>'
 
+  most_common:
+    edit: "Редагувати"
+
 
   admin:
     nav:
@@ -387,6 +391,7 @@ uk:
   activerecord:
     models:
       user: "Користувач"
+      gallery: "Фотогалерея"
     attributes:
       location:
         gmaps4rails_address: ""

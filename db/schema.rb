@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801231452) do
+ActiveRecord::Schema.define(:version => 20130829095038) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -203,6 +203,16 @@ ActiveRecord::Schema.define(:version => 20130801231452) do
     t.string   "birth_location"
     t.string   "current_location"
   end
+
+  create_table "school_departments", :force => true do |t|
+    t.integer  "department_id"
+    t.integer  "school_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "school_departments", ["department_id"], :name => "index_school_departments_on_department_id"
+  add_index "school_departments", ["school_id"], :name => "index_school_departments_on_school_id"
 
   create_table "schools", :force => true do |t|
     t.string  "name"

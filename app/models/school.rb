@@ -6,6 +6,13 @@ class School < ActiveRecord::Base
 
   belongs_to :user
 
+  has_one :department, :through => :school_department
+  
+  has_one :school_department, :dependent => :destroy
+  accepts_nested_attributes_for :school_department, :allow_destroy => true
+
+  has_many :vacancies, through: :schools
+
   has_one :director_profile, :dependent => :destroy
   accepts_nested_attributes_for :director_profile
 
@@ -20,6 +27,11 @@ class School < ActiveRecord::Base
 
   has_many :vacancies, :dependent => :destroy
   accepts_nested_attributes_for :vacancies, :reject_if => lambda { |c| c[:vacancy_value_id].blank? || c[:vacancy_category_id].blank? }, :allow_destroy => true
+
+
+
+
+
 
   validates_presence_of :name
 

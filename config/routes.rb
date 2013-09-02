@@ -23,10 +23,14 @@ SameTut::Application.routes.draw do
   end
 
   resources :users
+
   resources :applicants
+
   resources :departments do
     resource :gallery
+    resources :vacancies
   end
+
   resources :schools do
     resource :gallery
     resources :vacancies

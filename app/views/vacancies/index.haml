@@ -1,19 +1,20 @@
 .row
   .span12
+    - if parent?
+      %h2= parent.name
     %legend
       = t(:'site.user.vacancies.title')
-    - unless school
-      %p.muted
-        = t(:'site.user.vacancies.total')
-        = vacancies_count
-    - if current_user && school
-      - if current_user == school.user || admin_signed_in?
-        = link_to new_school_vacancy_path(school) do
+    %p.muted
+      = t(:'site.user.vacancies.total')
+      = Vacancy.count
+    - if current_user
+      - if current_user == parent.user || admin_signed_in?
+        = link_to new_school_vacancy_path(parent) do
           %i.icon-plus-sign
           = t(:'site.user.vacancies.add')
         %br/
         %br/
-    - if vacancies.present?
+    - if collection.present?
       %table.table.table-striped.table-condensed
         %thead
           %th
@@ -24,14 +25,14 @@
             = t(:'site.user.vacancies.update_date')
           %th{:style => 'width: 130px'}
             = t(:'site.user.vacancies.expiry_date')
-          - if current_user && school
-            - if current_user == school.user || admin_signed_in?
+          - if current_user && parent
+            - if current_user == parent.user || admin_signed_in?
               %th(width='100px;')
               %th(width='100px;')
           - else
             %th{:style => 'width: 300px'}= t(:'site.user.vacancies.school_belong')
         %tbody
-        - for v in vacancies
+        - for v in collection
           %tr
             %td
               = v.specialty
@@ -41,19 +42,18 @@
               = l v.updated_at.to_date, :format => :long
             %td
               = l v.expiry_date, :format => :long
-            - if current_user && school
-              - if current_user == school.user || admin_signed_in?
+            - if current_user && parent
+              - if current_user == parent.user || admin_signed_in?
                 %td
-                  = link_to t(:'site.user.vacancies.edit_html'), edit_school_vacancy_path(school, v)
+                  = link_to t(:'site.user.vacancies.edit_html'), edit_school_vacancy_path(parent, v)
                 %td
-                  = link_to t(:'site.user.vacancies.delete_html'), [school, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
+                  = link_to t(:'site.user.vacancies.delete_html'), [parent, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
             - else
-              %td= link_to v.school, school_path(v.school)
-      - if current_user && school
-        - if current_user == school.user || admin_signed_in?
+              %td= link_to v.parent, school_path(v.parent)
+      - if current_user && parent
+        - if current_user == parent.user || admin_signed_in?
           %br/
-          = link_to new_school_vacancy_path(school) do
+          = link_to new_school_vacancy_path(parent) do
             %i.icon-plus-sign
             = t(:'site.user.vacancies.add')
-    - unless school.present?
-      = paginate vacancies, :theme => 'twitter-bootstrap'
+    = paginate collection, :theme => 'twitter-bootstrap'

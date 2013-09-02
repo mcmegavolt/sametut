@@ -1,6 +1,6 @@
 / = form_for gallery, :html => {:class => 'form-horizontal'}, :url => gallery.new_record? ? school_gallery_path : school_gallery_path(school) do |f|
-= form_for gallery, :html => {:class => 'form-horizontal'}, :url => gallery.new_record? ? school_gallery_path : school_gallery_path(school) do |f|
-  = render :partial => 'shared/form_errors', :locals => { :object => gallery }
+= form_for resource, :url => resource_path, :html => {:class => 'form-horizontal'} do |f|
+  = render :partial => 'shared/form_errors', :locals => { :object => resource }
   .row
     .span12
       = f.fields_for :pictures do |p|

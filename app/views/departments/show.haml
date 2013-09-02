@@ -1,57 +1,105 @@
 #department
-	#show
-		.row
-			.span12
-				.row
-					.span12
-						%h1= department.name
-						- if admin_signed_in?
-							= link_to  department_path(department) do
-								%i.icon-pencil
-								Edit
-						.row
-							.span10
-								= department.description.html_safe if department.description
-							.span2
-								- unless !department.chief_profile
-									.thumbnail.with-caption
-										= image_tag department.chief_profile.chief_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name, :alt => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name
-										/ <p>Dumb ways to die<small>Metro</small></p>
-										%p
-											= department.chief_profile.name
-											%small= t(:'site.user.profiles.department.chief.legend')
+  #show
+    .row
+      .span12
+        %h1
+          = department.name
+          - if admin_signed_in?
+            %small
+              = link_to  edit_department_path(department) do
+                %i.icon-pencil
+                = t(:'most_common.edit')
+        .row
+          .span10
+            = department.description.html_safe if department.description
+            %legend= t(:'site.user.profiles.department.show.contacts_html')
+            .row
+              .span5
+                %ul.contacts
+                  - for contact in department.contacts.by_type
+                    - if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+                      %li= social_icon contact
+              .span5
+                %ul.contacts
+                  - for contact in department.contacts.by_type do
+                    - unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
+                      - if contact.contact_type == 'phone'
+                        %i{ :class => "icon icon-phone" }
+                      - elsif contact.contact_type == 'email'
+                        %i{ :class => "icon icon-envelope-alt" }
+                      - elsif contact.contact_type == 'url'
+                        %i{ :class => "icon icon-globe" }
+                      - elsif contact.contact_type == 'skype'
+                        = image_tag 'contact-icons/skype.png'
+                      %li= contact_value contact
 
-						.row
-							.span6
-								%legend= t(:'site.user.profiles.department.show.map_html')
-								= gmaps4rails department.location.to_gmaps4rails            
-							.span6
-								%legend= t(:'site.user.profiles.department.show.contacts_html')
-								- for contact in department.contacts.by_type do
-									%p
-										- unless contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
-											- if contact.contact_type == 'phone'
-												%i{ :class => "icon icon-phone" }
-											- elsif contact.contact_type == 'email'
-												%i{ :class => "icon icon-envelope-alt" }
-											- elsif contact.contact_type == 'url'
-												%i{ :class => "icon icon-globe" }
-											- elsif contact.contact_type == 'skype'
-												= image_tag 'contact-icons/skype.png'
-											= contact_value contact
-								- for contact in department.contacts.by_type
-									- if contact.contact_type =~ /facebook|twitter|vkontakte|odnoklasniki|google|youtube|vimeo/
-										= social_icon contact
-										&nbsp;
-						.row
-							.span12
-								%legend= t(:'site.user.profiles.school.show.gallery_html')  
-								- if department.gallery && department.gallery.pictures.present?
-									.imageRow
-										.set
-											- for pic in department.gallery.pictures
-												.single
-													= link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
-														= image_tag pic.src_url(:medium), :width => '214px'
-								- else
-									=t(:'site.user.gallery.images.no_images')
+            %legend= t(:'site.user.profiles.department.show.schools_html')
+
+            #accordion2.accordion
+              .accordion-group
+                .accordion-heading
+                  %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
+                    Школи
+                #collapseOne.accordion-body.collapse.in
+                  .accordion-inner
+                    %table.table.table-condensed.table-striped
+                      - for s in department.schools do
+                        %tr
+                          %td
+                            = link_to school_path(s) do
+                              = s.name
+                            %i.icon-double-angle-right
+                            = link_to school_vacancies_path(s) do
+                              = t(:'site.user.vacancies.title')
+                              &mdash;
+                              = s.vacancies.count
+              .accordion-group
+                .accordion-heading
+                  %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseTwo"}
+                    Вакансії
+                #collapseTwo.accordion-body.collapse
+                  .accordion-inner
+                    %table.table.table-condensed.table-striped
+                      %thead
+                        %th
+                          = t(:'site.user.vacancies.specialty')
+                        %th{:style => 'width: 70px'}
+                          = t(:'site.user.vacancies.value')
+                        %th{:style => 'width: 130px'}
+                          = t(:'site.user.vacancies.update_date')
+                        %th{:style => 'width: 130px'}
+                          = t(:'site.user.vacancies.expiry_date')
+                      %tbody
+                        - for v in department.vacancies do
+                          %tr
+                            %td
+                              = v.specialty
+                            %td
+                              = v.value
+                            %td
+                              = l v.updated_at.to_date, :format => :long
+                            %td
+                              = l v.expiry_date, :format => :long
+
+            %legend= t(:'site.user.profiles.department.show.map_html')
+            = gmaps4rails department.location.to_gmaps4rails            
+
+
+            %legend= t(:'site.user.profiles.school.show.gallery_html')  
+            - if department.gallery && department.gallery.pictures.present?
+              .imageRow
+                .set
+                  - for pic in department.gallery.pictures
+                    .single
+                      = link_to pic.src_url(:wide), :rel => 'lightbox[gallery]', :title => pic.title do
+                        = image_tag pic.src_url(:medium), :width => '95px'
+            - else
+              =t(:'site.user.gallery.images.no_images')
+          .span2
+            - unless !department.chief_profile
+              .thumbnail.with-caption
+                = image_tag department.chief_profile.chief_photo_url(:thumb), :class => '', :title => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name, :alt => t(:'site.user.profiles.department.chief.legend') + ": " + department.chief_profile.name
+                / <p>Dumb ways to die<small>Metro</small></p>
+                %p
+                  = department.chief_profile.name
+                  %small= t(:'site.user.profiles.department.chief.legend')

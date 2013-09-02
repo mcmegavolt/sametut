@@ -35,6 +35,7 @@ class DepartmentsController < ApplicationController
         gon.longitude = 30.52083
       end
         gon.map_zoom = 16
+        gon.schools_ids = department.schools.to_json(:only => [:name, :id])
      end
   end
 

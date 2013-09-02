@@ -27,14 +27,12 @@
 @import "plugins/bootstrap-image-gallery";
 @import "plugins/lightbox";
 @import "bootstrap-datepicker";
-
+@import "select2";
 
 @-webkit-keyframes blinker {
   from { opacity: 1.0; }
   to { opacity: 0.0; }
 }
-
-
 
 body {
 
@@ -42,6 +40,10 @@ body {
 
     h1, h2 {
       font-size: 22px;
+      small {
+        float: right;
+        font-size: 20px;
+      }
     }
 
 
@@ -129,5 +131,28 @@ body {
   .datepicker-dropdown {
     background-color:  #ffffff;
   }
+
+  legend {
+    font-size: 16px;
+    border-bottom: 1px solid silver;
+    // text-align: right;
+    small {
+      font-size: 14px;
+      float: right;
+    }
+  }
+
+  ul {
+    &.contacts {
+      list-style: none;
+      margin: 0;
+      li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+
+
 
 }

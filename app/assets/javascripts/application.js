@@ -11,6 +11,8 @@
 // = require plugins/lightbox
 // = require rails.validations
 // = require jquery.geocomplete
+// = require select2
+// = require select2_locale_ua
 // = require custom
 
 

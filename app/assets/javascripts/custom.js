@@ -1,5 +1,9 @@
 $(function(){
 
+    $("#department_school_ids").select2({
+        width: 700
+    });
+
  // Geocomplete
 
     curLocation = new window.google.maps.LatLng( gon.latitude, gon.longitude );
