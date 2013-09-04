@@ -1,11 +1,13 @@
 SameTut::Application.routes.draw do
 
-  devise_for :admins do
-    get "/admins/sign_out" => "devise/sessions#destroy", :as => :destroy_admin_session
+  devise_for :users, :admins
+
+  devise_scope :user do
+    get "/users/sign_out", :to => "devise/sessions#destroy"#, :as => :destroy_user_session
   end
 
-  devise_for :users do
-    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  devise_scope :admin do
+    get "/admins/sign_out" => "devise/sessions#destroy"#, :as => :destroy_admin_session
   end
 
   namespace :admin do

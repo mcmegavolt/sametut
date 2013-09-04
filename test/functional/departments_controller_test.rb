@@ -1,12 +1,12 @@
 require 'test_helper'
 
 
-class VacanciesControllerTest < ActionController::TestCase
+class DepartmentsControllerTest < ActionController::TestCase
 
   test "should get index" do
 	  get :index
 	  assert_response :success
-	  assert_not_nil assigns(:vacancies)
+	  assert_not_nil assigns(:departments)
 	end
 
 end

@@ -58,6 +58,7 @@ group :development do
   gem 'nifty-generators'
   gem 'better_errors'
   gem 'binding_of_caller'
+  # gem 'minitest'
 end
 
 group :test do
