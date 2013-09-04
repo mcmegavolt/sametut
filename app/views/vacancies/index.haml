@@ -48,7 +48,7 @@
                   = link_to t(:'site.user.vacancies.edit_html'), edit_school_vacancy_path(parent, v)
                 %td
                   = link_to t(:'site.user.vacancies.delete_html'), [parent, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
-            - else
+            - elsif parent
               %td= link_to v.parent, school_path(v.parent)
       - if current_user && parent
         - if current_user == parent.user || admin_signed_in?

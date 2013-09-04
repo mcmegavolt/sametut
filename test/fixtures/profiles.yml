@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  birth_date: 2011-09-05
-  birth_location: MyString
-  current_location: MyString
-  video_url: MyString
+# one:
+#   birth_date: 2011-09-05
+#   birth_location: MyString
+#   current_location: MyString
+#   video_url: MyString
 
-two:
-  birth_date: 2011-09-05
-  birth_location: MyString
-  current_location: MyString
-  video_url: MyString
+# two:
+#   birth_date: 2011-09-05
+#   birth_location: MyString
+#   current_location: MyString
+#   video_url: MyString

@@ -46,10 +46,18 @@ body {
       }
     }
 
-
-    a.brand {
-      font-size: 30px !important;
+    .navbar  {
+      .brand {
+        padding: 15px 0px 12px 20px;
+      }
+      .nav {
+        li {
+          line-height: 30px;
+        }
+      }
     }
+
+    
 
     .online-blink {
         -webkit-animation-name: blinker;

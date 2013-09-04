@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  applicant_id: 1
-  activity_type: MyString
-  duties: MyString
-  position: MyString
+# one:
+#   applicant_id: 1
+#   activity_type: MyString
+#   duties: MyString
+#   position: MyString
 
-two:
-  applicant_id: 1
-  activity_type: MyString
-  duties: MyString
-  position: MyString
+# two:
+#   applicant_id: 1
+#   activity_type: MyString
+#   duties: MyString
+#   position: MyString
