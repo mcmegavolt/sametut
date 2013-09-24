@@ -66,53 +66,7 @@
     .span12
       %hr/
       = gmaps4rails(map)
+      %hr/
+      %p.text-center
+        = image_tag 'logo_big.png'
   
-  / - if admin_signed_in?
-  /   %hr/
-  /   .row
-  /     .span12
-  /       %h3 Just registered
-  /       %table.table.table-striped.table-bordered.table-condensed
-  /         %thead
-  /           %tr
-  /             %th
-  /               id
-  /             %th
-  /               email
-  /             %th
-  /               User type
-  /             %th
-  /               Is activated?
-  /             %th
-  /               Profile?
-  /             %th
-  /               Is online?
-  /             %th
-  /               Login count
-  /         %tbody
-  /           - users.each do |user|
-  /             - if user
-  /               %tr
-  /                 %td
-  /                   = user.id
-  /                 %td
-  /                   = user.email
-  /                 %td
-  /                   - if user.user_type_id?
-  /                     = UserType.find_by_id(user.user_type_id).id
-  /                 %td
-  /                   - if user.confirmed_at?
-  /                     Yes
-  /                   - else
-  /                     No
-  /                 %td
-  /                   - if user.applicant
-  /                     Yes
-  /                   - else
-  /                     No profile
-
-  /                 %td
-  /                   - if user.online?
-  /                     .online-blink
-  /                 %td
-  /                   = user.sign_in_count
