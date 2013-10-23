@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :timeoutable
+         :lockable, :timeoutable, :async
 
   validates_presence_of :user_type_id
 
