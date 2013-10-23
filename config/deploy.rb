@@ -2,7 +2,7 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 # require "whenever/capistrano"
-# require "delayed/recipes"
+require "delayed/recipes"
 # require 'thinking_sphinx/deploy/capistrano'
 
 # set :rvm_type, :system
@@ -110,8 +110,8 @@ end
 
 ########### DELAYED JOB
 
-# after "deploy:stop",    "delayed_job:stop"
-# after "deploy:start",   "delayed_job:start"
-# after "deploy:restart", "delayed_job:restart"
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
 
 

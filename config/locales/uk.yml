@@ -193,6 +193,8 @@ uk:
         tools: "Інструменти"
         sign_in: "Вхід до системи"
         reset_password: "Скидування паролю"
+        resend_unlock: "Відправлення інструкцій щодо розблокування акаунту"
+        resend_confirmation: "Повторне відправлення інструкцій щодо активації"
         edit:
           title: "Редагування акаунту"
           new_pass: "Новий пароль"
@@ -217,6 +219,8 @@ uk:
           log_out: "Вийти"
           remember_me: "Запамятати мене"
           reset_password: "Скинути пароль"
+          resend_unlock: "Відправити інструкцію"
+          resend_confirmation: "Відправити інструкцію"
         select_boxes:
           select_user_type: "-- Оберіть --"
 
