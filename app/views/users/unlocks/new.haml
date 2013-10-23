@@ -1,0 +1,16 @@
+= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f|
+	.row
+		.span7
+			%legend= t(:'site.user.devise.resend_unlock')
+			= devise_error_messages!
+			.fieldset
+				.control-group
+					= f.label :email, :class => 'control-label'
+					.controls
+						= f.email_field :email
+
+		.span5
+			%legend= t(:'site.user.devise.tools')
+			= render "users/links"
+	.form-actions
+		= f.submit t(:'site.user.devise.actions.resend_unlock'), :class => 'btn btn-success btn-large'
