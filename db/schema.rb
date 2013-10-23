@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829095038) do
+ActiveRecord::Schema.define(:version => 20131023214202) do
 
   create_table "address_cities", :force => true do |t|
     t.string  "name"
@@ -125,6 +125,22 @@ ActiveRecord::Schema.define(:version => 20130829095038) do
   add_index "contacts", ["director_profile_id"], :name => "index_contacts_on_director_profile_id"
   add_index "contacts", ["profile_id"], :name => "index_contacts_on_profile_id"
   add_index "contacts", ["school_id"], :name => "index_contacts_on_school_id"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "departments", :force => true do |t|
     t.string  "name"
