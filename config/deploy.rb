@@ -7,6 +7,8 @@ require "delayed/recipes"
 
 # set :rvm_type, :system
 
+set :rails_env, "production" #added for delayed job 
+
 set :application, "sametut"
 set :scm, :git
 set :repository,  ".git"
