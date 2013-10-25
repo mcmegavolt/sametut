@@ -75,7 +75,7 @@ class GalleriesController < InheritedResources::Base
 
   def require_owner
     unless admin_signed_in?
-      unless current_user == gallery.galleryable.user
+      unless current_user == resource.galleryable.user
         flash[:error] = t('site.errors.access_denied')
         redirect_to root_path
       end

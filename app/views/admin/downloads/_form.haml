@@ -1,0 +1,7 @@
+= simple_form_for [:admin, resource] do |f|
+  = f.input :name
+  = f.text_area :description
+  = f.button :submit
+  = f.file_field :src
+  = f.hidden_field :src_cache
+

@@ -1,0 +1,12 @@
+.well
+  %h2= download.name
+  .desc= download.description
+  .file= link_to File.basename(download.src_url), download.src_url, :target => "_blank"
+  %hr/
+  .actions
+    = link_to edit_admin_download_path(download) do
+      %i.icon-pencil
+      Edit
+    = link_to admin_download_path(download), :method => :delete ,:confirm => "R\'you shure?" do
+      %i.icon-remove
+      Destroy

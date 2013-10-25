@@ -1,8 +1,18 @@
 #home
   .row
-    .span12
+    .span8
       .well
         = t(:'site.static.home_description').html_safe
+    .span4
+      - Download.all.each do |d|
+        .well
+          %p
+            %i.icon-file
+            =d.name
+          %p
+            = link_to d.src_url, :target => "_blank" do
+              = t(:'most_common.download')  
+              %i.icon-download-alt
   .row
     .span12
       - if user_signed_in?

@@ -22,6 +22,7 @@ SameTut::Application.routes.draw do
     resources :vacancies
     resources :specialties
     resources :specialty_categories
+    resources :downloads
   end
 
   resources :users

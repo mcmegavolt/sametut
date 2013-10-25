@@ -1,0 +1,4 @@
+.well
+	%h1= resource.name
+	.desc= resource.description
+	.file= link_to File.basename(resource.src_url), resource.src_url, :target => "_blank"
