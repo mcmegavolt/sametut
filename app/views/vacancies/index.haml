@@ -2,11 +2,13 @@
   .span12
     - if parent?
       %h2= parent.name
-    %legend
-      = t(:'site.user.vacancies.title')
-    %p.muted
-      = t(:'site.user.vacancies.total')
-      = Vacancy.count
+    - else
+      %legend
+        = t(:'site.user.vacancies.title')
+      %p.muted
+        = t(:'site.user.vacancies.total')
+        = Vacancy.count
+
     - if current_user
       - if current_user == parent.user || admin_signed_in?
         = link_to new_school_vacancy_path(parent) do
@@ -14,7 +16,12 @@
           = t(:'site.user.vacancies.add')
         %br/
         %br/
+
     - if collection.present?
+      - if parent?
+        %p.muted
+          = t(:'site.user.vacancies.total')
+          = collection.count
       %table.table.table-striped.table-condensed
         %thead
           %th
@@ -49,7 +56,7 @@
                 %td
                   = link_to t(:'site.user.vacancies.delete_html'), [parent, v], :method => :delete, :confirm => t(:'standart_messages.are_you_shure')
             - elsif parent
-              %td= link_to v.parent, school_path(v.parent)
+              %td= link_to parent, school_path(parent)
             - else
               %td= link_to v.school, school_path(v.school)
       - if current_user && parent
